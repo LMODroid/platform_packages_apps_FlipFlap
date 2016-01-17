@@ -91,6 +91,9 @@ public class QuickCircle extends Activity implements SensorEventListener
         lp.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_FULL;
         getWindow().setAttributes(lp);
 
+        final DrawView drawView = new DrawView(mContext);
+        setContentView(drawView);
+
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
         mDetector = new GestureDetector(mContext, new QuickCircleGestureListener());
