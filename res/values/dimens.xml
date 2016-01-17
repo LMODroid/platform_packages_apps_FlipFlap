@@ -15,7 +15,6 @@
 -->
 <resources>
 
-    <color name="circle_background">#004d40</color>
-    <color name="clock_text_color">@android:color/white</color>
+    <dimen name="clock_font_size">90sp</dimen>
 
 </resources>

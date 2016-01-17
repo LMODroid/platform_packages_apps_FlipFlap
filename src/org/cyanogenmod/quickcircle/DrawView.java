@@ -29,6 +29,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.graphics.Typeface;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
 
@@ -48,7 +50,9 @@ public class DrawView extends View {
     private int mCenter_x;
     private int mCenter_y;
     private int mRadius;
-    
+
+    private static final float CLOCK_VERTICAL_OFFSET = 0.4f;
+
     public DrawView(Context context) {
         super(context);
         mContext = context;
@@ -62,11 +66,43 @@ public class DrawView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
-		
-		drawBackground(canvas);
+
+        drawBackground(canvas);
+        drawTime(canvas);
 
         mFilter.addAction(QuickCircleConstants.ACTION_REDRAW);
         mContext.getApplicationContext().registerReceiver(receiver, mFilter);
+    }
+
+    private timeObject getTimeObject() {
+        timeObject timeObj = new timeObject();
+        timeObj.hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        timeObj.min = Calendar.getInstance().get(Calendar.MINUTE);
+
+        if (DateFormat.is24HourFormat(mContext)) {
+            timeObj.is24Hour = true;
+        } else {
+            timeObj.is24Hour = false;
+            if (timeObj.hour > 11) {
+                if (timeObj.hour > 12) {
+                    timeObj.hour = timeObj.hour - 12;
+                }
+                timeObj.am = false;
+            } else {
+                if (timeObj.hour == 0) {
+                    timeObj.hour = 12;
+                }
+                timeObj.am = true;
+            }
+        }
+
+        timeObj.timeString = (timeObj.hour < 10
+                ? " " + Integer.toString(timeObj.hour)
+                : Integer.toString(timeObj.hour))
+                + ":" +(timeObj.min < 10
+                ? "0"  + Integer.toString(timeObj.min)
+                : Integer.toString(timeObj.min));
+        return timeObj;
     }
 
     private void drawBackground(Canvas canvas) {
@@ -78,6 +114,57 @@ public class DrawView extends View {
         Log.e(TAG, "Done drawing background" );
     }
 
+    private void drawTime(Canvas canvas) {
+        timeObject time = getTimeObject();
+        int mClockTextColor = res.getColor(R.color.clock_text_color);
+        float mClockFontSize = res.getDimension(R.dimen.clock_font_size);
+        float mTextHeight;
+        String allDigits = String.format("%010d", 123456789);
+
+        Typeface androidClockMonoLight = Typeface.
+                createFromAsset(mContext.getAssets(), "fonts/AndroidClockMono-Light.ttf");
+        mPaint.setAntiAlias(true);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setTextAlign(Paint.Align.CENTER);
+        mPaint.setTypeface(androidClockMonoLight);
+
+        mTextHeight = mClockFontSize;
+        mPaint.setTextSize(mClockFontSize);
+        mPaint.setColor(mClockTextColor);
+
+        if (TextUtils.isEmpty(allDigits)) {
+            Log.e(TAG, "Locale digits missing - using English");
+            allDigits = "0123456789";
+        }
+
+        float widths[] = new float[allDigits.length()];
+        int ll = mPaint.getTextWidths(allDigits, widths);
+        int largest = 0;
+        for (int ii = 1; ii < ll; ii++) {
+            if (widths[ii] > widths[largest]) {
+                largest = ii;
+            }
+        }
+
+        String mWidest = allDigits.substring(largest, largest + 1);
+        float mTotalTextWidth = time.timeString.length() * mPaint.measureText(mWidest);
+
+        float xTextStart = mCenter_x - mTotalTextWidth / 2;
+        float yTextStart = mCenter_y + mTextHeight/2 - (mTextHeight * CLOCK_VERTICAL_OFFSET);
+
+        float textEm  = mPaint.measureText(mWidest) / 2f;
+        int ii=0;
+        float x=xTextStart;
+
+        while (ii < time.timeString.length()) {
+            x += textEm;
+            canvas.drawText(time.timeString.substring(ii, ii + 1), x, yTextStart, mPaint);
+            x += textEm;
+            ii++;
+        }
+
+    }
+
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -86,5 +173,13 @@ public class DrawView extends View {
             }
         }
     };
+
+    private class timeObject {
+        String timeString;
+        int hour;
+        int min;
+        boolean is24Hour;
+        boolean am;
+    }
 
 }
