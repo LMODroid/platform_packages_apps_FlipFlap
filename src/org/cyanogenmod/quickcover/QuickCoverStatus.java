@@ -18,7 +18,7 @@
  *
  */
 
-package org.cyanogenmod.quickcircle;
+package org.cyanogenmod.quickcover;
 
 import android.app.INotificationManager;
 import android.content.Context;
@@ -29,9 +29,9 @@ import android.util.Log;
 import java.util.List;
 import java.util.Vector;
 
-public class QuickCircleStatus {
+public class QuickCoverStatus {
 
-    private static final String TAG = "QuickCircle";
+    private static final String TAG = "QuickCover";
 
     private boolean mRunning = true;
     private boolean mPocketed = false;

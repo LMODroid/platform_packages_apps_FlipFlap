@@ -18,7 +18,7 @@
  *
  */
 
-package org.cyanogenmod.quickcircle;
+package org.cyanogenmod.quickcover;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -41,7 +41,7 @@ import java.util.List;
 import android.util.Log;
 
 public class DrawView extends View {
-    private static final String TAG = "QuickCircle";
+    private static final String TAG = "QuickCover";
 
     private final Context mContext;
     private final Resources res;
@@ -70,7 +70,7 @@ public class DrawView extends View {
         drawBackground(canvas);
         drawTime(canvas);
 
-        mFilter.addAction(QuickCircleConstants.ACTION_REDRAW);
+        mFilter.addAction(QuickCoverConstants.ACTION_REDRAW);
         mContext.getApplicationContext().registerReceiver(receiver, mFilter);
     }
 
@@ -108,7 +108,7 @@ public class DrawView extends View {
     private void drawBackground(Canvas canvas) {
 
         mPaint.setStyle(Style.FILL);
-        mPaint.setColor(res.getColor(R.color.circle_background));
+        mPaint.setColor(res.getColor(R.color.cover_background));
         Log.e(TAG, "Drawing background" );
         canvas.drawCircle((float) mCenter_x, (float) mCenter_y, (float) mRadius, mPaint);
         Log.e(TAG, "Done drawing background" );
@@ -168,7 +168,7 @@ public class DrawView extends View {
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(QuickCircleConstants.ACTION_REDRAW)) {
+            if (intent.getAction().equals(QuickCoverConstants.ACTION_REDRAW)) {
                 postInvalidate();
             }
         }

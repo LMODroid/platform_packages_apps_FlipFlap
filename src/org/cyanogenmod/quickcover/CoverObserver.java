@@ -18,7 +18,7 @@
  *
  */
 
-package org.cyanogenmod.quickcircle;
+package org.cyanogenmod.quickcover;
 
 import java.text.Normalizer;
 
@@ -44,7 +44,7 @@ import android.util.Log;
 class CoverObserver extends UEventObserver {
     private static final String COVER_UEVENT_MATCH = "DEVPATH=/devices/virtual/switch/smartcover";
 
-    private static final String TAG = "QuickCircle";
+    private static final String TAG = "QuickCover";
 
     private final Context mContext;
     private final WakeLock mWakeLock;
@@ -71,7 +71,7 @@ class CoverObserver extends UEventObserver {
         try {
             mSwitchState = Integer.parseInt(event.get("SWITCH_STATE"));
             boolean screenOn = mPowerManager.isScreenOn();
-            QuickCircle.sStatus.setOnTop(false);
+            QuickCover.sStatus.setOnTop(false);
 
             if (mSwitchState == 1) {
                 if (screenOn) {
@@ -116,10 +116,10 @@ class CoverObserver extends UEventObserver {
             }
             Intent i = new Intent();
             if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-                QuickCircle.sStatus.resetTimer();
-                intent.setAction(QuickCircleConstants.ACTION_REDRAW);
+                QuickCover.sStatus.resetTimer();
+                intent.setAction(QuickCoverConstants.ACTION_REDRAW);
                 mContext.sendBroadcast(intent);
-                i.setClassName("org.cyanogenmod.quickcircle", "org.cyanogenmod.quickcircle.QuickCircle");
+                i.setClassName("org.cyanogenmod.quickcover", "org.cyanogenmod.quickcover.QuickCover");
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(i);
             }
@@ -127,9 +127,9 @@ class CoverObserver extends UEventObserver {
     };
 
     public void killActivity() {
-        QuickCircle.sStatus.setOnTop(false);
+        QuickCover.sStatus.setOnTop(false);
         Intent i = new Intent();
-        i.setAction(QuickCircleConstants.ACTION_KILL_ACTIVITY);
+        i.setAction(QuickCoverConstants.ACTION_KILL_ACTIVITY);
         mContext.sendBroadcast(i);
     }
 
@@ -138,12 +138,12 @@ class CoverObserver extends UEventObserver {
 
         @Override
         public void run() {
-            while (QuickCircle.sStatus.isOnTop()) {
+            while (QuickCover.sStatus.isOnTop()) {
                 ActivityManager am =
                         (ActivityManager) mContext.getSystemService(Activity.ACTIVITY_SERVICE);
                 if (!am.getRunningTasks(1).get(0).topActivity.getPackageName().equals(
-                        "org.cyanogenmod.quickcircle")) {
-                    i.setClassName("org.cyanogenmod.quickcircle", "org.cyanogenmod.quickcircle.QuickCircle");
+                        "org.cyanogenmod.quickcover")) {
+                    i.setClassName("org.cyanogenmod.quickcover", "org.cyanogenmod.quickcover.QuickCover");
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(i);
                 }

@@ -18,9 +18,9 @@
  *
  */
 
-package org.cyanogenmod.quickcircle;
+package org.cyanogenmod.quickcover;
 
-public class QuickCircleConstants {
-    static final String ACTION_KILL_ACTIVITY = "org.cyanogenmod.quickcircle.KILL_ACTIVITY";
-    static final String ACTION_REDRAW = "org.cyanogenmod.quickcircle.REDRAW";
+public class QuickCoverConstants {
+    static final String ACTION_KILL_ACTIVITY = "org.cyanogenmod.quickcover.KILL_ACTIVITY";
+    static final String ACTION_REDRAW = "org.cyanogenmod.quickcover.REDRAW";
 }

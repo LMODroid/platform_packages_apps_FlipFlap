@@ -18,7 +18,7 @@
  *
  */
 
-package org.cyanogenmod.quickcircle;
+package org.cyanogenmod.quickcover;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -52,9 +52,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class QuickCircle extends Activity implements SensorEventListener
+public class QuickCover extends Activity implements SensorEventListener
 {
-    private static final String TAG = "QuickCircle";
+    private static final String TAG = "QuickCover";
 
     private static final String COVER_NODE = "/sys/devices/virtual/switch/smartcover/state";
     private final IntentFilter mFilter = new IntentFilter();
@@ -63,7 +63,7 @@ public class QuickCircle extends Activity implements SensorEventListener
     private SensorManager mSensorManager;
     private static Context mContext;
 
-    static QuickCircleStatus sStatus = new QuickCircleStatus();
+    static QuickCoverStatus sStatus = new QuickCoverStatus();
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -72,7 +72,7 @@ public class QuickCircle extends Activity implements SensorEventListener
 
         mContext = this;
 
-        mFilter.addAction(QuickCircleConstants.ACTION_KILL_ACTIVITY);
+        mFilter.addAction(QuickCoverConstants.ACTION_KILL_ACTIVITY);
         mContext.getApplicationContext().registerReceiver(receiver, mFilter);
 
         getWindow().addFlags(
@@ -96,7 +96,7 @@ public class QuickCircle extends Activity implements SensorEventListener
 
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
-        mDetector = new GestureDetector(mContext, new QuickCircleGestureListener());
+        mDetector = new GestureDetector(mContext, new QuickCoverGestureListener());
         sStatus.stopRunning();
         new Thread(new Service()).start();
     }
@@ -177,7 +177,7 @@ public class QuickCircle extends Activity implements SensorEventListener
                         }
 
                         Intent intent = new Intent();
-                        intent.setAction(QuickCircleConstants.ACTION_REDRAW);
+                        intent.setAction(QuickCoverConstants.ACTION_REDRAW);
                         mContext.sendBroadcast(intent);
                     }
                     mPowerManager.goToSleep(SystemClock.uptimeMillis());
@@ -203,7 +203,7 @@ public class QuickCircle extends Activity implements SensorEventListener
         }
     }
 
-    class QuickCircleGestureListener extends GestureDetector.SimpleOnGestureListener
+    class QuickCoverGestureListener extends GestureDetector.SimpleOnGestureListener
     {
 
         @Override
@@ -228,7 +228,7 @@ public class QuickCircle extends Activity implements SensorEventListener
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(QuickCircleConstants.ACTION_KILL_ACTIVITY)) {
+            if (intent.getAction().equals(QuickCoverConstants.ACTION_KILL_ACTIVITY)) {
                 try {
                     context.getApplicationContext().unregisterReceiver(receiver);
                 } catch (IllegalArgumentException e) {

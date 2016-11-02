@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.cyanogenmod.quickcircle"
+    package="org.cyanogenmod.quickcover"
     android:versionCode="1"
     android:versionName="1.0"
     android:sharedUserId="android.uid.system">
@@ -15,10 +15,10 @@
     <supports-screens android:anyDensity="true" />
 
     <application
-        android:label="QuickCircle"
+        android:label="QuickCover"
         android:persistent="true">
 
-        <receiver android:name="org.cyanogenmod.quickcircle.BootCompletedReceiver">
+        <receiver android:name="org.cyanogenmod.quickcover.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -32,12 +32,12 @@
         </service>
 
         <activity
-            android:name="QuickCircle"
-            android:label="QuickCircle"
+            android:name="QuickCover"
+            android:label="QuickCover"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/QuickCircleTheme"
+            android:theme="@style/QuickCoverTheme"
             android:windowAnimationStyle="@null">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
