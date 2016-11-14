@@ -25,112 +25,106 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.TextView;
 
-import android.telecom.TelecomManager;
-
-import java.lang.Math;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
-public class QuickCover extends Activity implements SensorEventListener
-{
+public class QuickCover extends Activity {
+
     private static final String TAG = "QuickCover";
 
-    private static final String COVER_NODE = "/sys/devices/virtual/switch/smartcover/state";
     private final IntentFilter mFilter = new IntentFilter();
     private GestureDetector mDetector;
     private PowerManager mPowerManager;
-    private SensorManager mSensorManager;
     private static Context mContext;
 
     static QuickCoverStatus sStatus = new QuickCoverStatus();
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG,"onCreate: QuickCover.class");
 
         mContext = this;
 
+        mFilter.addAction(QuickCoverConstants.ACTION_COVER_CLOSED);
         mFilter.addAction(QuickCoverConstants.ACTION_KILL_ACTIVITY);
         mContext.getApplicationContext().registerReceiver(receiver, mFilter);
 
         getWindow().addFlags(
-                    WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON|
-                    WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED|
-                    WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON|
+                        WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED|
+                        WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
-                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                    View.SYSTEM_UI_FLAG_FULLSCREEN |
-                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_FULL;
+        lp.screenBrightness = 20;
         getWindow().setAttributes(lp);
 
         final DrawView drawView = new DrawView(mContext);
         setContentView(drawView);
 
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-        mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
         mDetector = new GestureDetector(mContext, new QuickCoverGestureListener());
         sStatus.stopRunning();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
         new Thread(new Service()).start();
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-            if (event.values[0] < event.sensor.getMaximumRange() && !sStatus.isPocketed()) {
-                sStatus.setPocketed(true);
-            } else if (sStatus.isPocketed()) {
-                sStatus.setPocketed(false);
-            }
-        }
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) { }
-
-    @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        mSensorManager.registerListener(this,
-                mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY),
-                SensorManager.SENSOR_DELAY_NORMAL);
+
+        // Starting up or comign back from screen off
+        // Ensure device is awake and redraw
+
+        mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Closed");
+        Log.d(TAG, "Cover closed, Time to do work");
+        Intent newIntent = new Intent();
+        newIntent.setAction(QuickCoverConstants.ACTION_REDRAW);
+        mContext.sendBroadcast(newIntent);
+
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
-        try {
-            mSensorManager.unregisterListener(this);
-        } catch (IllegalArgumentException e) {
-            Log.e(TAG, "Failed to unregister listener", e);
-        }
+
+        // Pausing activity and turning screen off
+        sStatus.stopRunning();
+        mPowerManager.goToSleep(SystemClock.uptimeMillis());
+
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d(TAG, "QuickCover, onDestroy");
+        sStatus.stopRunning();
+
+        // Closing up activity, lets wake up device.
+        mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Opened");
+        super.onDestroy();
+
     }
 
     class Service implements Runnable {
@@ -140,7 +134,7 @@ public class QuickCover extends Activity implements SensorEventListener
                 sStatus.startRunning();
                 while (sStatus.isRunning()) {
                     Intent batteryIntent = mContext.getApplicationContext().registerReceiver(null,
-                                             new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+                            new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                     int timeout;
 
                     if(batteryIntent.getIntExtra("plugged", -1) > 0) {
@@ -155,7 +149,7 @@ public class QuickCover extends Activity implements SensorEventListener
                         }
 
                         try {
-                            BufferedReader br = new BufferedReader(new FileReader(COVER_NODE));
+                            BufferedReader br = new BufferedReader(new FileReader(QuickCoverConstants.COVER_NODE));
                             String value = br.readLine();
                             br.close();
 
@@ -187,12 +181,6 @@ public class QuickCover extends Activity implements SensorEventListener
     }
 
     @Override
-    public void onDestroy() {
-        sStatus.stopRunning();
-        super.onDestroy();
-    }
-
-    @Override
     public boolean onTouchEvent(MotionEvent event){
         if (!sStatus.isPocketed()) {
             this.mDetector.onTouchEvent(event);
@@ -208,19 +196,18 @@ public class QuickCover extends Activity implements SensorEventListener
 
         @Override
         public boolean onDoubleTap(MotionEvent event) {
-            mPowerManager.goToSleep(SystemClock.uptimeMillis());
-            return true;
-        }
+            //if screen on, screen off & "pause"
+            boolean screenOn = mPowerManager.isInteractive();
+            Log.d(TAG, "DT detected, screenon:" + screenOn );
+            if(screenOn) {
+                // Screen is on, trun it off and go to Sleep now
+                onPause();
+            }
+            else {
+                // screen was off, Resume
+                onResume();
+            }
 
-        @Override
-        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-            // TODO
-            return true;
-        }
-
-        @Override
-        public boolean onSingleTapUp (MotionEvent e) {
-            sStatus.resetTimer();
             return true;
         }
     }
@@ -228,7 +215,7 @@ public class QuickCover extends Activity implements SensorEventListener
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(QuickCoverConstants.ACTION_KILL_ACTIVITY)) {
+            if (intent.getAction().equals(QuickCoverConstants.ACTION_KILL_ACTIVITY))  {
                 try {
                     context.getApplicationContext().unregisterReceiver(receiver);
                 } catch (IllegalArgumentException e) {
@@ -237,7 +224,11 @@ public class QuickCover extends Activity implements SensorEventListener
                 sStatus.stopRunning();
                 finish();
                 overridePendingTransition(0, 0);
+                onDestroy();
+            } else if (intent.getAction().equals(QuickCoverConstants.ACTION_COVER_CLOSED)) {
+                onResume();
             }
         }
     };
+
 }

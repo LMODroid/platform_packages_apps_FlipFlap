@@ -24,14 +24,18 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
+import android.util.Log;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
+    static final String TAG = "QuickCover";
+
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.d(TAG, "Booting ");
         Settings.Secure.putString(context.getContentResolver(),
-                                  Settings.Secure.IMMERSIVE_MODE_CONFIRMATIONS,
-                                  "org.cyanogenmod.quickcover");
+                Settings.Secure.IMMERSIVE_MODE_CONFIRMATIONS,
+                "org.cyanogenmod.quickcover");
 
-        new CoverObserver(context).init();
+        context.startService(new Intent(context, QuickCoverService.class));
     }
 }

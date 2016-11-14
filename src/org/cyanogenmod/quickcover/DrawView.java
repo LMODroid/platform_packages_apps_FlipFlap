@@ -107,8 +107,9 @@ public class DrawView extends View {
 
     private void drawBackground(Canvas canvas) {
 
+        canvas.drawRGB(0, 0, 0);
         mPaint.setStyle(Style.FILL);
-        mPaint.setColor(res.getColor(R.color.cover_background));
+        mPaint.setColor(res.getColor(R.color.circle_background));
         Log.e(TAG, "Drawing background" );
         canvas.drawCircle((float) mCenter_x, (float) mCenter_y, (float) mRadius, mPaint);
         Log.e(TAG, "Done drawing background" );

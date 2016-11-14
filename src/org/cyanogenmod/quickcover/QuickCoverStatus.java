@@ -20,17 +20,7 @@
 
 package org.cyanogenmod.quickcover;
 
-import android.app.INotificationManager;
-import android.content.Context;
-import android.os.RemoteException;
-import android.os.ServiceManager;
-import android.util.Log;
-
-import java.util.List;
-import java.util.Vector;
-
 public class QuickCoverStatus {
-
     private static final String TAG = "QuickCover";
 
     private boolean mRunning = true;
