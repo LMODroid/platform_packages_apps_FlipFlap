@@ -94,11 +94,12 @@ public class QuickCover extends Activity {
     @Override
     public void onResume() {
         super.onResume();
-
+        boolean screenOn = mPowerManager.isInteractive();
         // Starting up or comign back from screen off
         // Ensure device is awake and redraw
-
-        mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Closed");
+        if (!screenOn) {
+            mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Closed");
+        }
         Log.d(TAG, "Cover closed, Time to do work");
         Intent newIntent = new Intent();
         newIntent.setAction(QuickCoverConstants.ACTION_REDRAW);
@@ -146,20 +147,6 @@ public class QuickCover extends Activity {
                     for (int i = 0; i <= timeout; i++) {
                         if (!sStatus.isRunning()) {
                             return;
-                        }
-
-                        try {
-                            BufferedReader br = new BufferedReader(new FileReader(QuickCoverConstants.COVER_NODE));
-                            String value = br.readLine();
-                            br.close();
-
-                            if (value.equals("0")) {
-                                sStatus.stopRunning();
-                                finish();
-                                overridePendingTransition(0, 0);
-                            }
-                        } catch (IOException e) {
-                            Log.e(TAG, "Error reading cover device", e);
                         }
 
                         try {

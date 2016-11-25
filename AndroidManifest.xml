@@ -28,6 +28,10 @@
 
         <service android:name=".QuickCoverService"
             android:permission="QuickCoverService">
+            <intent-filter>
+                <action android:name="org.cyanogenmod.intent.COVER_CHANGE" />
+
+            </intent-filter>
         </service>
 
         <activity android:name=".QuickCover"

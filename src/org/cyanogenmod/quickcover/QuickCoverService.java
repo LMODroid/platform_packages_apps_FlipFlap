@@ -21,16 +21,16 @@
 package org.cyanogenmod.quickcover;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.PowerManager;
-import android.os.UEventObserver;
 import android.os.UserHandle;
 import android.util.Log;
-
 
 public class QuickCoverService extends Service {
 
@@ -40,20 +40,11 @@ public class QuickCoverService extends Service {
 
     private static final int COVER_STATE_CHANGED = 0;
 
-    private static final int COVER_OPEN = 0;
-    private static final int COVER_CLOSED = 1;
-
     private PowerManager mPowerManager;
     private PowerManager.WakeLock mWakeLock;
+    private final IntentFilter mFilter = new IntentFilter();
 
     private final Object mLock = new Object();
-    private final UEventObserver mQuickCoverObserver = new UEventObserver() {
-        @Override
-        public void onUEvent(UEventObserver.UEvent event) {
-            onCoverEvent(Integer.parseInt(event.get("SWITCH_STATE")));
-        }
-    };
-
 
     @Override
     public void onCreate() {
@@ -62,14 +53,27 @@ public class QuickCoverService extends Service {
         Log.d(TAG, "Creating service");
         mContext = this;
 
-        Log.d(TAG, "CoverObserver contructor");
+        mFilter.addAction(cyanogenmod.content.Intent.ACTION_COVER_CHANGE);
+
+        mContext.getApplicationContext().registerReceiver(receiver, mFilter);
+
         mPowerManager = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
 
-        mQuickCoverObserver.startObserving(QuickCoverConstants.COVER_UEVENT_MATCH);
-
-
     }
+
+    private final BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int mLidState;
+            if (intent.getAction().equals(cyanogenmod.content.Intent.ACTION_COVER_CHANGE))  {
+                mLidState = intent.getIntExtra(cyanogenmod.content.Intent.EXTRA_COVER_STATE, -1);
+                if (mLidState != -1) { // ignore LID_ABSENT case
+                    onCoverEvent(mLidState);
+                }
+            }
+        }
+    };
 
     private final Handler mHandler = new Handler(true /*async*/) {
         @Override
@@ -86,8 +90,8 @@ public class QuickCoverService extends Service {
     private void handleCoverChange(int state) {
         synchronized (mLock) {
 
-            if(state == 1) {
-                Log.e(TAG, "Cover Close, Creating QuickCover Activity");
+            if(state == 0) {
+                Log.e(TAG, "Cover Closed, Creating QuickCover Activity");
                 Intent intent = new Intent(this, QuickCover.class);
                 intent.setAction(QuickCoverConstants.ACTION_COVER_CLOSED);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

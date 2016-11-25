@@ -24,6 +24,4 @@ public class QuickCoverConstants {
     static final String ACTION_KILL_ACTIVITY = "org.cyanogenmod.quickcover.KILL_ACTIVITY";
     static final String ACTION_REDRAW = "org.cyanogenmod.quickcover.DRAW";
     static final String ACTION_COVER_CLOSED = "org.cyanogenmod.quickcover.COVER_CLOSED";
-    static final String COVER_NODE = "/sys/devices/virtual/switch/smartcover/state";
-    static final String COVER_UEVENT_MATCH = "DEVPATH=/devices/virtual/switch/smartcover";
 }
