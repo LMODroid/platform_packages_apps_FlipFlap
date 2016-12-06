@@ -30,6 +30,7 @@
             android:permission="QuickCoverService">
             <intent-filter>
                 <action android:name="org.cyanogenmod.intent.COVER_CHANGE" />
+                <action android:name="org.cyanogenmod.quickcover.KILL_ACTIVITY" />
 
             </intent-filter>
         </service>

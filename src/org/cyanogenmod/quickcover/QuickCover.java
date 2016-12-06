@@ -28,15 +28,21 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemClock;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class QuickCover extends Activity {
 
@@ -46,7 +52,11 @@ public class QuickCover extends Activity {
     private GestureDetector mDetector;
     private PowerManager mPowerManager;
     private static Context mContext;
-
+    private CircleView circleView;
+    private TextView mHours;
+    private TextView mMins;
+    private TextView ampm;
+    private LinearLayout mClockPanel;
     static QuickCoverStatus sStatus = new QuickCoverStatus();
 
     @Override
@@ -76,8 +86,12 @@ public class QuickCover extends Activity {
         lp.screenBrightness = 20;
         getWindow().setAttributes(lp);
 
-        final DrawView drawView = new DrawView(mContext);
-        setContentView(drawView);
+        setContentView(R.layout.circle_layout);
+        circleView = (CircleView) findViewById(R.id.circle_view);
+        mHours = (TextView) findViewById(R.id.clock1_bold);
+        mMins = (TextView) findViewById(R.id.clock2_bold);
+        ampm = (TextView) findViewById(R.id.clock_ampm);
+        mClockPanel = (LinearLayout) findViewById(R.id.clock_panel);
 
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         mDetector = new GestureDetector(mContext, new QuickCoverGestureListener());
@@ -100,11 +114,13 @@ public class QuickCover extends Activity {
         if (!screenOn) {
             mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Closed");
         }
+
         Log.d(TAG, "Cover closed, Time to do work");
         Intent newIntent = new Intent();
         newIntent.setAction(QuickCoverConstants.ACTION_REDRAW);
         mContext.sendBroadcast(newIntent);
-
+        refreshClock();
+        mClockPanel.bringToFront();
     }
 
     @Override
@@ -124,8 +140,36 @@ public class QuickCover extends Activity {
 
         // Closing up activity, lets wake up device.
         mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Opened");
+
         super.onDestroy();
 
+    }
+
+    public void refreshClock() {
+        Locale locale = Locale.getDefault();
+        Date now = new Date();
+        String dateFormat = getString(R.string.abbrev_wday_month_day_no_year);
+        CharSequence date = DateFormat.format(dateFormat, now);
+        String hours = new SimpleDateFormat(getHourFormat(), locale).format(now);
+        String minutes = new SimpleDateFormat(getString(R.string.widget_12_hours_format_no_ampm_m),
+                locale).format(now);
+        String amPM = new SimpleDateFormat(getString(R.string.widget_12_hours_format_ampm),
+                locale).format(now);
+
+        mHours.setText(hours);
+        mMins.setText(minutes);
+        ampm.setText(amPM);
+
+    }
+
+    private String getHourFormat() {
+        String format;
+        if (DateFormat.is24HourFormat(this)) {
+            format = getString(R.string.widget_24_hours_format_h_api_16);
+        } else {
+            format = getString(R.string.widget_12_hours_format_h);
+        }
+        return format;
     }
 
     class Service implements Runnable {
