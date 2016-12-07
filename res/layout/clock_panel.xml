@@ -35,8 +35,8 @@
 
         <!-- Hours -->
         <TextView
-            android:id="@+id/clock1_bold"
-            style="@style/widget_big_bold"
+            android:id="@+id/clock1"
+            style="@style/widget_big_thin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|center"
@@ -45,8 +45,8 @@
         <!-- Minutes -->
 
         <TextView
-            android:id="@+id/clock2_bold"
-            style="@style/widget_big_bold"
+            android:id="@+id/clock2"
+            style="@style/widget_big_thin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|center"
@@ -65,47 +65,31 @@
             text="PM" />
     </LinearLayout>
 
-    <!-- <LinearLayout
-        android:id="@+id/date_alarm"
+    <LinearLayout
+        android:id="@+id/date_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="gone" > -->
+        android:layout_below="@id/digital_clock"
+        android:gravity="center" >
 
         <!-- Date -->
-        <!--<TextView
-            android:id="@+id/date_bold"
-            style="@style/label_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/clock_white" />
-
         <TextView
             android:id="@+id/date_regular"
             style="@style/label_thin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/clock_white"
-            android:visibility="gone" /> -->
+            android:textColor="@color/clock_white" />
 
         <!-- Alarm -->
-        <!-- <ImageView android:id="@+id/alarm_icon"
+        <ImageView android:id="@+id/alarm_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="2dip"
             android:layout_marginLeft="8dip"
             android:gravity="center"
             android:visibility="gone" />
-        <TextView android:id="@+id/nextAlarm_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/clock_gray"
-            style="@style/alarm_label_bold"
-            android:layout_marginLeft="2dip"
-            android:gravity="center"
-            android:visibility="gone" />
+
         <TextView android:id="@+id/nextAlarm_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -115,6 +99,6 @@
             android:gravity="center"
             android:visibility="gone" />
 
-    </LinearLayout> -->
+    </LinearLayout>
 
 </LinearLayout>

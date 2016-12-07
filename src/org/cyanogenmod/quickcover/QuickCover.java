@@ -21,25 +21,26 @@
 package org.cyanogenmod.quickcover;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -56,7 +57,10 @@ public class QuickCover extends Activity {
     private TextView mHours;
     private TextView mMins;
     private TextView ampm;
+    private TextView mDate;
     private LinearLayout mClockPanel;
+    private ImageView mAlarmIcon;
+    private TextView mAlarmText;
     static QuickCoverStatus sStatus = new QuickCoverStatus();
 
     @Override
@@ -88,10 +92,13 @@ public class QuickCover extends Activity {
 
         setContentView(R.layout.circle_layout);
         circleView = (CircleView) findViewById(R.id.circle_view);
-        mHours = (TextView) findViewById(R.id.clock1_bold);
-        mMins = (TextView) findViewById(R.id.clock2_bold);
+        mHours = (TextView) findViewById(R.id.clock1);
+        mMins = (TextView) findViewById(R.id.clock2);
         ampm = (TextView) findViewById(R.id.clock_ampm);
+        mDate = (TextView) findViewById(R.id.date_regular);
         mClockPanel = (LinearLayout) findViewById(R.id.clock_panel);
+        mAlarmIcon = (ImageView) findViewById(R.id.alarm_icon);
+        mAlarmText = (TextView) findViewById(R.id.nextAlarm_regular);
 
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         mDetector = new GestureDetector(mContext, new QuickCoverGestureListener());
@@ -120,6 +127,7 @@ public class QuickCover extends Activity {
         newIntent.setAction(QuickCoverConstants.ACTION_REDRAW);
         mContext.sendBroadcast(newIntent);
         refreshClock();
+        refreshAlarmStatus();
         mClockPanel.bringToFront();
     }
 
@@ -159,7 +167,7 @@ public class QuickCover extends Activity {
         mHours.setText(hours);
         mMins.setText(minutes);
         ampm.setText(amPM);
-
+        mDate.setText(date);
     }
 
     private String getHourFormat() {
@@ -170,6 +178,56 @@ public class QuickCover extends Activity {
             format = getString(R.string.widget_12_hours_format_h);
         }
         return format;
+    }
+
+    //===============================================================================================
+    // Alarm related functionality
+    //===============================================================================================
+    private void refreshAlarmStatus() {
+
+        String nextAlarm = getNextAlarm();
+        if (!TextUtils.isEmpty(nextAlarm)) {
+            // An alarm is set, deal with displaying it
+            int color = getColor(R.color.clock_gray);
+            final Resources res = getResources();
+
+            // Overlay the selected color on the alarm icon and set the imageview
+            mAlarmIcon.setImageBitmap(IconUtils.getOverlaidBitmap(res,
+                    R.drawable.ic_alarm_small, color));
+            mAlarmIcon.setVisibility(View.VISIBLE);
+
+            mAlarmText.setText(nextAlarm);
+            mAlarmText.setVisibility(View.VISIBLE);
+            mAlarmText.setTextColor(color);
+
+            return;
+        } else {
+
+            // No alarm set or Alarm display is hidden, hide the views
+            mAlarmIcon.setVisibility(View.GONE);
+            mAlarmText.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * @return A formatted string of the next alarm or null if there is no next alarm.
+     */
+    private String getNextAlarm() {
+        String nextAlarm = null;
+
+        AlarmManager am =(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        AlarmManager.AlarmClockInfo alarmClock = am.getNextAlarmClock();
+        if (alarmClock != null) {
+            nextAlarm = getNextAlarmFormattedTime(this, alarmClock.getTriggerTime());
+        }
+
+        return nextAlarm;
+    }
+
+    private static String getNextAlarmFormattedTime(Context context, long time) {
+        String skeleton = DateFormat.is24HourFormat(context) ? "EHm" : "Ehma";
+        String pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
+        return (String) DateFormat.format(pattern, time);
     }
 
     class Service implements Runnable {
