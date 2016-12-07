@@ -116,16 +116,14 @@ public class QuickCover extends Activity {
     public void onResume() {
         super.onResume();
         boolean screenOn = mPowerManager.isInteractive();
-        // Starting up or comign back from screen off
+        // Starting up or coming back from screen off
         // Ensure device is awake and redraw
         if (!screenOn) {
             mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Closed");
         }
 
         Log.d(TAG, "Cover closed, Time to do work");
-        Intent newIntent = new Intent();
-        newIntent.setAction(QuickCoverConstants.ACTION_REDRAW);
-        mContext.sendBroadcast(newIntent);
+        circleView.postInvalidate();
         refreshClock();
         refreshAlarmStatus();
         mClockPanel.bringToFront();
@@ -153,6 +151,9 @@ public class QuickCover extends Activity {
 
     }
 
+    //===============================================================================================
+    // Clock related functionality
+    //===============================================================================================
     public void refreshClock() {
         Locale locale = Locale.getDefault();
         Date now = new Date();
@@ -259,9 +260,7 @@ public class QuickCover extends Activity {
                             Log.i(TAG, "Sleep interrupted", e);
                         }
 
-                        Intent intent = new Intent();
-                        intent.setAction(QuickCoverConstants.ACTION_REDRAW);
-                        mContext.sendBroadcast(intent);
+                        circleView.postInvalidate();
                     }
                     mPowerManager.goToSleep(SystemClock.uptimeMillis());
                 }
@@ -271,13 +270,8 @@ public class QuickCover extends Activity {
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
-        if (!sStatus.isPocketed()) {
-            this.mDetector.onTouchEvent(event);
-            return super.onTouchEvent(event);
-        } else {
-            // Say that we handled this event so nobody else does
-            return true;
-        }
+        this.mDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 
     class QuickCoverGestureListener extends GestureDetector.SimpleOnGestureListener
@@ -289,14 +283,8 @@ public class QuickCover extends Activity {
             boolean screenOn = mPowerManager.isInteractive();
             Log.d(TAG, "DT detected, screenon:" + screenOn );
             if(screenOn) {
-                // Screen is on, trun it off and go to Sleep now
                 onPause();
             }
-            else {
-                // screen was off, Resume
-                onResume();
-            }
-
             return true;
         }
     }

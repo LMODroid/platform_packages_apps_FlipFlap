@@ -47,22 +47,6 @@ public class CircleView extends View {
 
     Intent batteryStatus;
 
-    private static final float CLOCK_VERTICAL_OFFSET = 0.4f;
-
-    public CircleView(Context context) {
-        super(context);
-        mContext = context;
-        mPaint = new Paint();
-        mPaint.setAntiAlias(true);
-        res = mContext.getResources();
-        mCenter_x = res.getInteger(R.integer.x_center);
-        mCenter_y = res.getInteger(R.integer.y_center);
-        mRadius = res.getInteger(R.integer.radius);
-        mFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
-        batteryStatus = mContext.registerReceiver(null, mFilter);
-
-    }
-
     public CircleView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
@@ -79,9 +63,6 @@ public class CircleView extends View {
     @Override
     public void onDraw(Canvas canvas) {
 
-        mFilter.addAction(QuickCoverConstants.ACTION_REDRAW);
-        mContext.getApplicationContext().registerReceiver(receiver, mFilter);
-
         drawBackground(canvas);
     }
 
@@ -97,27 +78,14 @@ public class CircleView extends View {
 
         if (isCharging) {
             mPaint.setColor(res.getColor(R.color.charge_bat_bg));
-        } else if (level >= 90) {
+        } else if (level >= 15) {
             mPaint.setColor(res.getColor(R.color.full_bat_bg));
-        } else if ((level < 90) && (level >= 30)) {
-            mPaint.setColor(res.getColor(R.color.normal_bat_bg));
-        } else if ((level < 30) && (level >= 15)) {
-            mPaint.setColor(res.getColor(R.color.mid_bat_bg));
-        } else if (level < 15) {
+        } else {
             mPaint.setColor(res.getColor(R.color.low_bat_bg));
         }
         Log.e(TAG, "Drawing background" );
         canvas.drawCircle((float) mCenter_x, (float) mCenter_y, (float) mRadius, mPaint);
         Log.e(TAG, "Done drawing background" );
     }
-
-    private final BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(QuickCoverConstants.ACTION_REDRAW)) {
-                postInvalidate();
-            }
-        }
-    };
 
 }
