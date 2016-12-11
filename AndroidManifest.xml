@@ -45,6 +45,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Dotcase"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:windowAnimationStyle="@null">
+
+            <intent-filter>
+                <action android:name="org.cyanogenmod.quickcover.COVER_CLOSED" />
+                <action android:name="org.cyanogenmod.quickcover.KILL_ACTIVITY" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
