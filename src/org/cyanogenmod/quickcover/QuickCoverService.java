@@ -25,6 +25,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -37,7 +38,7 @@ public class QuickCoverService extends Service {
     private static final String TAG = "QuickCover";
 
     private Context mContext;
-
+    private Resources res;
     private static final int COVER_STATE_CHANGED = 0;
 
     private PowerManager mPowerManager;
@@ -46,13 +47,14 @@ public class QuickCoverService extends Service {
 
     private final Object mLock = new Object();
 
+    int mCoverStyle;
     @Override
     public void onCreate() {
 
         super.onCreate();
         Log.d(TAG, "Creating service");
         mContext = this;
-
+        res = mContext.getResources();
         mFilter.addAction(cyanogenmod.content.Intent.ACTION_COVER_CHANGE);
 
         mContext.getApplicationContext().registerReceiver(receiver, mFilter);
@@ -60,6 +62,8 @@ public class QuickCoverService extends Service {
         mPowerManager = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
 
+        mCoverStyle = res.getInteger(R.integer.config_deviceCoverType);
+        Log.e(TAG, "cover style detected:" + mCoverStyle);
     }
 
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -92,15 +96,32 @@ public class QuickCoverService extends Service {
 
             if(state == 0) {
                 Log.e(TAG, "Cover Closed, Creating QuickCover Activity");
-                Intent intent = new Intent(this, QuickCover.class);
-                intent.setAction(QuickCoverConstants.ACTION_COVER_CLOSED);
+                Intent intent = new Intent();
+                switch (mCoverStyle) {
+                    case 1:
+                        Log.e(TAG, "1 cover style detected:" + mCoverStyle);
+                        intent.setClass(this, Dotcase.class);
+                        intent.setAction(QuickCoverConstants.ACTION_COVER_CLOSED);
+                        break;
+                    case 2:
+                        Log.e(TAG, "2 cover style detected:" + mCoverStyle);
+                        intent.setClass(this, QuickCover.class);
+                        intent.setAction(QuickCoverConstants.ACTION_COVER_CLOSED);
+                        break;
+                    case 0:
+                        Log.e(TAG, "0 style detected:" + mCoverStyle);
+                        Log.e(TAG,"Invalid Lid Style, closing lid activity");
+                        intent.setAction(QuickCoverConstants.ACTION_KILL_ACTIVITY);
+                        break;
+
+                }
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             } else {
                 Log.e(TAG, "Cover Opened, Killing QuickCover Activity");
                 Intent intent = new Intent(QuickCoverConstants.ACTION_KILL_ACTIVITY);
-                mContext.sendBroadcastAsUser(intent, new UserHandle(UserHandle.USER_CURRENT));
+                mContext.sendBroadcastAsUser(intent, new UserHandle(UserHandle.USER_SYSTEM));
             }
         }
     }
