@@ -87,7 +87,7 @@ public class QuickCover extends Activity {
                         View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.screenBrightness = 20;
+        lp.screenBrightness = 120;
         getWindow().setAttributes(lp);
 
         setContentView(R.layout.circle_layout);
