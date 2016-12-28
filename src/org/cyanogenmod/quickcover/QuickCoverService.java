@@ -21,16 +21,15 @@
 package org.cyanogenmod.quickcover;
 
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.UserHandle;
+import android.os.UEventObserver;
 import android.util.Log;
 
 public class QuickCoverService extends Service {
@@ -41,13 +40,22 @@ public class QuickCoverService extends Service {
     private Resources res;
     private static final int COVER_STATE_CHANGED = 0;
 
+    private static String COVER_UEVENT_MATCH;
+
     private PowerManager mPowerManager;
     private PowerManager.WakeLock mWakeLock;
-    private final IntentFilter mFilter = new IntentFilter();
 
     private final Object mLock = new Object();
 
     int mCoverStyle;
+
+    private final UEventObserver mQuickCoverObserver = new UEventObserver() {
+        @Override
+        public void onUEvent(UEventObserver.UEvent event) {
+            onCoverEvent(Integer.parseInt(event.get("SWITCH_STATE")));
+        }
+    };
+
     @Override
     public void onCreate() {
 
@@ -55,9 +63,11 @@ public class QuickCoverService extends Service {
         Log.d(TAG, "Creating service");
         mContext = this;
         res = mContext.getResources();
-        mFilter.addAction(cyanogenmod.content.Intent.ACTION_COVER_CHANGE);
 
-        mContext.getApplicationContext().registerReceiver(receiver, mFilter);
+        COVER_UEVENT_MATCH = res.getString(R.string.cover_uevent_match);
+
+        Log.e(TAG,"Cover uevent path :" + COVER_UEVENT_MATCH);
+        mQuickCoverObserver.startObserving(COVER_UEVENT_MATCH);
 
         mPowerManager = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
@@ -66,18 +76,7 @@ public class QuickCoverService extends Service {
         Log.e(TAG, "cover style detected:" + mCoverStyle);
     }
 
-    private final BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            int mLidState;
-            if (intent.getAction().equals(cyanogenmod.content.Intent.ACTION_COVER_CHANGE))  {
-                mLidState = intent.getIntExtra(cyanogenmod.content.Intent.EXTRA_COVER_STATE, -1);
-                if (mLidState != -1) { // ignore LID_ABSENT case
-                    onCoverEvent(mLidState);
-                }
-            }
-        }
-    };
+
 
     private final Handler mHandler = new Handler(true /*async*/) {
         @Override
@@ -94,27 +93,10 @@ public class QuickCoverService extends Service {
     private void handleCoverChange(int state) {
         synchronized (mLock) {
 
-            if(state == 0) {
+            if(state == 1) {
                 Log.e(TAG, "Cover Closed, Creating QuickCover Activity");
-                Intent intent = new Intent();
-                switch (mCoverStyle) {
-                    case 1:
-                        Log.e(TAG, "1 cover style detected:" + mCoverStyle);
-                        intent.setClass(this, Dotcase.class);
-                        intent.setAction(QuickCoverConstants.ACTION_COVER_CLOSED);
-                        break;
-                    case 2:
-                        Log.e(TAG, "2 cover style detected:" + mCoverStyle);
-                        intent.setClass(this, QuickCover.class);
-                        intent.setAction(QuickCoverConstants.ACTION_COVER_CLOSED);
-                        break;
-                    case 0:
-                        Log.e(TAG, "0 style detected:" + mCoverStyle);
-                        Log.e(TAG,"Invalid Lid Style, closing lid activity");
-                        intent.setAction(QuickCoverConstants.ACTION_KILL_ACTIVITY);
-                        break;
-
-                }
+                Intent intent = new Intent(this, QuickCover.class);
+                intent.setAction(QuickCoverConstants.ACTION_COVER_CLOSED);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);

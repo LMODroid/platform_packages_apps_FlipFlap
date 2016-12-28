@@ -14,5 +14,13 @@
     <integer name="y_offset" translatable="false">0</integer>
     <integer name="radius_offset" translatable="false">0</integer>
 
+    <!-- Define Path to lid switch node. Node should report the following:
+        OEPN = 0, Closed =1
+        example path : "/sys/devices/virtual/switch/smartcover/state" -->
+    <string name="cover_node" translatable="false">@null</string>
+
+    <!-- Define path to lid Uevent node. Node should trigger on every cover change
+         example path : "DEVPATH=/devices/virtual/switch/smartcover" -->
+    <string name="cover_uevent_match" translatable="false">@null</string>
 
 </resources>

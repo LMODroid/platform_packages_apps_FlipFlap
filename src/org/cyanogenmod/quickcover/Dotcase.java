@@ -27,6 +27,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -53,6 +54,7 @@ public class Dotcase extends Activity implements SensorEventListener
 {
     private static final String TAG = "Dotcase";
 
+    private Resources res;
     private final IntentFilter mFilter = new IntentFilter();
     private GestureDetector mDetector;
     private PowerManager mPowerManager;
@@ -62,16 +64,21 @@ public class Dotcase extends Activity implements SensorEventListener
     private DotcaseView dotcaseView;
     static DotcaseStatus sStatus = new DotcaseStatus();
 
+    String COVER_NODE;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
 
         mContext = this;
+        res = getResources();
 
         mFilter.addAction(QuickCoverConstants.ACTION_COVER_CLOSED);
         mFilter.addAction(QuickCoverConstants.ACTION_KILL_ACTIVITY);
         mContext.getApplicationContext().registerReceiver(receiver, mFilter);
+
+        COVER_NODE = res.getString(R.string.cover_node);
 
         getWindow().addFlags(
                     WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON|
@@ -170,6 +177,21 @@ public class Dotcase extends Activity implements SensorEventListener
 
                         if (!sStatus.isRunning()) {
                             return;
+                        }
+
+                        try {
+                            BufferedReader br = new BufferedReader(new FileReader(
+                                    COVER_NODE));
+                            String value = br.readLine();
+                            br.close();
+
+                            if (value.equals("0")) {
+                                sStatus.stopRunning();
+                                finish();
+                                overridePendingTransition(0, 0);
+                            }
+                        } catch (IOException e) {
+                            Log.e(TAG, "Error reading cover device", e);
                         }
 
                         try {

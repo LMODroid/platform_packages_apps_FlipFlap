@@ -41,6 +41,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -49,6 +52,7 @@ public class QuickCover extends Activity {
 
     private static final String TAG = "QuickCover";
 
+    private Resources res;
     private final IntentFilter mFilter = new IntentFilter();
     private GestureDetector mDetector;
     private PowerManager mPowerManager;
@@ -63,16 +67,21 @@ public class QuickCover extends Activity {
     private TextView mAlarmText;
     static QuickCoverStatus sStatus = new QuickCoverStatus();
 
+    String COVER_NODE;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"onCreate: QuickCover.class");
 
         mContext = this;
+        res = getResources();
 
         mFilter.addAction(QuickCoverConstants.ACTION_COVER_CLOSED);
         mFilter.addAction(QuickCoverConstants.ACTION_KILL_ACTIVITY);
         mContext.getApplicationContext().registerReceiver(receiver, mFilter);
+
+        COVER_NODE = res.getString(R.string.cover_node);
 
         getWindow().addFlags(
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON|
@@ -190,7 +199,6 @@ public class QuickCover extends Activity {
         if (!TextUtils.isEmpty(nextAlarm)) {
             // An alarm is set, deal with displaying it
             int color = getColor(R.color.clock_gray);
-            final Resources res = getResources();
 
             // Overlay the selected color on the alarm icon and set the imageview
             mAlarmIcon.setImageBitmap(IconUtils.getOverlaidBitmap(res,
@@ -250,6 +258,21 @@ public class QuickCover extends Activity {
                     for (int i = 0; i <= timeout; i++) {
                         if (!sStatus.isRunning()) {
                             return;
+                        }
+
+                        try {
+                            BufferedReader br = new BufferedReader(new FileReader(
+                                    COVER_NODE));
+                            String value = br.readLine();
+                            br.close();
+
+                            if (value.equals("0")) {
+                                sStatus.stopRunning();
+                                finish();
+                                overridePendingTransition(0, 0);
+                            }
+                        } catch (IOException e) {
+                            Log.e(TAG, "Error reading cover device", e);
                         }
 
                         try {
