@@ -44,6 +44,9 @@ public class CircleView extends View {
     private int mCenter_x;
     private int mCenter_y;
     private int mRadius;
+    int mOffset_x;
+    int mOffset_y;
+    int mOffset_rad;
 
     Intent batteryStatus;
 
@@ -53,9 +56,15 @@ public class CircleView extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         res = mContext.getResources();
-        mCenter_x = res.getInteger(R.integer.x_center);
-        mCenter_y = res.getInteger(R.integer.y_center);
-        mRadius = res.getInteger(R.integer.radius);
+
+        mOffset_x = res.getInteger(R.integer.x_offset);
+        mOffset_y = res.getInteger(R.integer.y_offset);
+        mOffset_rad = res.getInteger(R.integer.radius_offset);
+
+        mCenter_x = QuickCoverConstants.getScreenWidth() / 2 + mOffset_x;
+        mCenter_y = QuickCoverConstants.getScreenHeight() * 13 / 48  + mOffset_y;
+        mRadius = QuickCoverConstants.getScreenWidth() * 4 / 9 + mOffset_rad;
+
         mFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         batteryStatus = mContext.registerReceiver(null, mFilter);
     }

@@ -10,9 +10,9 @@
     <integer name="config_deviceCoverType">0</integer>
 
     <!-- Define main circle parameters -->
-    <integer name="x_center" translatable="false">540</integer>
-    <integer name="y_center" translatable="false">520</integer>
-    <integer name="radius" translatable="false">480</integer>
+    <integer name="x_offset" translatable="false">0</integer>
+    <integer name="y_offset" translatable="false">0</integer>
+    <integer name="radius_offset" translatable="false">0</integer>
 
 
 </resources>

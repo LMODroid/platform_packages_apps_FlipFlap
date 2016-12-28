@@ -20,8 +20,22 @@
 
 package org.cyanogenmod.quickcover;
 
+import android.content.res.Resources;
+
 public class QuickCoverConstants {
+
+    static Resources res;
+
     static final String ACTION_KILL_ACTIVITY = "org.cyanogenmod.quickcover.KILL_ACTIVITY";
     static final String ACTION_REDRAW = "org.cyanogenmod.quickcover.DRAW";
     static final String ACTION_COVER_CLOSED = "org.cyanogenmod.quickcover.COVER_CLOSED";
+
+    public static int getScreenWidth() {
+        return Resources.getSystem().getDisplayMetrics().widthPixels;
+    }
+
+    public static int getScreenHeight() {
+        return Resources.getSystem().getDisplayMetrics().heightPixels;
+    }
+
 }
