@@ -27,7 +27,6 @@ import android.content.res.Resources;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.os.PowerManager;
 import android.os.UserHandle;
 import android.os.UEventObserver;
 import android.util.Log;
@@ -41,9 +40,6 @@ public class FlipFlapService extends Service {
     private static final int COVER_STATE_CHANGED = 0;
 
     private static String COVER_UEVENT_MATCH;
-
-    private PowerManager mPowerManager;
-    private PowerManager.WakeLock mWakeLock;
 
     private final Object mLock = new Object();
 
@@ -69,9 +65,6 @@ public class FlipFlapService extends Service {
         Log.e(TAG,"Cover uevent path :" + COVER_UEVENT_MATCH);
         mFlipFlapObserver.startObserving(COVER_UEVENT_MATCH);
 
-        mPowerManager = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
-        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
-
         mCoverStyle = res.getInteger(R.integer.config_deviceCoverType);
         Log.e(TAG, "cover style detected:" + mCoverStyle);
     }
@@ -84,7 +77,6 @@ public class FlipFlapService extends Service {
             switch (msg.what) {
                 case COVER_STATE_CHANGED:
                     handleCoverChange(msg.arg1);
-                    mWakeLock.release();
                     break;
             }
         }
@@ -114,7 +106,6 @@ public class FlipFlapService extends Service {
         message.what = COVER_STATE_CHANGED;
         message.arg1 = state;
 
-        mWakeLock.acquire();
         mHandler.sendMessage(message);
     }
 
