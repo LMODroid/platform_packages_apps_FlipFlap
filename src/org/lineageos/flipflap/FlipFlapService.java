@@ -87,11 +87,28 @@ public class FlipFlapService extends Service {
 
             if(state == 1) {
                 Log.e(TAG, "Cover Closed, Creating FlipFlap Activity");
-                Intent intent = new Intent(this, FlipFlap.class);
-                intent.setAction(FlipFlapUtils.ACTION_COVER_CLOSED);
+                Intent intent = new Intent();
+                switch (mCoverStyle) {
+                    case 1:
+                        Log.e(TAG, "1 cover style detected:" + mCoverStyle);
+                        intent.setClass(this, Dotcase.class);
+                        intent.setAction(FlipFlapUtils.ACTION_COVER_CLOSED);
+                        break;
+                    case 2:
+                        Log.e(TAG, "2 cover style detected:" + mCoverStyle);
+                        intent.setClass(this, FlipFlap.class);
+                        intent.setAction(FlipFlapUtils.ACTION_COVER_CLOSED);
+                        break;
+                    case 0:
+                        Log.e(TAG, "0 style detected:" + mCoverStyle);
+                        Log.e(TAG, "Invalid Lid Style, closing lid activity");
+                        intent.setAction(FlipFlapUtils.ACTION_KILL_ACTIVITY);
+                        break;
+                }
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
+
             } else {
                 Log.e(TAG, "Cover Opened, Killing FlipFlap Activity");
                 Intent intent = new Intent(FlipFlapUtils.ACTION_KILL_ACTIVITY);
