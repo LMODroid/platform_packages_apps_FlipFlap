@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 The CyanogenMod Project
+ * Copyright (c) 2017 The LineageOS Project
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,10 +18,10 @@
  *
  */
 
-package org.cyanogenmod.quickcover;
+package org.lineageos.flipflap;
 
-public class QuickCoverStatus {
-    private static final String TAG = "QuickCover";
+public class FlipFlapStatus {
+    private static final String TAG = "FlipFlap";
 
     private boolean mRunning = true;
     private boolean mPocketed = false;

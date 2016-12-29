@@ -18,9 +18,9 @@
  *
  */
 
-package org.cyanogenmod.quickcover;
+package org.lineageos.flipflap;
 
-import org.cyanogenmod.quickcover.DotcaseConstants.Notification;
+import org.lineageos.flipflap.DotcaseConstants.Notification;
 
 import android.app.INotificationManager;
 import android.content.Context;

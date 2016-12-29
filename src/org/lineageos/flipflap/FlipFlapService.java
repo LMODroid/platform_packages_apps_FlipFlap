@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 The CyanogenMod Project
+ * Copyright (c) 2017 The LineageOS Project
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
  *
  */
 
-package org.cyanogenmod.quickcover;
+package org.lineageos.flipflap;
 
 import android.app.Service;
 import android.content.Context;
@@ -32,9 +32,9 @@ import android.os.UserHandle;
 import android.os.UEventObserver;
 import android.util.Log;
 
-public class QuickCoverService extends Service {
+public class FlipFlapService extends Service {
 
-    private static final String TAG = "QuickCover";
+    private static final String TAG = "FlipFlap";
 
     private Context mContext;
     private Resources res;
@@ -49,7 +49,7 @@ public class QuickCoverService extends Service {
 
     int mCoverStyle;
 
-    private final UEventObserver mQuickCoverObserver = new UEventObserver() {
+    private final UEventObserver mFlipFlapObserver = new UEventObserver() {
         @Override
         public void onUEvent(UEventObserver.UEvent event) {
             onCoverEvent(Integer.parseInt(event.get("SWITCH_STATE")));
@@ -67,7 +67,7 @@ public class QuickCoverService extends Service {
         COVER_UEVENT_MATCH = res.getString(R.string.cover_uevent_match);
 
         Log.e(TAG,"Cover uevent path :" + COVER_UEVENT_MATCH);
-        mQuickCoverObserver.startObserving(COVER_UEVENT_MATCH);
+        mFlipFlapObserver.startObserving(COVER_UEVENT_MATCH);
 
         mPowerManager = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
@@ -94,15 +94,15 @@ public class QuickCoverService extends Service {
         synchronized (mLock) {
 
             if(state == 1) {
-                Log.e(TAG, "Cover Closed, Creating QuickCover Activity");
-                Intent intent = new Intent(this, QuickCover.class);
-                intent.setAction(QuickCoverConstants.ACTION_COVER_CLOSED);
+                Log.e(TAG, "Cover Closed, Creating FlipFlap Activity");
+                Intent intent = new Intent(this, FlipFlap.class);
+                intent.setAction(FlipFlapUtils.ACTION_COVER_CLOSED);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             } else {
-                Log.e(TAG, "Cover Opened, Killing QuickCover Activity");
-                Intent intent = new Intent(QuickCoverConstants.ACTION_KILL_ACTIVITY);
+                Log.e(TAG, "Cover Opened, Killing FlipFlap Activity");
+                Intent intent = new Intent(FlipFlapUtils.ACTION_KILL_ACTIVITY);
                 mContext.sendBroadcastAsUser(intent, new UserHandle(UserHandle.USER_SYSTEM));
             }
         }

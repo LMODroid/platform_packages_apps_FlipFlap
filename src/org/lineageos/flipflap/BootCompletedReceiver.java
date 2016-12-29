@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 The CyanogenMod Project
+ * Copyright (c) 2017 The LineageOS Project
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
  *
  */
 
-package org.cyanogenmod.quickcover;
+package org.lineageos.flipflap;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -27,15 +27,15 @@ import android.provider.Settings;
 import android.util.Log;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
-    static final String TAG = "QuickCover";
+    static final String TAG = "FlipFlap";
 
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "Booting ");
         Settings.Secure.putString(context.getContentResolver(),
                 Settings.Secure.IMMERSIVE_MODE_CONFIRMATIONS,
-                "org.cyanogenmod.quickcover");
+                "org.lineageos.quickcover");
 
-        context.startService(new Intent(context, QuickCoverService.class));
+        context.startService(new Intent(context, FlipFlapService.class));
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 The CyanogenMod Project
+ * Copyright (c) 2017 The LineageOS Project
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
  *
  */
 
-package org.cyanogenmod.quickcover;
+package org.lineageos.flipflap;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -48,9 +48,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class QuickCover extends Activity {
+public class FlipFlap extends Activity {
 
-    private static final String TAG = "QuickCover";
+    private static final String TAG = "FlipFlap";
 
     private Resources res;
     private final IntentFilter mFilter = new IntentFilter();
@@ -65,20 +65,20 @@ public class QuickCover extends Activity {
     private LinearLayout mClockPanel;
     private ImageView mAlarmIcon;
     private TextView mAlarmText;
-    static QuickCoverStatus sStatus = new QuickCoverStatus();
+    static FlipFlapStatus sStatus = new FlipFlapStatus();
 
     String COVER_NODE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG,"onCreate: QuickCover.class");
+        Log.d(TAG,"onCreate: FlipFlap.class");
 
         mContext = this;
         res = getResources();
 
-        mFilter.addAction(QuickCoverConstants.ACTION_COVER_CLOSED);
-        mFilter.addAction(QuickCoverConstants.ACTION_KILL_ACTIVITY);
+        mFilter.addAction(FlipFlapUtils.ACTION_COVER_CLOSED);
+        mFilter.addAction(FlipFlapUtils.ACTION_KILL_ACTIVITY);
         mContext.getApplicationContext().registerReceiver(receiver, mFilter);
 
         COVER_NODE = res.getString(R.string.cover_node);
@@ -110,7 +110,7 @@ public class QuickCover extends Activity {
         mAlarmText = (TextView) findViewById(R.id.nextAlarm_regular);
 
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-        mDetector = new GestureDetector(mContext, new QuickCoverGestureListener());
+        mDetector = new GestureDetector(mContext, new FlipFlapGestureListener());
         sStatus.stopRunning();
     }
 
@@ -150,7 +150,7 @@ public class QuickCover extends Activity {
 
     @Override
     public void onDestroy() {
-        Log.d(TAG, "QuickCover, onDestroy");
+        Log.d(TAG, "FlipFlap, onDestroy");
         sStatus.stopRunning();
 
         // Closing up activity, lets wake up device.
@@ -297,7 +297,7 @@ public class QuickCover extends Activity {
         return super.onTouchEvent(event);
     }
 
-    class QuickCoverGestureListener extends GestureDetector.SimpleOnGestureListener
+    class FlipFlapGestureListener extends GestureDetector.SimpleOnGestureListener
     {
 
         @Override
@@ -315,7 +315,7 @@ public class QuickCover extends Activity {
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(QuickCoverConstants.ACTION_KILL_ACTIVITY))  {
+            if (intent.getAction().equals(FlipFlapUtils.ACTION_KILL_ACTIVITY))  {
                 try {
                     context.getApplicationContext().unregisterReceiver(receiver);
                 } catch (IllegalArgumentException e) {
@@ -325,7 +325,7 @@ public class QuickCover extends Activity {
                 finish();
                 overridePendingTransition(0, 0);
                 onDestroy();
-            } else if (intent.getAction().equals(QuickCoverConstants.ACTION_COVER_CLOSED)) {
+            } else if (intent.getAction().equals(FlipFlapUtils.ACTION_COVER_CLOSED)) {
                 onResume();
             }
         }

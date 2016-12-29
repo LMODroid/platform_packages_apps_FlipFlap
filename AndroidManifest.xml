@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.cyanogenmod.quickcover"
+    package="org.lineageos.flipflap"
     android:versionCode="1"
     android:versionName="1.0"
     android:sharedUserId="android.uid.system">
@@ -25,22 +25,19 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".QuickCoverService"
-            android:permission="QuickCoverService">
-            <intent-filter>
-                <action android:name="org.cyanogenmod.intent.COVER_CHANGE" />
-            </intent-filter>
+        <service android:name=".FlipFlapService"
+            android:permission="FlipFlapService">
         </service>
 
-        <activity android:name=".QuickCover"
+        <activity android:name=".FlipFlap"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:windowAnimationStyle="@null">
 
             <intent-filter>
-                <action android:name="org.cyanogenmod.quickcover.COVER_CLOSED" />
-                <action android:name="org.cyanogenmod.quickcover.KILL_ACTIVITY" />
+                <action android:name="org.lineageos.quickcover.COVER_CLOSED" />
+                <action android:name="org.lineageos.quickcover.KILL_ACTIVITY" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -53,8 +50,8 @@
             android:windowAnimationStyle="@null">
 
             <intent-filter>
-                <action android:name="org.cyanogenmod.quickcover.COVER_CLOSED" />
-                <action android:name="org.cyanogenmod.quickcover.KILL_ACTIVITY" />
+                <action android:name="org.lineageos.quickcover.COVER_CLOSED" />
+                <action android:name="org.lineageos.quickcover.KILL_ACTIVITY" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

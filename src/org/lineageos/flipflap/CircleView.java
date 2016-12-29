@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 The CyanogenMod Project
+ * Copyright (c) 2017 The LineageOS Project
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,9 +18,8 @@
  *
  */
 
-package org.cyanogenmod.quickcover;
+package org.lineageos.flipflap;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -35,7 +34,7 @@ import android.view.View;
 import android.util.Log;
 
 public class CircleView extends View {
-    private static final String TAG = "QuickCover";
+    private static final String TAG = "FlipFlap";
 
     private final Context mContext;
     private final Resources res;
@@ -61,9 +60,9 @@ public class CircleView extends View {
         mOffset_y = res.getInteger(R.integer.y_offset);
         mOffset_rad = res.getInteger(R.integer.radius_offset);
 
-        mCenter_x = QuickCoverConstants.getScreenWidth() / 2 + mOffset_x;
-        mCenter_y = QuickCoverConstants.getScreenHeight() * 13 / 48  + mOffset_y;
-        mRadius = QuickCoverConstants.getScreenWidth() * 4 / 9 + mOffset_rad;
+        mCenter_x = FlipFlapUtils.getScreenWidth() / 2 + mOffset_x;
+        mCenter_y = FlipFlapUtils.getScreenHeight() * 13 / 48  + mOffset_y;
+        mRadius = FlipFlapUtils.getScreenWidth() * 4 / 9 + mOffset_rad;
 
         mFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         batteryStatus = mContext.registerReceiver(null, mFilter);

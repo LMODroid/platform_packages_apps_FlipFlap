@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2014 The CyanogenMod Project
+ * Copyright (c) 2016 The CyanogenMod Project
+ * Copyright (c) 2017 The LineageOS Project
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,7 +19,7 @@
  *
  */
 
-package org.cyanogenmod.quickcover;
+package org.lineageos.flipflap;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -27,9 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DotcaseConstants {
-    static final String ACTION_KILL_ACTIVITY = "org.cyanogenmod.dotcase.KILL_ACTIVITY";
-    static final String ACTION_REDRAW = "org.cyanogenmod.dotcase.REDRAW";
-    static final String ACTION_COVER_CLOSED = "org.cyanogenmod.dotcase.COVER_CLOSED";
+    static final String ACTION_REDRAW = "org.lineageos.dotcase.REDRAW";
     static final int DOT_RATIO = 40;
 
     /**

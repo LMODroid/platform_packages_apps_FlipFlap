@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2014 The CyanogenMod Project
+ * Copyright (c) 2016 The CyanogenMod Project
+ * Copyright (c) 2017 The LineageOS Project
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,9 +19,7 @@
  *
  */
 
-package org.cyanogenmod.quickcover;
-
-import org.cyanogenmod.quickcover.DotcaseConstants.Notification;
+package org.lineageos.flipflap;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -34,7 +33,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.util.Log;
@@ -74,8 +72,8 @@ public class Dotcase extends Activity implements SensorEventListener
         mContext = this;
         res = getResources();
 
-        mFilter.addAction(QuickCoverConstants.ACTION_COVER_CLOSED);
-        mFilter.addAction(QuickCoverConstants.ACTION_KILL_ACTIVITY);
+        mFilter.addAction(FlipFlapUtils.ACTION_COVER_CLOSED);
+        mFilter.addAction(FlipFlapUtils.ACTION_KILL_ACTIVITY);
         mContext.getApplicationContext().registerReceiver(receiver, mFilter);
 
         COVER_NODE = res.getString(R.string.cover_node);
@@ -281,7 +279,7 @@ public class Dotcase extends Activity implements SensorEventListener
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(QuickCoverConstants.ACTION_KILL_ACTIVITY))  {
+            if (intent.getAction().equals(FlipFlapUtils.ACTION_KILL_ACTIVITY))  {
                 try {
                     context.getApplicationContext().unregisterReceiver(receiver);
                 } catch (IllegalArgumentException e) {
@@ -291,7 +289,7 @@ public class Dotcase extends Activity implements SensorEventListener
                 finish();
                 overridePendingTransition(0, 0);
                 onDestroy();
-            } else if (intent.getAction().equals(QuickCoverConstants.ACTION_COVER_CLOSED)) {
+            } else if (intent.getAction().equals(FlipFlapUtils.ACTION_COVER_CLOSED)) {
                 onResume();
             }
         }

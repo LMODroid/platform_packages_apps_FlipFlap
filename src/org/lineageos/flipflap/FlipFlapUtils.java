@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 The CyanogenMod Project
+ * Copyright (c) 2017 The LineageOS Project
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,17 +18,16 @@
  *
  */
 
-package org.cyanogenmod.quickcover;
+package org.lineageos.flipflap;
 
 import android.content.res.Resources;
 
-public class QuickCoverConstants {
+public class FlipFlapUtils {
 
     static Resources res;
 
-    static final String ACTION_KILL_ACTIVITY = "org.cyanogenmod.quickcover.KILL_ACTIVITY";
-    static final String ACTION_REDRAW = "org.cyanogenmod.quickcover.DRAW";
-    static final String ACTION_COVER_CLOSED = "org.cyanogenmod.quickcover.COVER_CLOSED";
+    static final String ACTION_KILL_ACTIVITY = "org.lineageos.flipflap.KILL_ACTIVITY";
+    static final String ACTION_COVER_CLOSED = "org.lineageos.flipflap.COVER_CLOSED";
 
     public static int getScreenWidth() {
         return Resources.getSystem().getDisplayMetrics().widthPixels;
