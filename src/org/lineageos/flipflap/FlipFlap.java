@@ -201,8 +201,7 @@ public class FlipFlap extends Activity {
             int color = getColor(R.color.clock_gray);
 
             // Overlay the selected color on the alarm icon and set the imageview
-            mAlarmIcon.setImageBitmap(IconUtils.getOverlaidBitmap(res,
-                    R.drawable.ic_alarm_small, color));
+            mAlarmIcon.setColorFilter(color);
             mAlarmIcon.setVisibility(View.VISIBLE);
 
             mAlarmText.setText(nextAlarm);

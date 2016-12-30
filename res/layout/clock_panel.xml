@@ -91,6 +91,7 @@
             android:drawablePadding="2dip"
             android:layout_marginLeft="8dip"
             android:gravity="center"
+            android:src="@drawable/ic_alarm_small"
             android:visibility="gone" />
 
         <TextView android:id="@+id/nextAlarm_regular"
