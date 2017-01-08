@@ -172,11 +172,12 @@ public class FlipFlapActivity extends Activity {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         mStatus.stopRinging();
         mStatus.stopAlarm();
         mStatus.setOnTop(false);
         mStatus.stopRunning();
+        mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Opened");
+        super.onDestroy();
     }
 
     @Override
