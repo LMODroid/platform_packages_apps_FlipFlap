@@ -85,8 +85,7 @@ public class FlipFlapActivity extends Activity {
                     View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                    View.SYSTEM_UI_FLAG_FULLSCREEN |
-                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                    View.SYSTEM_UI_FLAG_FULLSCREEN);
 
         mDetector = new GestureDetector(mContext, mGestureListener);
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
@@ -107,6 +106,7 @@ public class FlipFlapActivity extends Activity {
 
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.screenBrightness = mView.getScreenBrightness();
+        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
         getWindow().setAttributes(lp);
 
         IntentFilter filter = new IntentFilter();
