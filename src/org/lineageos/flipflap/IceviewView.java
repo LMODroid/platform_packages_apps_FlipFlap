@@ -20,23 +20,20 @@
 
 package org.lineageos.flipflap;
 
-public class FlipFlapUtils {
+import android.content.Context;
+import android.view.LayoutInflater;
 
-    static final String ACTION_COVER_CLOSED = "org.lineageos.flipflap.COVER_CLOSED";
-    static final String ACTION_ALARM_ALERT = "com.android.deskclock.ALARM_ALERT";
+public class IceviewView extends FlipFlapView {
+    private static final String TAG = "IceviewView";
 
-    static final String ACTION_ALARM_DISMISS = "com.android.deskclock.ALARM_DISMISS";
-    static final String ACTION_ALARM_SNOOZE = "com.android.deskclock.ALARM_SNOOZE";
+    private ClockPanel mClockPanel;
 
-    static final int COVER_STATE_OPENED = 0;
-    static final int COVER_STATE_CLOSED = 1;
+    public IceviewView(Context context) {
+        super(context);
 
-    // These have to match with "config_deviceCoverType" from res/values/config.xml
-    static final int COVER_STYLE_NONE = 0;
-    static final int COVER_STYLE_DOTCASE = 1;
-    static final int COVER_STYLE_CIRCLE = 2;
-    static final int COVER_STYLE_RECTANGULAR = 3;
-    static final int COVER_STYLE_ICEVIEW = 4;
+        inflate(mContext, R.layout.iceview_view, this);
 
-    static final int DELAYED_SCREEN_OFF_MS = 5000;
+        mClockPanel = (ClockPanel) findViewById(R.id.clock_panel);
+        mClockPanel.bringToFront();
+    }
 }
