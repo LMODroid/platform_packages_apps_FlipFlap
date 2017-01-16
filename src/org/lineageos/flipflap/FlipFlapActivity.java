@@ -33,11 +33,10 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.ContactsContract;
+import android.support.v4.content.LocalBroadcastManager;
 import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -55,10 +54,6 @@ import java.text.Normalizer;
 public class FlipFlapActivity extends Activity {
     private static final String TAG = "FlipFlapActivity";
 
-    private static final int INVALIDATE_VIEW = 1337;
-
-    private Context mContext;
-
     private FlipFlapStatus mStatus;
     private FlipFlapView mView;
     private String mCoverNode;
@@ -66,12 +61,13 @@ public class FlipFlapActivity extends Activity {
     private PowerManager mPowerManager;
     private SensorManager mSensorManager;
     private TelecomManager mTelecomManager;
+    private LocalBroadcastManager mBroadcastManager;
+    private boolean mIsPlugged;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mContext = this;
         mStatus = new FlipFlapStatus();
 
         mCoverNode = getResources().getString(R.string.cover_node);
@@ -87,43 +83,72 @@ public class FlipFlapActivity extends Activity {
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                     View.SYSTEM_UI_FLAG_FULLSCREEN);
 
-        mDetector = new GestureDetector(mContext, mGestureListener);
-        mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-        mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
-        mTelecomManager = (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
+        mDetector = new GestureDetector(this, mGestureListener);
+        mPowerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mTelecomManager = (TelecomManager) getSystemService(Context.TELECOM_SERVICE);
+        mBroadcastManager = LocalBroadcastManager.getInstance(this);
 
-        int coverStyle = getResources().getInteger(R.integer.config_deviceCoverType);
-        switch (coverStyle) {
+        switch (getResources().getInteger(R.integer.config_deviceCoverType)) {
             case 1:
-                mView = new DotcaseView(mContext, mStatus);
-                setContentView((View) mView);
+                mView = new DotcaseView(this, mStatus);
                 break;
             case 2:
-                mView = new CircleView(mContext);
-                setContentView((View) mView);
+                mView = new CircleView(this);
                 break;
+            default:
+                finish();
+                return;
         }
+
+        setContentView((View) mView);
 
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.screenBrightness = mView.getScreenBrightness();
         lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
         getWindow().setAttributes(lp);
 
+        mBroadcastManager.registerReceiver(mLocalReceiver,
+                new IntentFilter(FlipFlapUtils.ACTION_KILL_ACTIVITY));
+
         IntentFilter filter = new IntentFilter();
-        filter.addAction(FlipFlapUtils.ACTION_COVER_CLOSED);
-        filter.addAction(FlipFlapUtils.ACTION_KILL_ACTIVITY);
         filter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
         filter.addAction("com.android.deskclock.ALARM_ALERT");
-        mContext.getApplicationContext().registerReceiver(mReceiver, filter);
+        filter.addAction(Intent.ACTION_BATTERY_CHANGED);
+        registerReceiver(mReceiver, filter);
 
         mStatus.stopRunning();
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mBroadcastManager.unregisterReceiver(mLocalReceiver);
+        unregisterReceiver(mReceiver);
+
+        mStatus.stopRinging();
+        mStatus.stopAlarm();
+        mStatus.setOnTop(false);
+        mStatus.stopRunning();
+        mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Opened");
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
+        mStatusThread.start();
+    }
 
-        new Thread(mService).start();
+    @Override
+    public void onStop() {
+        super.onStop();
+        mStatus.stopRunning();
+        mStatusThread.interrupt();
+        try {
+            mStatusThread.join();
+        } catch (InterruptedException e) {
+            // ignore
+        }
     }
 
     @Override
@@ -138,8 +163,6 @@ public class FlipFlapActivity extends Activity {
         if (!screenOn) {
             mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Closed");
         }
-
-        ((View) mView).postInvalidate();
     }
 
     @Override
@@ -153,16 +176,6 @@ public class FlipFlapActivity extends Activity {
             Log.e(TAG, "Failed to unregister listener", e);
         }
         mStatus.stopRunning();
-    }
-
-    @Override
-    public void onDestroy() {
-        mStatus.stopRinging();
-        mStatus.stopAlarm();
-        mStatus.setOnTop(false);
-        mStatus.stopRunning();
-        mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Opened");
-        super.onDestroy();
     }
 
     @Override
@@ -207,7 +220,7 @@ public class FlipFlapActivity extends Activity {
                 .replaceAll("œ", "oe");
     }
 
-    private final Runnable mService = new Runnable() {
+    private final Thread mStatusThread = new Thread() {
         @Override
         public void run() {
             if (mStatus.isRunning()) {
@@ -217,15 +230,7 @@ public class FlipFlapActivity extends Activity {
 
             mStatus.startRunning();
             while (mStatus.isRunning()) {
-                int timeout;
-                Intent batteryIntent = mContext.getApplicationContext().registerReceiver(null,
-                        new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-                if (batteryIntent.getIntExtra("plugged", -1) > 0) {
-                    timeout = 40;
-                } else {
-                    timeout = 20;
-                }
-
+                int timeout = mIsPlugged ? 40 : 20;
                 for (int i = 0; i <= timeout; i++) {
                     if (mStatus.isResetTimer() || mStatus.isRinging() || mStatus.isAlarm()) {
                         i = 0;
@@ -257,9 +262,6 @@ public class FlipFlapActivity extends Activity {
                     } catch (InterruptedException e) {
                         Log.i(TAG, "Sleep interrupted", e);
                     }
-
-                    Message msg = mHandler.obtainMessage(INVALIDATE_VIEW);
-                    mHandler.sendMessage(msg);
                 }
                 mPowerManager.goToSleep(SystemClock.uptimeMillis());
             }
@@ -298,16 +300,15 @@ public class FlipFlapActivity extends Activity {
                     mTelecomManager.acceptRingingCall();
                 }
             } else if (mView.supportsAlarmActions() && mStatus.isAlarm()) {
-                Intent intent = new Intent();
                 if (distanceY < 60) {
-                    intent.setAction(FlipFlapUtils.ACTION_ALARM_DISMISS);
                     mStatus.setOnTop(false);
-                    mContext.sendBroadcast(intent);
+                    mBroadcastManager.sendBroadcast(
+                            new Intent(FlipFlapUtils.ACTION_ALARM_DISMISS));
                     mStatus.stopAlarm();
                 } else if (distanceY > 60) {
-                    intent.setAction(FlipFlapUtils.ACTION_ALARM_SNOOZE);
                     mStatus.setOnTop(false);
-                    mContext.sendBroadcast(intent);
+                    mBroadcastManager.sendBroadcast(
+                            new Intent(FlipFlapUtils.ACTION_ALARM_SNOOZE));
                     mStatus.stopAlarm();
                 }
             }
@@ -321,14 +322,14 @@ public class FlipFlapActivity extends Activity {
             while ((mStatus.isRinging() || mStatus.isAlarm())
                     && mStatus.isOnTop()) {
                 ActivityManager am =
-                        (ActivityManager) mContext.getSystemService(Activity.ACTIVITY_SERVICE);
+                        (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
                 if (!am.getRunningTasks(1).get(0).topActivity.getPackageName().equals(
                         "org.lineageos.flipflap")) {
                     Intent intent = new Intent();
                     intent.setClassName(FlipFlapActivity.class.getPackage().getName(),
                             FlipFlapActivity.class.getSimpleName());
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    mContext.startActivity(intent);
+                    startActivity(intent);
                 }
                 try {
                     Thread.sleep(100);
@@ -341,13 +342,12 @@ public class FlipFlapActivity extends Activity {
         }
     };
 
-    private Handler mHandler = new Handler() {
+    private final BroadcastReceiver mLocalReceiver = new BroadcastReceiver() {
         @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case INVALIDATE_VIEW:
-                    ((View) mView).postInvalidate();
-                    break;
+        public void onReceive(Context context, Intent intent) {
+            if (FlipFlapUtils.ACTION_KILL_ACTIVITY.equals(intent.getAction())) {
+                finish();
+                overridePendingTransition(0, 0);
             }
         }
     };
@@ -355,19 +355,8 @@ public class FlipFlapActivity extends Activity {
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(FlipFlapUtils.ACTION_KILL_ACTIVITY))  {
-                try {
-                    context.getApplicationContext().unregisterReceiver(mReceiver);
-                } catch (IllegalArgumentException e) {
-                    Log.e(TAG, "Failed to unregister receiver", e);
-                }
-                mStatus.stopRunning();
-                finish();
-                overridePendingTransition(0, 0);
-                onDestroy();
-            } else if (intent.getAction().equals(FlipFlapUtils.ACTION_COVER_CLOSED)) {
-                onResume();
-            } else if (intent.getAction().equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED) &&
+            final String action = intent.getAction();
+            if (TelephonyManager.ACTION_PHONE_STATE_CHANGED.equals(action) &&
                     mView.supportsCallActions()) {
                 String state = intent.getStringExtra(TelephonyManager.EXTRA_STATE);
                 if (state.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
@@ -375,12 +364,13 @@ public class FlipFlapActivity extends Activity {
                     Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
                             Uri.encode(number));
                     Cursor cursor = context.getContentResolver().query(uri,
-                            new String[] {ContactsContract.PhoneLookup.DISPLAY_NAME},
+                            new String[] { ContactsContract.PhoneLookup.DISPLAY_NAME },
                             number, null, null);
-                    String name = cursor.moveToFirst() ?
-                        cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME)) :
-                        "";
-                    cursor.close();
+                    String name = cursor != null && cursor.moveToFirst()
+                            ? cursor.getString(0) : "";
+                    if (cursor != null) {
+                        cursor.close();
+                    }
 
                     if (number.equalsIgnoreCase("restricted")) {
                         // If call is restricted, don't show a number
@@ -398,12 +388,14 @@ public class FlipFlapActivity extends Activity {
                     mStatus.setOnTop(false);
                     mStatus.stopRinging();
                 }
-            } else if (intent.getAction().equals("com.android.deskclock.ALARM_ALERT") &&
+            } else if ("com.android.deskclock.ALARM_ALERT".equals(action) &&
                     mView.supportsAlarmActions()) {
                 // add other alarm apps here
                 mStatus.startAlarm();
                 mStatus.setOnTop(true);
                 new Thread(mEnsureTopActivity).start();
+            } else if (Intent.ACTION_BATTERY_CHANGED.equals(action)) {
+                mIsPlugged = intent.getIntExtra("plugged", -1) > 0;
             }
         }
     };

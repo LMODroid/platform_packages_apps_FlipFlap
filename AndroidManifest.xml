@@ -13,8 +13,6 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <protected-broadcast android:name="org.lineageos.flipflap.KILL_ACTIVITY" />
-
     <supports-screens android:anyDensity="true" />
 
     <application
@@ -27,28 +25,16 @@
         <receiver android:name=".BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <service android:name=".FlipFlapService"
-            android:permission="FlipFlapService">
-        </service>
+        <service android:name=".FlipFlapService" />
 
         <activity android:name=".FlipFlapActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:windowAnimationStyle="@null"
-            android:theme="@style/FlipFlapTheme">
-
-            <intent-filter>
-                <action android:name="org.lineageos.flipflap.COVER_CLOSED" />
-                <action android:name="org.lineageos.flipflap.KILL_ACTIVITY" />
-                <action android:name="TelephonyManager.ACTION_PHONE_STATE_CHANGED" />
-                <action android:name="com.android.deskclock.ALARM_ALERT" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/FlipFlapTheme" />
     </application>
 </manifest>
