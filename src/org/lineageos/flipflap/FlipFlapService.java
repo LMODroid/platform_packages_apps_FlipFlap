@@ -60,7 +60,7 @@ public class FlipFlapService extends Service {
     }
 
     private void handleCoverChange(int state) {
-        if (state == 1 && mCoverStyle != 0) {
+        if (state == FlipFlapUtils.COVER_STATE_CLOSED && mCoverStyle != 0) {
             Log.i(TAG, "Cover Closed, Creating FlipFlap Activity");
             startActivity(new Intent(this, FlipFlapActivity.class));
         } else {
