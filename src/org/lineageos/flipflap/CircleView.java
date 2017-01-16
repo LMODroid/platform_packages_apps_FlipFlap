@@ -21,7 +21,10 @@
 package org.lineageos.flipflap;
 
 import android.app.AlarmManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -42,7 +45,6 @@ public class CircleView extends RelativeLayout implements FlipFlapView {
 
     private AlarmManager mAlarmManager;
 
-    private CircleBatteryView mBatteryView;
     private LinearLayout mClockPanel;
 
     private TextView mHoursView;
@@ -52,6 +54,19 @@ public class CircleView extends RelativeLayout implements FlipFlapView {
 
     private ImageView mAlarmIcon;
     private TextView mAlarmText;
+
+    private boolean mReceiverRegistered;
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (Intent.ACTION_TIME_TICK.equals(action)) {
+                refreshClock();
+            } else if (AlarmManager.ACTION_NEXT_ALARM_CLOCK_CHANGED.equals(action)) {
+                refreshAlarmStatus();
+            }
+        }
+    };
 
     public CircleView(Context context) {
         super(context);
@@ -69,21 +84,30 @@ public class CircleView extends RelativeLayout implements FlipFlapView {
         mAlarmIcon = (ImageView) findViewById(R.id.alarm_icon);
         mAlarmText = (TextView) findViewById(R.id.next_alarm_regular);
 
-        mBatteryView = (CircleBatteryView) findViewById(R.id.circle_battery);
-
         mClockPanel = (LinearLayout) findViewById(R.id.clock_panel);
         mClockPanel.bringToFront();
-
-        refreshClock();
-        refreshAlarmStatus();
     }
 
     @Override
-    public void postInvalidate() {
-        refreshClock();
-        refreshAlarmStatus();
-        mBatteryView.postInvalidate();
-        super.postInvalidate();
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (!mReceiverRegistered) {
+            IntentFilter filter = new IntentFilter(Intent.ACTION_TIME_TICK);
+            filter.addAction(AlarmManager.ACTION_NEXT_ALARM_CLOCK_CHANGED);
+            mContext.registerReceiver(mReceiver, filter);
+            mReceiverRegistered = true;
+            refreshClock();
+            refreshAlarmStatus();
+        }
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (mReceiverRegistered) {
+            mContext.unregisterReceiver(mReceiver);
+            mReceiverRegistered = false;
+        }
     }
 
     @Override

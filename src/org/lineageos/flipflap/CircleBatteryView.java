@@ -20,6 +20,7 @@
 
 package org.lineageos.flipflap;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -37,12 +38,29 @@ public class CircleBatteryView extends View {
     private final Context mContext;
     private final Resources mResources;
     private Paint mPaint;
-    private int mCenter_x;
-    private int mCenter_y;
-    private int mRadius;
-    private int mOffset_x;
-    private int mOffset_y;
-    private int mOffset_rad;
+    private float mCenterX;
+    private float mCenterY;
+    private float mRadius;
+
+    private boolean mBatteryStateReceiverRegistered;
+    private final BroadcastReceiver mBatteryStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+            int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+            boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
+                    status == BatteryManager.BATTERY_STATUS_FULL;
+
+            if (isCharging) {
+                mPaint.setColor(mResources.getColor(R.color.charge_bat_bg));
+            } else if (level >= 15) {
+                mPaint.setColor(mResources.getColor(R.color.full_bat_bg));
+            } else {
+                mPaint.setColor(mResources.getColor(R.color.low_bat_bg));
+            }
+            postInvalidate();
+        }
+    };
 
     public CircleBatteryView(Context context) {
         this(context, null);
@@ -59,36 +77,40 @@ public class CircleBatteryView extends View {
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        mPaint.setStyle(Style.FILL);
         mResources = mContext.getResources();
+    }
 
-        mOffset_x = mResources.getInteger(R.integer.x_offset);
-        mOffset_y = mResources.getInteger(R.integer.y_offset);
-        mOffset_rad = mResources.getInteger(R.integer.radius_offset);
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (!mBatteryStateReceiverRegistered) {
+            mContext.registerReceiver(mBatteryStateReceiver,
+                    new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+            mBatteryStateReceiverRegistered = true;
+        }
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (mBatteryStateReceiverRegistered) {
+            mContext.unregisterReceiver(mBatteryStateReceiver);
+            mBatteryStateReceiverRegistered = false;
+        }
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        mCenterX = 0.5F * w + mResources.getInteger(R.integer.x_offset);
+        mCenterY = 13.0F * h / 48.0F + mResources.getInteger(R.integer.y_offset);
+        mRadius = 4.0F * w / 9.0F + mResources.getInteger(R.integer.radius_offset);
     }
 
     @Override
     public void onDraw(Canvas canvas) {
-        Intent batteryStatus = mContext.registerReceiver(null,
-                new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-        int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-        boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
-                status == BatteryManager.BATTERY_STATUS_FULL;
-
-        mCenter_x = getWidth() / 2 + mOffset_x;
-        mCenter_y = getHeight() * 13 / 48  + mOffset_y;
-        mRadius = getWidth() * 4 / 9 + mOffset_rad;
-
         canvas.drawRGB(0, 0, 0);
-        mPaint.setStyle(Style.FILL);
-
-        if (isCharging) {
-            mPaint.setColor(mResources.getColor(R.color.charge_bat_bg));
-        } else if (level >= 15) {
-            mPaint.setColor(mResources.getColor(R.color.full_bat_bg));
-        } else {
-            mPaint.setColor(mResources.getColor(R.color.low_bat_bg));
-        }
-        canvas.drawCircle((float) mCenter_x, (float) mCenter_y, (float) mRadius, mPaint);
+        canvas.drawCircle(mCenterX, mCenterY, mRadius, mPaint);
     }
 }
