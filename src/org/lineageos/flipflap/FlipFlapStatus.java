@@ -38,7 +38,6 @@ public class FlipFlapStatus {
     private boolean mRunning = true;
     private boolean mPocketed = false;
     private boolean mResetTimer = false;
-    private boolean mStayOnTop = false;
     private boolean mRinging = false;
     private boolean mAlarmClock = false;
     private int mRingCounter = 0;
@@ -75,14 +74,6 @@ public class FlipFlapStatus {
         boolean ret = mResetTimer;
         mResetTimer = false;
         return ret;
-    }
-
-    synchronized boolean isOnTop() {
-        return mStayOnTop;
-    }
-
-    synchronized void setOnTop(boolean val) {
-        mStayOnTop = val;
     }
 
     synchronized int ringCounter() {

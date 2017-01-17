@@ -117,7 +117,6 @@ public class FlipFlapActivity extends Activity {
 
         mStatus.stopRinging();
         mStatus.stopAlarm();
-        mStatus.setOnTop(false);
         mStatus.stopRunning();
         mPowerManager.wakeUp(SystemClock.uptimeMillis(), "Cover Opened");
     }
@@ -287,7 +286,6 @@ public class FlipFlapActivity extends Activity {
             }
 
             if (mView.supportsCallActions() && mStatus.isRinging()) {
-                mStatus.setOnTop(false);
                 if (distanceY < 60) {
                     mTelecomManager.endCall();
                 } else if (distanceY > 60) {
@@ -295,44 +293,16 @@ public class FlipFlapActivity extends Activity {
                 }
             } else if (mView.supportsAlarmActions() && mStatus.isAlarm()) {
                 if (distanceY < 60) {
-                    mStatus.setOnTop(false);
                     mBroadcastManager.sendBroadcast(
                             new Intent(FlipFlapUtils.ACTION_ALARM_DISMISS));
                     mStatus.stopAlarm();
                 } else if (distanceY > 60) {
-                    mStatus.setOnTop(false);
                     mBroadcastManager.sendBroadcast(
                             new Intent(FlipFlapUtils.ACTION_ALARM_SNOOZE));
                     mStatus.stopAlarm();
                 }
             }
             return true;
-        }
-    };
-
-    private Runnable mEnsureTopActivity = new Runnable() {
-        @Override
-        public void run() {
-            while ((mStatus.isRinging() || mStatus.isAlarm())
-                    && mStatus.isOnTop()) {
-                ActivityManager am =
-                        (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
-                if (!am.getRunningTasks(1).get(0).topActivity.getPackageName().equals(
-                        "org.lineageos.flipflap")) {
-                    Intent intent = new Intent();
-                    intent.setClassName(FlipFlapActivity.class.getPackage().getName(),
-                            FlipFlapActivity.class.getSimpleName());
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                }
-                try {
-                    Thread.sleep(100);
-                } catch (IllegalArgumentException e) {
-                    // This isn't going to happen
-                } catch (InterruptedException e) {
-                    Log.i(TAG, "Sleep interrupted", e);
-                }
-            }
         }
     };
 
@@ -376,18 +346,15 @@ public class FlipFlapActivity extends Activity {
                     name = name + "  "; // Add spaces so the scroll effect looks good
 
                     mStatus.startRinging(number, name);
-                    mStatus.setOnTop(true);
-                    new Thread(mEnsureTopActivity).start();
+                    ((View) mView).postInvalidate();
                 } else {
-                    mStatus.setOnTop(false);
                     mStatus.stopRinging();
                 }
             } else if (intent.getAction().equals(FlipFlapUtils.ACTION_ALARM_ALERT) &&
                     mView.supportsAlarmActions()) {
                 // add other alarm apps here
                 mStatus.startAlarm();
-                mStatus.setOnTop(true);
-                new Thread(mEnsureTopActivity).start();
+                ((View) mView).postInvalidate();
             } else if (Intent.ACTION_BATTERY_CHANGED.equals(action)) {
                 mIsPlugged = intent.getIntExtra("plugged", -1) > 0;
             }
