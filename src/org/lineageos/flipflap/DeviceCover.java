@@ -21,6 +21,7 @@
 package org.lineageos.flipflap;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Message;
@@ -59,6 +60,7 @@ public class DeviceCover {
                 WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                         WindowManager.LayoutParams.TYPE_BOOT_PROGRESS);
                 params.screenBrightness = mCoverView.getScreenBrightness();
+                params.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
                 mWm.addView(mCoverView, params);
             }
         } else {
