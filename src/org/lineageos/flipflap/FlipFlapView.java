@@ -62,6 +62,7 @@ public class FlipFlapView extends FrameLayout {
     private PowerManager.WakeLock mWakeLock;
     private SensorManager mSensorManager;
     private TelecomManager mTelecomManager;
+    private TelephonyManager mTelephonyManager;
     private boolean mAlarmActive;
     private boolean mProximityNear;
     private boolean mNotificationListenerRegistered;
@@ -79,13 +80,10 @@ public class FlipFlapView extends FrameLayout {
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         mTelecomManager = (TelecomManager) context.getSystemService(Context.TELECOM_SERVICE);
+        mTelephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
         mWakeLock = mPowerManager.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, TAG);
         mWakeLock.setReferenceCounted(false);
-
-        TelephonyManager tm = (TelephonyManager) context.getSystemService(
-                Context.TELEPHONY_SERVICE);
-        updateCallState(new CallState(context, tm.getCallState(), null));
     }
 
     protected boolean canUseProximitySensor() {
@@ -143,6 +141,8 @@ public class FlipFlapView extends FrameLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+
+        updateCallState(new CallState(getContext(), mTelephonyManager.getCallState(), null));
 
         IntentFilter filter = new IntentFilter();
         filter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
