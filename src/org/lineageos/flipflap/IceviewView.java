@@ -41,7 +41,7 @@ public class IceviewView extends FlipFlapView {
     public IceviewView(Context context) {
         super(context);
 
-        inflate(mContext, R.layout.iceview_view, this);
+        inflate(context, R.layout.iceview_view, this);
 
         mClockPanel = (ClockPanel) findViewById(R.id.clock_panel);
         mClockPanel.bringToFront();
@@ -79,7 +79,7 @@ public class IceviewView extends FlipFlapView {
         mNotificationsView.removeAllViews();
         for (StatusBarNotification sbn : notifications) {
             if (shouldShowNotification(sbn)) {
-                IceviewNotificationView inv = (IceviewNotificationView) inflate(mContext,
+                IceviewNotificationView inv = (IceviewNotificationView) inflate(getContext(),
                         R.layout.iceview_notification_view, null);
                 inv.setNotification(sbn.getNotification());
                 mNotificationsView.addView(inv);
