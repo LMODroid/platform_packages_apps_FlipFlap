@@ -20,13 +20,6 @@
 -->
 <resources>
   <string name="app_name">FlipFlap</string>
-  <string name="loading_indicator">Cargando o widget\u2026</string>
-  <!-- Formating strings for widget clock -->
-  <!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
-         android.text.format.DateFormat uses k for hours in the 0-23 range.
-         We need to support both -->
   <!-- String matching the lock screen format for displaying the date. -->
   <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
-  <!-- Format for describing the date, for accessibility. -->
-  <string name="full_wday_month_day_no_year">EEEE, MMMM d</string>
 </resources>
