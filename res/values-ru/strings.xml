@@ -27,4 +27,17 @@
   <string name="answer_call">ОТВЕТИТЬ</string>
   <string name="ignore_call">ОТКЛОНИТЬ</string>
   <string name="end_call">ЗАВЕРШИТЬ</string>
+  <!-- Strings for the Settings -->
+  <string name="category_behaviour">Поведение</string>
+  <string name="pass_to_security_view_title">Сразу предлагать ввод пароля</string>
+  <string name="category_design">Дизайн</string>
+  <string name="switch_charging_status_title">Показывать состояние зарядки</string>
+  <string name="switch_charging_status_summary">Менять цвет в зависимости от уровня заряда батареи</string>
+  <string name="timeout_plugged_title">Во время зарядки</string>
+  <string name="timeout_unplugged_title">При работе от батареи</string>
+  <string name="timeout_entry_5s">5 секунд</string>
+  <string name="timeout_entry_10s">10 секунд</string>
+  <string name="timeout_entry_30s">30 секунд</string>
+  <string name="timeout_entry_1min">1 минута</string>
+  <string name="timeout_entry_5min">5 минут</string>
 </resources>

@@ -23,4 +23,5 @@
   <!-- String matching the lock screen format for displaying the date. -->
   <string name="answer_call">SVARA</string>
   <string name="ignore_call">IGNORERA</string>
+  <!-- Strings for the Settings -->
 </resources>

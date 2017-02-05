@@ -27,4 +27,16 @@
   <string name="answer_call">ANNEHMEN</string>
   <string name="ignore_call">IGNORIEREN</string>
   <string name="end_call">ANRUF BEENDEN</string>
+  <!-- Strings for the Settings -->
+  <string name="category_behaviour">Verhalten</string>
+  <string name="pass_to_security_view_summary">Das Öffnen der Hülle zeigt direkt den Sperrbildschirm</string>
+  <string name="switch_charging_status_title">Ladestatus anzeigen</string>
+  <string name="switch_charging_status_summary">Farbe dem Batteriestatus anpassen</string>
+  <string name="timeout_plugged_title">Beim Laden</string>
+  <string name="timeout_entry_5s">5 Sekunden</string>
+  <string name="timeout_entry_10s">10 Sekunden</string>
+  <string name="timeout_entry_30s">30 Sekunden</string>
+  <string name="timeout_entry_1min">1 Minute</string>
+  <string name="timeout_entry_5min">5 Minuten</string>
+  <string name="timeout_entry_never">Nie</string>
 </resources>

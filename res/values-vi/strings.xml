@@ -19,5 +19,31 @@
 
 -->
 <resources>
+  <string name="app_name">FlipFlap</string>
+  <string name="notification_title">Nắp đậy thông minh đã được phát hiện</string>
+  <string name="alarm_label">BÁO THỨC</string>
   <!-- String matching the lock screen format for displaying the date. -->
+  <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
+  <string name="answer_call">TRẢ LỜI</string>
+  <string name="ignore_call">BỎ QUA</string>
+  <string name="end_call">KẾT THÚC CUỘC GỌI</string>
+  <!-- Strings for the Settings -->
+  <string name="settings_name">Flip cover</string>
+  <string name="category_behaviour">Hành vi</string>
+  <string name="pass_to_security_view_title">Lập tức chuyển đến mục nhập mật khẩu</string>
+  <string name="pass_to_security_view_summary">Mở vỏ bao lập tức hiển thị màn hình khóa</string>
+  <string name="category_design">Thiết kế</string>
+  <string name="switch_charging_status_title">Hiển thị tình trạng sạc pin</string>
+  <string name="switch_charging_status_summary">Thay đổi màu sắc tùy thuộc vào mức pin sạc hiện tại</string>
+  <string name="category_timeouts">Thời gian chờ</string>
+  <string name="timeout_plugged_title">Trong khi sạc</string>
+  <string name="timeout_unplugged_title">Đã rút sạc</string>
+  <string name="timeout_summary">Hiển thị ứng dụng nắp cho %s sau khi đóng nắp</string>
+  <string name="timeout_summary_never">Sau khi đóng nắp, các ứng dụng nắp sẽ luôn luôn ở trên</string>
+  <string name="timeout_entry_5s">5 giây</string>
+  <string name="timeout_entry_10s">10 giây</string>
+  <string name="timeout_entry_30s">30 giây</string>
+  <string name="timeout_entry_1min">1 phút</string>
+  <string name="timeout_entry_5min">5 phút</string>
+  <string name="timeout_entry_never">Không bao giờ</string>
 </resources>

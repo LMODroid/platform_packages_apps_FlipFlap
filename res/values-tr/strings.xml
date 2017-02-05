@@ -27,4 +27,23 @@
   <string name="answer_call">CEVAPLA</string>
   <string name="ignore_call">SUSTUR</string>
   <string name="end_call">ÇAĞRIYI SONLANDIR</string>
+  <!-- Strings for the Settings -->
+  <string name="settings_name">Flip cover</string>
+  <string name="category_behaviour">Davranış</string>
+  <string name="pass_to_security_view_title">Doğrudan şifre girişine git</string>
+  <string name="pass_to_security_view_summary">Kapak açıldığında direk kilit ekranını göster</string>
+  <string name="category_design">Tasarım</string>
+  <string name="switch_charging_status_title">Şarj etme durumunu göster</string>
+  <string name="switch_charging_status_summary">Mevcut pil durumuna göre rengi değiştir</string>
+  <string name="category_timeouts">Zaman Aşımları</string>
+  <string name="timeout_plugged_title">Şarj olurken</string>
+  <string name="timeout_unplugged_title">Şarj Olmuyor</string>
+  <string name="timeout_summary">Kapağı kapattıktan %s sonra için kapak uygulamasını görüntüleyin</string>
+  <string name="timeout_summary_never">Kapağı kapattıktan sonra, kapak uygulaması her zaman açık kalacaktır</string>
+  <string name="timeout_entry_5s">5 saniye</string>
+  <string name="timeout_entry_10s">10 saniye</string>
+  <string name="timeout_entry_30s">30 Saniye</string>
+  <string name="timeout_entry_1min">1 dakika</string>
+  <string name="timeout_entry_5min">5 dakika</string>
+  <string name="timeout_entry_never">Asla</string>
 </resources>

@@ -27,4 +27,5 @@
   <string name="answer_call">RISPONDI</string>
   <string name="ignore_call">IGNORA</string>
   <string name="end_call">TERMINA CHIAMATA</string>
+  <!-- Strings for the Settings -->
 </resources>

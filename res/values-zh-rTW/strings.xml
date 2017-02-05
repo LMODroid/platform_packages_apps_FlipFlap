@@ -27,4 +27,23 @@
   <string name="answer_call">接聽</string>
   <string name="ignore_call">忽略</string>
   <string name="end_call">結束通話</string>
+  <!-- Strings for the Settings -->
+  <string name="settings_name">掀蓋</string>
+  <string name="category_behaviour">行為</string>
+  <string name="pass_to_security_view_title">直接輸入密碼</string>
+  <string name="pass_to_security_view_summary">開啟保護殼時直接顯示鎖定畫面</string>
+  <string name="category_design">設計</string>
+  <string name="switch_charging_status_title">顯示充電狀態</string>
+  <string name="switch_charging_status_summary">根據目前電池電量改變顏色</string>
+  <string name="category_timeouts">逾時</string>
+  <string name="timeout_plugged_title">在充電時</string>
+  <string name="timeout_unplugged_title">拔出</string>
+  <string name="timeout_summary">關閉掀蓋後顯示 %s 的封面應用程式</string>
+  <string name="timeout_summary_never">關閉掀蓋後，封面應用程式將一律保持開啟狀態</string>
+  <string name="timeout_entry_5s">5 秒</string>
+  <string name="timeout_entry_10s">10 秒</string>
+  <string name="timeout_entry_30s">30 秒</string>
+  <string name="timeout_entry_1min">1 分鐘</string>
+  <string name="timeout_entry_5min">5 分鐘</string>
+  <string name="timeout_entry_never">永不</string>
 </resources>

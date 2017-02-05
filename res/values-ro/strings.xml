@@ -27,4 +27,23 @@
   <string name="answer_call">RĂSPUNDEȚI</string>
   <string name="ignore_call">IGNORAȚI</string>
   <string name="end_call">ÎNCHIDEȚI APELUL</string>
+  <!-- Strings for the Settings -->
+  <string name="settings_name">Husă copertă</string>
+  <string name="category_behaviour">Comportament</string>
+  <string name="pass_to_security_view_title">Arată direct introducere parolă</string>
+  <string name="pass_to_security_view_summary">Deschiderea carcasei va arăta în mod direct ecranul de blocare</string>
+  <string name="category_design">Design</string>
+  <string name="switch_charging_status_title">Afişează starea încărcării</string>
+  <string name="switch_charging_status_summary">Schimbă culoarea în funcţie de încărcarea curentă a bateriei</string>
+  <string name="category_timeouts">Timeout-uri</string>
+  <string name="timeout_plugged_title">În timpul încărcării</string>
+  <string name="timeout_unplugged_title">Deconectat</string>
+  <string name="timeout_summary">Afișează aplicația copertă pentru %s după închiderea capacului</string>
+  <string name="timeout_summary_never">După închiderea capacului, aplicația copertă va rămâne întotdeauna pornită</string>
+  <string name="timeout_entry_5s">5 secunde</string>
+  <string name="timeout_entry_10s">10 secunde</string>
+  <string name="timeout_entry_30s">30 de secunde</string>
+  <string name="timeout_entry_1min">1 minut</string>
+  <string name="timeout_entry_5min">5 minute</string>
+  <string name="timeout_entry_never">Niciodată</string>
 </resources>

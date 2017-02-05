@@ -19,5 +19,29 @@
 
 -->
 <resources>
+  <string name="notification_title">スマートカバーを検出しました</string>
+  <string name="alarm_label">アラーム</string>
   <!-- String matching the lock screen format for displaying the date. -->
+  <string name="answer_call">応答</string>
+  <string name="ignore_call">無視</string>
+  <string name="end_call">通話終了</string>
+  <!-- Strings for the Settings -->
+  <string name="settings_name">フリップカバー</string>
+  <string name="category_behaviour">動作</string>
+  <string name="pass_to_security_view_title">パスワード入力画面に直接移動</string>
+  <string name="pass_to_security_view_summary">ケースを開くとすぐロック画面を表示します</string>
+  <string name="category_design">デザイン</string>
+  <string name="switch_charging_status_title">充電状態の表示</string>
+  <string name="switch_charging_status_summary">現在のバッテリー残量に応じて色を変更します</string>
+  <string name="category_timeouts">タイムアウト</string>
+  <string name="timeout_plugged_title">充電中</string>
+  <string name="timeout_unplugged_title">接続されていません</string>
+  <string name="timeout_summary">カバーを閉じた後、カバーアプリを%s間表示します</string>
+  <string name="timeout_summary_never">カバーを閉じた後、カバーアプリを常に表示します</string>
+  <string name="timeout_entry_5s">5秒</string>
+  <string name="timeout_entry_10s">10秒</string>
+  <string name="timeout_entry_30s">30秒</string>
+  <string name="timeout_entry_1min">1分</string>
+  <string name="timeout_entry_5min">5分</string>
+  <string name="timeout_entry_never">使用しない</string>
 </resources>

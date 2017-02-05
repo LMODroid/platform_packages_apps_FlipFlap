@@ -27,4 +27,23 @@
   <string name="answer_call">ODGOVORI</string>
   <string name="ignore_call">PREZRI</string>
   <string name="end_call">KONČAJ KLIC</string>
+  <!-- Strings for the Settings -->
+  <string name="settings_name">Preklopni ovitek</string>
+  <string name="category_behaviour">Vedenje</string>
+  <string name="pass_to_security_view_title">Pojdi neposredno na vnos gesla</string>
+  <string name="pass_to_security_view_summary">Odpiranje ovitka neposredno prikaže zaklenjen zaslon</string>
+  <string name="category_design">Oblikovanje</string>
+  <string name="switch_charging_status_title">Prikaži stanje polnjenja</string>
+  <string name="switch_charging_status_summary">Spremeni barvo glede na trenutno napajanje baterije</string>
+  <string name="category_timeouts">Časovne omejitve</string>
+  <string name="timeout_plugged_title">Med polnjenjem</string>
+  <string name="timeout_unplugged_title">Odklopljeno</string>
+  <string name="timeout_summary">Prikaži osnovno aplikacijo po zapiranju pokrova za %s</string>
+  <string name="timeout_summary_never">Po zaprtju pokrova bo osnovna aplikacija vedno ostala odprta</string>
+  <string name="timeout_entry_5s">5 sekund</string>
+  <string name="timeout_entry_10s">10 sekund</string>
+  <string name="timeout_entry_30s">30 sekund</string>
+  <string name="timeout_entry_1min">1 minuta</string>
+  <string name="timeout_entry_5min">5 minut</string>
+  <string name="timeout_entry_never">Nikoli</string>
 </resources>
