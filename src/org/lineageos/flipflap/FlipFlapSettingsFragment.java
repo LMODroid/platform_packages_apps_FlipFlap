@@ -24,8 +24,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.PreferenceFragment;
 import android.provider.Settings;
@@ -34,7 +32,7 @@ import android.util.Log;
 import org.lineageos.flipflap.R;
 
 public class FlipFlapSettingsFragment extends PreferenceFragment
-        implements OnPreferenceChangeListener {
+        implements Preference.OnPreferenceChangeListener {
 
     public final String TAG = "FlipFlapSettings";
 
@@ -44,23 +42,13 @@ public class FlipFlapSettingsFragment extends PreferenceFragment
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.flipflapsettings_panel);
 
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-
-        ListPreference pluggedTimeout = (ListPreference)
-                findPreference(FlipFlapUtils.KEY_TIMEOUT_PLUGGED);
-        pluggedTimeout.setOnPreferenceChangeListener(this);
-        ListPreference unpluggedTimeout = (ListPreference)
-                findPreference(FlipFlapUtils.KEY_TIMEOUT_UNPLUGGED);
-        unpluggedTimeout.setOnPreferenceChangeListener(this);
-
-        setTimeoutSummary(pluggedTimeout, FlipFlapUtils.getTimeout(getActivity(), true));
-        setTimeoutSummary(unpluggedTimeout, FlipFlapUtils.getTimeout(getActivity(), false));
+        setupTimeoutPreference(FlipFlapUtils.KEY_TIMEOUT_PLUGGED);
+        setupTimeoutPreference(FlipFlapUtils.KEY_TIMEOUT_UNPLUGGED);
 
         int cover = FlipFlapUtils.getCoverStyle(getActivity());
         if (!FlipFlapUtils.showsChargingStatus(cover)) {
-            PreferenceCategory designCategory = (PreferenceCategory)
-                    findPreference(KEY_DESIGN_CATEGORY);
-            preferenceScreen.removePreference(designCategory);
+            PreferenceScreen ps = getPreferenceScreen();
+            ps.removePreference(ps.findPreference(KEY_DESIGN_CATEGORY));
         }
     }
 
@@ -80,6 +68,12 @@ public class FlipFlapSettingsFragment extends PreferenceFragment
                 return true;
 
         }
+    }
+
+    private void setupTimeoutPreference(String key) {
+        ListPreference list = (ListPreference) findPreference(key);
+        list.setOnPreferenceChangeListener(this);
+        setTimeoutSummary(list, FlipFlapUtils.getTimeout(getActivity(), key));
     }
 
     private void setTimeoutSummary(Preference pref, int timeOut) {
