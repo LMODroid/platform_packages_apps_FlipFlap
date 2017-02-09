@@ -35,7 +35,7 @@
   <string name="timeout_plugged_title">Enquanto estiver carregando</string>
   <string name="timeout_unplugged_title">Desconectado</string>
   <string name="timeout_summary">Mostrar o aplicativo de capa por %s depois de fechar a tampa</string>
-  <string name="timeout_summary_never">Depois de fechar a tampa, o aplicativo de capa irá ficar sempre ligado</string>
+  <string name="timeout_summary_never">O aplicativo de capa ficará sempre ligado ao fechar a tampa</string>
   <string name="timeout_entry_5s">5 segundos</string>
   <string name="timeout_entry_10s">10 segundos</string>
   <string name="timeout_entry_30s">30 segundos</string>
