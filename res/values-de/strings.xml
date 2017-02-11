@@ -35,6 +35,7 @@
   <string name="category_design">Design</string>
   <string name="switch_charging_status_title">Ladestatus anzeigen</string>
   <string name="switch_charging_status_summary">Farbe dem Batteriestatus anpassen</string>
+  <string name="category_timeouts">Automatisch abschalten</string>
   <string name="timeout_plugged_title">Beim Laden</string>
   <string name="timeout_unplugged_title">Nicht angeschlossen</string>
   <string name="timeout_summary">Zeigt die Cover-App für %s nach dem Schließen der Hülle</string>
