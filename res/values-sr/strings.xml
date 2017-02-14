@@ -28,4 +28,16 @@
   <string name="ignore_call">ЗАНЕМАРИ</string>
   <string name="end_call">ЗАВРШИ РАЗГОВОР</string>
   <!-- Strings for the Settings -->
+  <string name="category_behaviour">Понашање</string>
+  <string name="pass_to_security_view_title">Директно пређите на унос лозинке</string>
+  <string name="category_design">Дизајн</string>
+  <string name="switch_charging_status_title">Прикажи статус пуњења</string>
+  <string name="timeout_plugged_title">Током пуњења</string>
+  <string name="timeout_entry_immediately">Одмах</string>
+  <string name="timeout_entry_5s">5 секунди</string>
+  <string name="timeout_entry_10s">10 секунди</string>
+  <string name="timeout_entry_30s">30 секунди</string>
+  <string name="timeout_entry_1min">1 минут</string>
+  <string name="timeout_entry_5min">5 минута</string>
+  <string name="timeout_entry_never">Никад</string>
 </resources>

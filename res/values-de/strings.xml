@@ -40,6 +40,7 @@
   <string name="timeout_unplugged_title">Nicht angeschlossen</string>
   <string name="timeout_summary">Zeigt die Cover-App für %s nach dem Schließen der Hülle</string>
   <string name="timeout_summary_never">Nach dem Schließen der Hülle bleibt die Cover-App immer an</string>
+  <string name="timeout_summary_immediately">Der Bildschirm wird durch Schließen der Hülle ausgeschaltet</string>
   <string name="timeout_entry_immediately">Sofort</string>
   <string name="timeout_entry_5s">5 Sekunden</string>
   <string name="timeout_entry_10s">10 Sekunden</string>

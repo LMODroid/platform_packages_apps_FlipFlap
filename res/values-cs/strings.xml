@@ -40,6 +40,8 @@
   <string name="timeout_unplugged_title">Odpojení</string>
   <string name="timeout_summary">Zobrazit aplikaci pro obal po dobu %s po zavření</string>
   <string name="timeout_summary_never">Po zavření bude aplikace obalu stále aktivní</string>
+  <string name="timeout_summary_immediately">Obrazovka se vypne při zavření krytu</string>
+  <string name="timeout_entry_immediately">Okamžitě</string>
   <string name="timeout_entry_5s">5 sekund</string>
   <string name="timeout_entry_10s">10 sekund</string>
   <string name="timeout_entry_30s">30 sekund</string>
