@@ -19,6 +19,33 @@
 
 -->
 <resources>
+  <string name="app_name">FlipFlap</string>
+  <string name="notification_title">Смарт чохол виявлено</string>
+  <string name="alarm_label">БУДИЛЬНИК</string>
   <!-- String matching the lock screen format for displaying the date. -->
+  <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
+  <string name="answer_call">ВІДПОВІСТИ</string>
+  <string name="ignore_call">ВІДХИЛИТИ</string>
+  <string name="end_call">Завершити</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Фліп-чохол</string>
+  <string name="category_behaviour">Поведінка</string>
+  <string name="pass_to_security_view_title">Відразу пропонувати введення паролю</string>
+  <string name="pass_to_security_view_summary">Відкриття чохла показує екран розблокування</string>
+  <string name="category_design">Оформлення</string>
+  <string name="switch_charging_status_title">Показати статус зарядки</string>
+  <string name="switch_charging_status_summary">Змінювати колір в залежності від рівня заряду батареї</string>
+  <string name="category_timeouts">Затримка</string>
+  <string name="timeout_plugged_title">Під час зарядки</string>
+  <string name="timeout_unplugged_title">Від\'єднано</string>
+  <string name="timeout_summary">Показувати додаток чохла для %s після закриття</string>
+  <string name="timeout_summary_never">Після закриття чохла, програму буде увімкнено</string>
+  <string name="timeout_summary_immediately">Під час закриття чохла екран буде вимкнено</string>
+  <string name="timeout_entry_immediately">Негайно</string>
+  <string name="timeout_entry_5s">5 секунд</string>
+  <string name="timeout_entry_10s">10 секунд</string>
+  <string name="timeout_entry_30s">30 секунд</string>
+  <string name="timeout_entry_1min">1 хвилина</string>
+  <string name="timeout_entry_5min">5 хвилин</string>
+  <string name="timeout_entry_never">Ніколи</string>
 </resources>

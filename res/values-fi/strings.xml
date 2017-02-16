@@ -40,6 +40,8 @@
   <string name="timeout_unplugged_title">Ei kytketty</string>
   <string name="timeout_summary">Näytä suojakuorisovellus %s kannen sulkemisen jälkeen</string>
   <string name="timeout_summary_never">Kannen sulkemisen jälkeen, suojakuorisovellus pysyy aina päällä</string>
+  <string name="timeout_summary_immediately">Näyttö sammuu kun suljet kannen</string>
+  <string name="timeout_entry_immediately">Välittömästi</string>
   <string name="timeout_entry_5s">5 sekuntia</string>
   <string name="timeout_entry_10s">10 sekuntia</string>
   <string name="timeout_entry_30s">30 sekuntia</string>

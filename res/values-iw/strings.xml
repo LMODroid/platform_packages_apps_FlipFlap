@@ -19,6 +19,33 @@
 
 -->
 <resources>
+  <string name="app_name">כיסוי חכם</string>
+  <string name="notification_title">כיסוי חכם זוהה</string>
+  <string name="alarm_label">שעון מעורר</string>
   <!-- String matching the lock screen format for displaying the date. -->
+  <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
+  <string name="answer_call">ענה</string>
+  <string name="ignore_call">התעלם</string>
+  <string name="end_call">סיים שיחה</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">כיסוי נסגר</string>
+  <string name="category_behaviour">התנהגות</string>
+  <string name="pass_to_security_view_title">עבור ישירות אל הזנת הסיסמה</string>
+  <string name="pass_to_security_view_summary">פתיחת הכיסוי תראה ישירות את מסך הנעילה</string>
+  <string name="category_design">עיצוב</string>
+  <string name="switch_charging_status_title">הראה מצב טעינה</string>
+  <string name="switch_charging_status_summary">שינוי צבע בהתאם לאחוז הסוללה הנוכחי</string>
+  <string name="category_timeouts">זמן להצגה</string>
+  <string name="timeout_plugged_title">במהלך טעינה</string>
+  <string name="timeout_unplugged_title">כשלא נטען</string>
+  <string name="timeout_summary">הצג את יישום הכיסוי ל־%s לאחר סגירת הכיסוי</string>
+  <string name="timeout_summary_never">לאחר סגירת הכיסוי, יישום הכיסוי תמיד ישאר דולק</string>
+  <string name="timeout_summary_immediately">המסך תמיד ישאר דולק כשסוגרים את הכיסוי</string>
+  <string name="timeout_entry_immediately">מיידית</string>
+  <string name="timeout_entry_5s">5 שניות</string>
+  <string name="timeout_entry_10s">10 שניות</string>
+  <string name="timeout_entry_30s">30 שניות</string>
+  <string name="timeout_entry_1min">דקה</string>
+  <string name="timeout_entry_5min">5 דקות</string>
+  <string name="timeout_entry_never">אף פעם</string>
 </resources>
