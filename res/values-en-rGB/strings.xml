@@ -19,6 +19,17 @@
 
 -->
 <resources>
+  <string name="app_name">FlipFlap</string>
+  <string name="notification_title">Smart cover detected</string>
+  <string name="alarm_label">ALARM</string>
   <!-- String matching the lock screen format for displaying the date. -->
+  <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
+  <string name="answer_call">ANSWER</string>
+  <string name="ignore_call">IGNORE</string>
+  <string name="end_call">END CALL</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Flip cover</string>
+  <string name="category_behaviour">Behaviour</string>
+  <string name="category_design">Design</string>
+  <string name="switch_charging_status_summary">Change colour depending on the current battery charge</string>
 </resources>

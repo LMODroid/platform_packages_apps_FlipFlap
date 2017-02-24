@@ -27,10 +27,17 @@
   <string name="ignore_call">ABAIKAN</string>
   <string name="end_call">AKHIRI PANGGILAN</string>
   <!-- Strings for the Settings -->
+  <string name="category_behaviour">Perilaku</string>
+  <string name="pass_to_security_view_title">Langsung tampilkan entri kata sandi</string>
   <string name="pass_to_security_view_summary">Langsung tampilkan layar kunci ketika penutup dibuka</string>
+  <string name="category_design">Desain</string>
   <string name="switch_charging_status_title">Tampilkan status pengisian</string>
+  <string name="switch_charging_status_summary">Ubah warna menurut daya baterai aktual</string>
   <string name="category_timeouts">Batas waktu</string>
+  <string name="timeout_plugged_title">Saat mengisi daya</string>
+  <string name="timeout_unplugged_title">Saat tidak mengisi daya</string>
   <string name="timeout_summary_immediately">Layar akan dimatikan saat penutup ditutup</string>
+  <string name="timeout_entry_immediately">Segera</string>
   <string name="timeout_entry_5s">5 detik</string>
   <string name="timeout_entry_10s">10 detik</string>
   <string name="timeout_entry_30s">30 detik</string>
