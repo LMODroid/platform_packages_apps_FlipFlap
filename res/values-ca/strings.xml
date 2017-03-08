@@ -20,7 +20,7 @@
 -->
 <resources>
   <string name="app_name">FlipFlap</string>
-  <string name="notification_title">Smart cover detectada</string>
+  <string name="notification_title">Tapa intel·ligent detectada</string>
   <string name="alarm_label">ALARMA</string>
   <!-- String matching the lock screen format for displaying the date. -->
   <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>

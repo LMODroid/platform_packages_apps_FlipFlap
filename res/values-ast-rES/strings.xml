@@ -19,6 +19,21 @@
 
 -->
 <resources>
+  <string name="notification_title">Deteutóse una carcaxa intelixente</string>
   <!-- String matching the lock screen format for displaying the date. -->
+  <string name="answer_call">CONTESTAR</string>
+  <string name="ignore_call">INORAR</string>
+  <string name="end_call">FINAR LLAMADA</string>
   <!-- Strings for the Settings -->
+  <string name="category_behaviour">Comportamientu</string>
+  <string name="category_design">Diseñu</string>
+  <string name="switch_charging_status_title">Amosar estáu de carga</string>
+  <string name="switch_charging_status_summary">Camuda la color dependiendo de la carga actual de batería</string>
+  <string name="timeout_entry_immediately">Darréu</string>
+  <string name="timeout_entry_5s">5 segundos</string>
+  <string name="timeout_entry_10s">10 segundos</string>
+  <string name="timeout_entry_30s">30 segundos</string>
+  <string name="timeout_entry_1min">1 minutu</string>
+  <string name="timeout_entry_5min">5 minutos</string>
+  <string name="timeout_entry_never">Enxamás</string>
 </resources>
