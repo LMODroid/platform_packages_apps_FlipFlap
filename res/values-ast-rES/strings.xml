@@ -19,7 +19,9 @@
 
 -->
 <resources>
+  <string name="app_name">FlipFlap</string>
   <string name="notification_title">Deteutóse una carcaxa intelixente</string>
+  <string name="alarm_label">ALARMA</string>
   <!-- String matching the lock screen format for displaying the date. -->
   <string name="answer_call">CONTESTAR</string>
   <string name="ignore_call">INORAR</string>
@@ -29,6 +31,8 @@
   <string name="category_design">Diseñu</string>
   <string name="switch_charging_status_title">Amosar estáu de carga</string>
   <string name="switch_charging_status_summary">Camuda la color dependiendo de la carga actual de batería</string>
+  <string name="category_timeouts">Escoses de tiempu</string>
+  <string name="timeout_plugged_title">Entrín se carga</string>
   <string name="timeout_entry_immediately">Darréu</string>
   <string name="timeout_entry_5s">5 segundos</string>
   <string name="timeout_entry_10s">10 segundos</string>

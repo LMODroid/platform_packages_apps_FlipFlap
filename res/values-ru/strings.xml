@@ -28,6 +28,7 @@
   <string name="ignore_call">ОТКЛОНИТЬ</string>
   <string name="end_call">ЗАВЕРШИТЬ</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Флип-кейс</string>
   <string name="category_behaviour">Поведение</string>
   <string name="pass_to_security_view_title">Сразу предлагать ввод пароля</string>
   <string name="pass_to_security_view_summary">Открытие чехла показывает экран блокировки</string>
@@ -37,9 +38,14 @@
   <string name="category_timeouts">Задержка</string>
   <string name="timeout_plugged_title">Во время зарядки</string>
   <string name="timeout_unplugged_title">При работе от батареи</string>
+  <string name="timeout_summary">Показывать приложение чехла %s после закрытия</string>
+  <string name="timeout_summary_never">После закрытия чехла приложение будет отображаться всегда</string>
+  <string name="timeout_summary_immediately">Экран будет выключен после закрытия чехла</string>
+  <string name="timeout_entry_immediately">Немедленно</string>
   <string name="timeout_entry_5s">5 секунд</string>
   <string name="timeout_entry_10s">10 секунд</string>
   <string name="timeout_entry_30s">30 секунд</string>
   <string name="timeout_entry_1min">1 минута</string>
   <string name="timeout_entry_5min">5 минут</string>
+  <string name="timeout_entry_never">Не включать</string>
 </resources>
