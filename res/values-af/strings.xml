@@ -19,6 +19,33 @@
 
 -->
 <resources>
+  <string name="app_name">FlipFlap</string>
+  <string name="notification_title">Slim-omhulsel opgespoor</string>
+  <string name="alarm_label">Wekker</string>
   <!-- String matching the lock screen format for displaying the date. -->
+  <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
+  <string name="answer_call">ANTWOORT</string>
+  <string name="ignore_call">IGNOREER</string>
+  <string name="end_call">BEEÏNDIG OPROEP</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Flip omhulsel</string>
+  <string name="category_behaviour">Gedrag</string>
+  <string name="pass_to_security_view_title">Gaan direk na wagwoordinvoer</string>
+  <string name="pass_to_security_view_summary">Oopmaak van die omhulsel toon direk die sluit skerm</string>
+  <string name="category_design">Ontwerp</string>
+  <string name="switch_charging_status_title">Wys laaistatus</string>
+  <string name="switch_charging_status_summary">Verander kleur afhangend van die huidige batterylaaivlak</string>
+  <string name="category_timeouts">Skakel outomaties af</string>
+  <string name="timeout_plugged_title">Terwyl dit gelaai word</string>
+  <string name="timeout_unplugged_title">Ontprop</string>
+  <string name="timeout_summary">Wys die dekking-toepassing vir %s nadat die deksel toegemaak is</string>
+  <string name="timeout_summary_never">Nadat die deksel toegemaak is, die omhulsel-toepassing sal altyd aanbly</string>
+  <string name="timeout_summary_immediately">Die skerm sal afgeskakel word wanneer die dekking gesluit word</string>
+  <string name="timeout_entry_immediately">Onmiddellik</string>
+  <string name="timeout_entry_5s">5 sekondes</string>
+  <string name="timeout_entry_10s">10 sekondes</string>
+  <string name="timeout_entry_30s">30 sekondes</string>
+  <string name="timeout_entry_1min">1 minuut</string>
+  <string name="timeout_entry_5min">5 minute</string>
+  <string name="timeout_entry_never">Nooit</string>
 </resources>
