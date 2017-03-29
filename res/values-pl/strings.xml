@@ -20,8 +20,10 @@
 -->
 <resources>
   <string name="app_name">FlipFlap</string>
+  <string name="alarm_label">BUDZIK</string>
   <!-- String matching the lock screen format for displaying the date. -->
   <!-- Strings for the Settings -->
+  <string name="switch_charging_status_summary">Zmienia kolor w zależności od aktualnego stanu naładowania baterii</string>
   <string name="timeout_entry_immediately">Natychmiast</string>
   <string name="timeout_entry_5s">5 sekund</string>
   <string name="timeout_entry_10s">10 sekund</string>
