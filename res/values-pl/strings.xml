@@ -20,6 +20,7 @@
 -->
 <resources>
   <string name="app_name">FlipFlap</string>
+  <string name="notification_title">Wykryto inteligentną obudowę</string>
   <string name="alarm_label">BUDZIK</string>
   <!-- String matching the lock screen format for displaying the date. -->
   <!-- Strings for the Settings -->

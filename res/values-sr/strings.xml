@@ -30,9 +30,13 @@
   <!-- Strings for the Settings -->
   <string name="category_behaviour">Понашање</string>
   <string name="pass_to_security_view_title">Директно пређите на унос лозинке</string>
+  <string name="pass_to_security_view_summary">Отварање кућишта директно показује закључан екран</string>
   <string name="category_design">Дизајн</string>
   <string name="switch_charging_status_title">Прикажи статус пуњења</string>
+  <string name="switch_charging_status_summary">Промена боје у зависности од напуњености батерије</string>
+  <string name="category_timeouts">Време је истекло</string>
   <string name="timeout_plugged_title">Током пуњења</string>
+  <string name="timeout_unplugged_title">Неприкључен</string>
   <string name="timeout_entry_immediately">Одмах</string>
   <string name="timeout_entry_5s">5 секунди</string>
   <string name="timeout_entry_10s">10 секунди</string>

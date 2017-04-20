@@ -19,6 +19,33 @@
 
 -->
 <resources>
+  <string name="app_name">FlipFlap</string>
+  <string name="notification_title">Smart cover është dalluar</string>
+  <string name="alarm_label">ALARM</string>
   <!-- String matching the lock screen format for displaying the date. -->
+  <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
+  <string name="answer_call">PËRGJIGJU</string>
+  <string name="ignore_call">SHPËRFILL</string>
+  <string name="end_call">MBYLLE</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Flip cover</string>
+  <string name="category_behaviour">Reagimi</string>
+  <string name="pass_to_security_view_title">Shko direkt tek futja e fjalëkalimit</string>
+  <string name="pass_to_security_view_summary">Hapja e kapakut të çon direkt tek ekrani bllokues</string>
+  <string name="category_design">Dizajni</string>
+  <string name="switch_charging_status_title">Trego statusin e karikimit</string>
+  <string name="switch_charging_status_summary">Ndrysho ngjyrën në bazë të karikimit të baterisë</string>
+  <string name="category_timeouts">Kohëmatësit</string>
+  <string name="timeout_plugged_title">Gjatë karikimit</string>
+  <string name="timeout_unplugged_title">Shkëputur</string>
+  <string name="timeout_summary">Trego aplikacionin e kapakut për %s nga momenti i mbylljes së kapakut</string>
+  <string name="timeout_summary_never">Pas mbylljes së kapakut, aplikacioni do të qëndrojë gjithmonë i hapur</string>
+  <string name="timeout_summary_immediately">Ekrani do të fiket kur mbyll kapakun</string>
+  <string name="timeout_entry_immediately">Menjëherë</string>
+  <string name="timeout_entry_5s">5 sekonda</string>
+  <string name="timeout_entry_10s">10 sekonda</string>
+  <string name="timeout_entry_30s">30 sekonda</string>
+  <string name="timeout_entry_1min">1 minutë</string>
+  <string name="timeout_entry_5min">5 minuta</string>
+  <string name="timeout_entry_never">Kurrë</string>
 </resources>

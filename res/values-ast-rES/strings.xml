@@ -38,7 +38,6 @@
   <string name="category_timeouts">Escoses de tiempu</string>
   <string name="timeout_plugged_title">Entrín se carga</string>
   <string name="timeout_unplugged_title">Desenchufáu</string>
-  <string name="timeout_summary">Amuesa l\'aplicación de la carcaxa %s dempués de zarrar la tapa</string>
   <string name="timeout_summary_never">Dempués de zarrar la tapa, l\'aplicación de la carcaxa siempres tará activada</string>
   <string name="timeout_entry_immediately">Darréu</string>
   <string name="timeout_entry_5s">5 segundos</string>
