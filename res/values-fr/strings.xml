@@ -39,6 +39,7 @@
   <string name="timeout_plugged_title">Lors du chargement</string>
   <string name="timeout_unplugged_title">Débranché</string>
   <string name="timeout_summary">Afficher l\'application de la protection pendant %s après son rabattement</string>
+  <string name="timeout_summary_never">L\'écran restera toujours allumé après avoir fermé l\'étui</string>
   <string name="timeout_summary_immediately">L\'écran s\'éteindra lors du rabattement de la protection</string>
   <string name="timeout_entry_immediately">Immédiatement</string>
   <string name="timeout_entry_5s">5 secondes</string>
