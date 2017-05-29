@@ -28,6 +28,7 @@ import android.content.pm.ActivityInfo;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
+import android.view.View;
 import android.view.WindowManager;
 
 public class FlipFlapService extends Service {
@@ -63,6 +64,7 @@ public class FlipFlapService extends Service {
         super.onDestroy();
         Log.d(TAG, "Destroying cover view");
         if (mCoverView != null) {
+            mCoverView.setVisibility(View.GONE);
             mWm.removeView(mCoverView);
             mCoverView = null;
         }
