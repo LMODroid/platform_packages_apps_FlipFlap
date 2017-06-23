@@ -20,23 +20,27 @@
 -->
 <resources>
   <string name="app_name">FlipFlap</string>
-  <string name="notification_title">Откривена паметна заштита</string>
+  <string name="notification_title">Откривена је паметна футрола</string>
   <string name="alarm_label">АЛАРМ</string>
   <!-- String matching the lock screen format for displaying the date. -->
-  <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
-  <string name="answer_call">ОДГОВОР</string>
+  <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
+  <string name="answer_call">ОДГОВОРИ</string>
   <string name="ignore_call">ЗАНЕМАРИ</string>
-  <string name="end_call">ЗАВРШИ РАЗГОВОР</string>
+  <string name="end_call">ЗАВРШИ ПОЗИВ</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Преклопна футрола</string>
   <string name="category_behaviour">Понашање</string>
-  <string name="pass_to_security_view_title">Директно пређите на унос лозинке</string>
-  <string name="pass_to_security_view_summary">Отварање кућишта директно показује закључан екран</string>
+  <string name="pass_to_security_view_title">Одмах нуди унос лозинке</string>
+  <string name="pass_to_security_view_summary">Отварањем футроле се приказује закључани екран.</string>
   <string name="category_design">Дизајн</string>
   <string name="switch_charging_status_title">Прикажи статус пуњења</string>
-  <string name="switch_charging_status_summary">Промена боје у зависности од напуњености батерије</string>
-  <string name="category_timeouts">Време је истекло</string>
+  <string name="switch_charging_status_summary">Мења боју у зависности од нивоа напуњености батерије.</string>
+  <string name="category_timeouts">Кашњење</string>
   <string name="timeout_plugged_title">Током пуњења</string>
-  <string name="timeout_unplugged_title">Неприкључен</string>
+  <string name="timeout_unplugged_title">Искључено са извора</string>
+  <string name="timeout_summary">Приказује апликацију футроле за %s након затварања.</string>
+  <string name="timeout_summary_never">Након затварања футроле, апликација ће остати укључена.</string>
+  <string name="timeout_summary_immediately">Екран ће бити искључен након затварања футроле.</string>
   <string name="timeout_entry_immediately">Одмах</string>
   <string name="timeout_entry_5s">5 секунди</string>
   <string name="timeout_entry_10s">10 секунди</string>
