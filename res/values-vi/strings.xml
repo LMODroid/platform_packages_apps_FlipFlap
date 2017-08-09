@@ -32,6 +32,8 @@
   <string name="category_behaviour">Hành vi</string>
   <string name="pass_to_security_view_title">Lập tức chuyển đến mục nhập mật khẩu</string>
   <string name="pass_to_security_view_summary">Mở vỏ bao lập tức hiển thị màn hình khóa</string>
+  <string name="use_high_touch_sensitivity_title">Độ nhạy cảm ứng cao</string>
+  <string name="use_high_touch_sensitivity_summary">Tăng độ nhạy cảm ứng khi nắp đậy bị đóng</string>
   <string name="category_design">Thiết kế</string>
   <string name="switch_charging_status_title">Hiển thị tình trạng sạc pin</string>
   <string name="switch_charging_status_summary">Thay đổi màu sắc tùy thuộc vào mức pin sạc hiện tại</string>

@@ -32,6 +32,8 @@
   <string name="category_behaviour">Správanie</string>
   <string name="pass_to_security_view_title">Priamo zadať heslo</string>
   <string name="pass_to_security_view_summary">Po otvorení obalu hneď zobraziť obrazovku uzaknutia</string>
+  <string name="use_high_touch_sensitivity_title">Vysoká citlivosť na dotyky</string>
+  <string name="use_high_touch_sensitivity_summary">Zvýšenie citlivosti na dotyk pri použití uzatvoreného obalu</string>
   <string name="category_design">Dizajn</string>
   <string name="switch_charging_status_title">Zobraziť stav nabíjania</string>
   <string name="switch_charging_status_summary">Zmena farby v závislosti na aktuálnej úrovni nabitia batérie</string>

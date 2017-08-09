@@ -32,6 +32,8 @@
   <string name="category_behaviour">Vedenje</string>
   <string name="pass_to_security_view_title">Pojdi neposredno na vnos gesla</string>
   <string name="pass_to_security_view_summary">Odpiranje ovitka neposredno prikaže zaklenjen zaslon</string>
+  <string name="use_high_touch_sensitivity_title">Visoka občutljivost dotika</string>
+  <string name="use_high_touch_sensitivity_summary">Povečaj občutljivost dotika, ko je ovitek zaprt</string>
   <string name="category_design">Oblikovanje</string>
   <string name="switch_charging_status_title">Prikaži stanje polnjenja</string>
   <string name="switch_charging_status_summary">Spremeni barvo glede na trenutno napajanje baterije</string>

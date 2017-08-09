@@ -32,6 +32,8 @@
   <string name="category_behaviour">功能</string>
   <string name="pass_to_security_view_title">直接转至密码输入框</string>
   <string name="pass_to_security_view_summary">打开保护盖时直接显示锁屏界面</string>
+  <string name="use_high_touch_sensitivity_title">触摸屏高灵敏度</string>
+  <string name="use_high_touch_sensitivity_summary">在保护盖盖上时增加触摸屏灵敏度</string>
   <string name="category_design">设计</string>
   <string name="switch_charging_status_title">显示充电状态</string>
   <string name="switch_charging_status_summary">基于当前的充电情况改变颜色</string>

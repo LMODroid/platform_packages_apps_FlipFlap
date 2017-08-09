@@ -32,6 +32,8 @@
   <string name="category_behaviour">Понашање</string>
   <string name="pass_to_security_view_title">Одмах нуди унос лозинке</string>
   <string name="pass_to_security_view_summary">Отварањем футроле се приказује закључани екран.</string>
+  <string name="use_high_touch_sensitivity_title">Велика осетљивост на додир</string>
+  <string name="use_high_touch_sensitivity_summary">Повећава осетљивост додира када је поклопац затворен</string>
   <string name="category_design">Дизајн</string>
   <string name="switch_charging_status_title">Прикажи статус пуњења</string>
   <string name="switch_charging_status_summary">Мења боју у зависности од нивоа напуњености батерије.</string>

@@ -32,6 +32,8 @@
   <string name="category_behaviour">Chování</string>
   <string name="pass_to_security_view_title">Přímo zobrazit zadání hesla</string>
   <string name="pass_to_security_view_summary">Otevřením obalu přímo zobrazit obrazovku zámku</string>
+  <string name="use_high_touch_sensitivity_title">Vysoká citlivost dotyku</string>
+  <string name="use_high_touch_sensitivity_summary">Zvýšení citlivosti na dotyk při uzavřeném krytu</string>
   <string name="category_design">Vzhled</string>
   <string name="switch_charging_status_title">Zobrazit stav nabíjení</string>
   <string name="switch_charging_status_summary">Změnit barvu na základě stavu nabití baterie</string>

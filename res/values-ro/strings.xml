@@ -32,6 +32,8 @@
   <string name="category_behaviour">Comportament</string>
   <string name="pass_to_security_view_title">Arată direct introducere parolă</string>
   <string name="pass_to_security_view_summary">Deschiderea carcasei va arăta în mod direct ecranul de blocare</string>
+  <string name="use_high_touch_sensitivity_title">Sensibilitate tactilă înaltă</string>
+  <string name="use_high_touch_sensitivity_summary">Crește sensibilitatea tactilă în timp ce cover-ul e închis</string>
   <string name="category_design">Design</string>
   <string name="switch_charging_status_title">Afişează starea încărcării</string>
   <string name="switch_charging_status_summary">Schimbă culoarea în funcţie de încărcarea curentă a bateriei</string>

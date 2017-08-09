@@ -32,6 +32,8 @@
   <string name="category_behaviour">Portaera</string>
   <string name="pass_to_security_view_title">Jo zuzenean pasahitzaren sarrerara</string>
   <string name="pass_to_security_view_summary">Azala irekitzean blokeo-pantaila erakutsiko da zuzenean</string>
+  <string name="use_high_touch_sensitivity_title">Ukipen sentsibilitate altua</string>
+  <string name="use_high_touch_sensitivity_summary">Areagotu ukipen sentsibilitatea azala itxita dagoenean</string>
   <string name="category_design">Diseinua</string>
   <string name="switch_charging_status_title">Erakutsi kargatze-egoera</string>
   <string name="switch_charging_status_summary">Aldatu kolorea uneko bateriaren kargaren arabera</string>

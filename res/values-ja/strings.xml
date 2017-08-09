@@ -32,6 +32,8 @@
   <string name="category_behaviour">動作</string>
   <string name="pass_to_security_view_title">パスワード入力画面に直接移動</string>
   <string name="pass_to_security_view_summary">ケースを開くとすぐロック画面を表示します</string>
+  <string name="use_high_touch_sensitivity_title">高感度タッチ</string>
+  <string name="use_high_touch_sensitivity_summary">カバーが閉じている間のタッチ感度を高くします</string>
   <string name="category_design">デザイン</string>
   <string name="switch_charging_status_title">充電状態の表示</string>
   <string name="switch_charging_status_summary">現在のバッテリー残量に応じて色を変更します</string>

@@ -32,6 +32,8 @@
   <string name="category_behaviour">Comportamiento</string>
   <string name="pass_to_security_view_title">Introducir directamente la contraseña</string>
   <string name="pass_to_security_view_summary">Mostrar la pantalla de bloqueo al retirar la cubierta</string>
+  <string name="use_high_touch_sensitivity_title">Alta sensibilidad táctil</string>
+  <string name="use_high_touch_sensitivity_summary">Aumenta la sensibilidad táctil mientras la tapa cubre el dispositivo</string>
   <string name="category_design">Diseño</string>
   <string name="switch_charging_status_title">Mostrar los estados de carga</string>
   <string name="switch_charging_status_summary">Cambiar el color dependiendo de la carga de la batería</string>

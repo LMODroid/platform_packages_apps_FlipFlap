@@ -32,6 +32,8 @@
   <string name="category_behaviour">Davranış</string>
   <string name="pass_to_security_view_title">Doğrudan şifre girişine git</string>
   <string name="pass_to_security_view_summary">Kapak açıldığında direk kilit ekranını göster</string>
+  <string name="use_high_touch_sensitivity_title">Yüksek dokunma hassasiyeti</string>
+  <string name="use_high_touch_sensitivity_summary">Kapak kapalıyken dokunma hassasiyetini artırın</string>
   <string name="category_design">Tasarım</string>
   <string name="switch_charging_status_title">Şarj durumunu göster</string>
   <string name="switch_charging_status_summary">Mevcut pil şarj durumuna bağlı olarak rengi değiştir</string>

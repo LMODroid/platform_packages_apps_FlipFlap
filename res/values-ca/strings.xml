@@ -32,6 +32,8 @@
   <string name="category_behaviour">Comportament</string>
   <string name="pass_to_security_view_title">Vés directament a l\'entrada de contrasenya</string>
   <string name="pass_to_security_view_summary">En obrir la tapa es mostra directament la pantalla de bloqueig</string>
+  <string name="use_high_touch_sensitivity_title">Sensibilitat al tacte alta</string>
+  <string name="use_high_touch_sensitivity_summary">Augmenta la sensibilitat tàctil mentre la tapa està tancada</string>
   <string name="category_design">Disseny</string>
   <string name="switch_charging_status_title">Mostra l\'estat de la càrrega</string>
   <string name="switch_charging_status_summary">Canvia el color en funció de la càrrega de la bateria</string>
