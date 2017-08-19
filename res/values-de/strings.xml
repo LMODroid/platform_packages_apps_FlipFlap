@@ -32,6 +32,8 @@
   <string name="category_behaviour">Verhalten</string>
   <string name="pass_to_security_view_title">Direkt zur Passwortabfrage gehen</string>
   <string name="pass_to_security_view_summary">Das Öffnen der Hülle zeigt direkt den Sperrbildschirm</string>
+  <string name="use_high_touch_sensitivity_title">Hohe Touch-Empfindlichkeit</string>
+  <string name="use_high_touch_sensitivity_summary">Touch-Empfindlichkeit bei geschlossenem Cover erhöhen</string>
   <string name="category_design">Design</string>
   <string name="switch_charging_status_title">Ladestatus anzeigen</string>
   <string name="switch_charging_status_summary">Farbe dem Batteriestatus anpassen</string>

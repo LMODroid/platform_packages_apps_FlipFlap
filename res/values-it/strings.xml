@@ -32,6 +32,8 @@
   <string name="category_behaviour">Comportamento</string>
   <string name="pass_to_security_view_title">Mostra immissione password direttamente</string>
   <string name="pass_to_security_view_summary">Aprendo la cover sarà mostrata la schermata di accesso del blocco schermo</string>
+  <string name="use_high_touch_sensitivity_title">Alta sensibilità al tocco</string>
+  <string name="use_high_touch_sensitivity_summary">Incrementa la sensibilità ai tocchi mentre la cover è chiusa</string>
   <string name="category_design">Stile</string>
   <string name="switch_charging_status_title">Mostra lo stato di carica</string>
   <string name="switch_charging_status_summary">Cambia colore a seconda della carica della batteria</string>

@@ -32,6 +32,8 @@
   <string name="category_behaviour">Поведение</string>
   <string name="pass_to_security_view_title">Сразу предлагать ввод пароля</string>
   <string name="pass_to_security_view_summary">Открытие чехла показывает экран блокировки</string>
+  <string name="use_high_touch_sensitivity_title">Высокая чувствительность касания</string>
+  <string name="use_high_touch_sensitivity_summary">Повышение чувствительности нажатия, пока крышка закрыта</string>
   <string name="category_design">Дизайн</string>
   <string name="switch_charging_status_title">Показывать состояние зарядки</string>
   <string name="switch_charging_status_summary">Менять цвет в зависимости от уровня заряда батареи</string>

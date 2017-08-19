@@ -32,6 +32,8 @@
   <string name="category_behaviour">Поведение</string>
   <string name="pass_to_security_view_title">Директно към въвеждане на парола</string>
   <string name="pass_to_security_view_summary">Отварянето на капака директно показва, заключване на екрана</string>
+  <string name="use_high_touch_sensitivity_title">Висока чувствителност на допир</string>
+  <string name="use_high_touch_sensitivity_summary">Повишаване чувствителността на докосване при затворен капак</string>
   <string name="category_design">Дизайн</string>
   <string name="switch_charging_status_title">Покажи статус на зареждането</string>
   <string name="switch_charging_status_summary">Промяна на цвят в зависимост от текущия заряд на батерията</string>

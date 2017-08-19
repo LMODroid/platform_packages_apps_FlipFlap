@@ -33,6 +33,7 @@
   <string name="pass_to_security_view_title">바로 비밀번호 입력 화면 보기</string>
   <string name="pass_to_security_view_summary">케이스를 열면 바로 잠금 화면 표시</string>
   <string name="use_high_touch_sensitivity_title">터치 감도 높이기</string>
+  <string name="use_high_touch_sensitivity_summary">커버가 닫혀 있는 동안 터치 감도를 높입니다.</string>
   <string name="category_design">디자인</string>
   <string name="switch_charging_status_title">충전 상태 표시</string>
   <string name="switch_charging_status_summary">현재 배터리 상태에 따라 색상 변경</string>

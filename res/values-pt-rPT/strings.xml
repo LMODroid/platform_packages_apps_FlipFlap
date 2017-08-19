@@ -32,6 +32,8 @@
   <string name="category_behaviour">Comportamento</string>
   <string name="pass_to_security_view_title">Ir diretamente para a introdução da palavra-passe</string>
   <string name="pass_to_security_view_summary">Mostrar diretamente o ecrã de bloqueio ao abrir a capa</string>
+  <string name="use_high_touch_sensitivity_title">Toque de alta sensibilidade</string>
+  <string name="use_high_touch_sensitivity_summary">Aumente a sensibilidade do toque enquanto a capa estiver fechada</string>
   <string name="category_design">Design</string>
   <string name="switch_charging_status_title">Visualizar o estado de carregamento</string>
   <string name="switch_charging_status_summary">Mudar de cor dependendo da carga atual da bateria</string>

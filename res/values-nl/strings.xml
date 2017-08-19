@@ -33,6 +33,7 @@
   <string name="pass_to_security_view_title">Direct wachtwoordscherm tonen</string>
   <string name="pass_to_security_view_summary">Hoes openen laat direct vergrendelingsscherm zien</string>
   <string name="use_high_touch_sensitivity_title">Hoge aanraakgevoeligheid</string>
+  <string name="use_high_touch_sensitivity_summary">Aanraakgevoeligheid verhogen wanneer hoes is gesloten</string>
   <string name="category_design">Ontwerp</string>
   <string name="switch_charging_status_title">Oplaadstatus weergeven</string>
   <string name="switch_charging_status_summary">Kleur wijzigen aan de hand van huidige acculading</string>
