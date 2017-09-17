@@ -26,6 +26,7 @@ import org.lineageos.flipflap.DotcaseConstants.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -59,6 +60,11 @@ public class DotcaseView extends FlipFlapView {
 
     private GestureDetector mDetector;
 
+    private int mOffsetX;
+    private int mOffsetY;
+    private int mDotRatioX;
+    private int mDotRatioY;
+
     // 1920x1080 = 48 x 27 dots @ 40 pixels per dot
 
     private class timeObject {
@@ -75,6 +81,13 @@ public class DotcaseView extends FlipFlapView {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mDetector = new GestureDetector(mContext, mGestureListener);
+
+        // Get hardware dependent constants from config file
+        final Resources res = mContext.getResources();
+        mOffsetX = res.getInteger(R.integer.config_OffsetX);
+        mOffsetY = res.getInteger(R.integer.config_OffsetY);
+        mDotRatioX = res.getInteger(R.integer.config_DotRatioX);
+        mDotRatioY = res.getInteger(R.integer.config_DotRatioY);
     }
 
     @Override
@@ -399,11 +412,11 @@ public class DotcaseView extends FlipFlapView {
     }
 
     private void dotcaseDrawPixel(int x, int y, Paint paint, Canvas canvas) {
-        canvas.drawRoundRect((x * DotcaseConstants.DOT_RATIO + 3),
-                            (y * DotcaseConstants.DOT_RATIO + 3),
-                            ((x + 1) * DotcaseConstants.DOT_RATIO - 3),
-                            ((y + 1) * DotcaseConstants.DOT_RATIO - 3),
-                            20, 20, paint);
+        canvas.drawRoundRect((x * mDotRatioX + 3 + mOffsetX),
+                            (y * mDotRatioY + 3 + mOffsetY),
+                            ((x + 1) * mDotRatioX - 3 + mOffsetX),
+                            ((y + 1) * mDotRatioY - 3 + mOffsetY),
+                            mDotRatioX / 2, mDotRatioY / 2, paint);
     }
 
     private void dotcaseDrawRect(int left, int top, int right,
