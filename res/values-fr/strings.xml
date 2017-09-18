@@ -32,6 +32,7 @@
   <string name="category_behaviour">Comportement</string>
   <string name="pass_to_security_view_title">Passer directement à la saisie du mot de passe</string>
   <string name="pass_to_security_view_summary">L\'ouverture de l\'étui montre directement l\'écran de verrouillage</string>
+  <string name="use_high_touch_sensitivity_title">Haute sensibilité tactile</string>
   <string name="category_design">Style</string>
   <string name="switch_charging_status_title">Afficher l\'état de la charge</string>
   <string name="switch_charging_status_summary">Changer de couleur en fonction de la charge actuelle de la batterie</string>

@@ -20,7 +20,7 @@
 -->
 <resources>
   <string name="app_name">FlipFlap</string>
-  <string name="notification_title">Smart cover észlelve</string>
+  <string name="notification_title">Smart tok észlelve</string>
   <string name="alarm_label">ÉBRESZTŐ</string>
   <!-- String matching the lock screen format for displaying the date. -->
   <string name="abbrev_wday_month_day_no_year">MMMM d., EEE</string>
@@ -32,6 +32,8 @@
   <string name="category_behaviour">Viselkedés</string>
   <string name="pass_to_security_view_title">Közvetlen jelszó megadás megjelenítése</string>
   <string name="pass_to_security_view_summary">Fedél felnyitása után közvetlenül a zárképernyő jelenik meg</string>
+  <string name="use_high_touch_sensitivity_title">Magas érintési érzékenység</string>
+  <string name="use_high_touch_sensitivity_summary">Érintés érzékenységének növelésére, amíg a tok le van zárva</string>
   <string name="category_design">Kinézet</string>
   <string name="switch_charging_status_title">Töltési állapot megjelenítése</string>
   <string name="switch_charging_status_summary">Aktuális akkumulátor-töltöttséghez igazítja a színt</string>

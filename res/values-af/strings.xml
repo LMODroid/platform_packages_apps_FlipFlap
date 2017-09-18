@@ -32,6 +32,8 @@
   <string name="category_behaviour">Gedrag</string>
   <string name="pass_to_security_view_title">Gaan direk na wagwoordinvoer</string>
   <string name="pass_to_security_view_summary">Oopmaak van die omhulsel toon direk die sluit skerm</string>
+  <string name="use_high_touch_sensitivity_title">Hoë raak sensitiwiteit</string>
+  <string name="use_high_touch_sensitivity_summary">Verhoog raak sensitiwiteit terwyl dekking is gesluit is</string>
   <string name="category_design">Ontwerp</string>
   <string name="switch_charging_status_title">Wys laaistatus</string>
   <string name="switch_charging_status_summary">Verander kleur afhangend van die huidige batterylaaivlak</string>

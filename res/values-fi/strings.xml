@@ -32,6 +32,8 @@
   <string name="category_behaviour">Käyttäytyminen</string>
   <string name="pass_to_security_view_title">Näytä salasanakenttä suoraan</string>
   <string name="pass_to_security_view_summary">Kannen avaaminen näyttää lukitusnäytön</string>
+  <string name="use_high_touch_sensitivity_title">Korkea kosketusherkkyys</string>
+  <string name="use_high_touch_sensitivity_summary">Lisää kosketusherkkyyttä kun kansi on kiinni</string>
   <string name="category_design">Ulkoasu</string>
   <string name="switch_charging_status_title">Näytä latauksen tila</string>
   <string name="switch_charging_status_summary">Vaihda väriä akun varauksen mukaan</string>

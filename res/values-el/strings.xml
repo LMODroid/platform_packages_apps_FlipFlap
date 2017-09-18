@@ -32,6 +32,8 @@
   <string name="category_behaviour">Συμπεριφορά</string>
   <string name="pass_to_security_view_title">Άμεση εμφάνιση εισόδου κωδικού</string>
   <string name="pass_to_security_view_summary">Ανοίγοντας την θήκη θα εμφανίζεται απευθείας η οθόνη κλειδώματος</string>
+  <string name="use_high_touch_sensitivity_title">Υψηλή ευαισθησία αφής</string>
+  <string name="use_high_touch_sensitivity_summary">Αύξηση της ευαισθησίας αφής, ενώ το κάλυμμα είναι κλειστό</string>
   <string name="category_design">Σχεδιασμός</string>
   <string name="switch_charging_status_title">Εμφάνιση κατάστασης φόρτισης</string>
   <string name="switch_charging_status_summary">Αλλαγή χρώματος ανάλογα με την τρέχουσα φόρτιση μπαταρίας</string>
