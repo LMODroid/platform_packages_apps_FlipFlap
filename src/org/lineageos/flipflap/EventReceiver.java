@@ -28,6 +28,7 @@ import android.content.pm.PackageManager;
 import android.os.BatteryManager;
 import android.os.PowerManager;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.util.Log;
 import android.view.WindowManagerPolicy.WindowManagerFuncs;
 
@@ -49,12 +50,12 @@ public class EventReceiver extends BroadcastReceiver {
             if (lidState == WindowManagerFuncs.LID_CLOSED) {
                 activateSettings(context);
                 if (timeout != 0) {
-                    context.startService(serviceIntent);
+                    context.startServiceAsUser(serviceIntent, UserHandle.CURRENT);
                 } else if (powerManager.isInteractive()) {
                     powerManager.goToSleep(SystemClock.uptimeMillis());
                 }
             } else {
-                context.stopService(serviceIntent);
+                context.stopServiceAsUser(serviceIntent, UserHandle.CURRENT);
             }
         }
     }
