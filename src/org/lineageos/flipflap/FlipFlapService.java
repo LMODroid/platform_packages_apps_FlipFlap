@@ -50,7 +50,6 @@ public class FlipFlapService extends Service {
         final Notification notification = new Notification.Builder(this)
                 .setContentTitle(getString(R.string.notification_title))
                 .setSmallIcon(R.drawable.ic_notification)
-                .setColor(getResources().getColor(R.color.colorPrimary))
                 .setPriority(Notification.PRIORITY_MIN)
                 .setOngoing(true)
                 .setShowWhen(false)
