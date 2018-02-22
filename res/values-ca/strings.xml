@@ -28,7 +28,6 @@
   <string name="ignore_call">IGNORA</string>
   <string name="end_call">PENJA LA TRUCADA</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Tapa de la funda</string>
   <string name="category_behaviour">Comportament</string>
   <string name="pass_to_security_view_title">Vés directament a l\'entrada de contrasenya</string>
   <string name="pass_to_security_view_summary">En obrir la tapa es mostra directament la pantalla de bloqueig</string>

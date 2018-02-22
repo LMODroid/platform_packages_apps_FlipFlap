@@ -28,7 +28,6 @@
   <string name="ignore_call">무시</string>
   <string name="end_call">통화 종료</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">플립 커버</string>
   <string name="category_behaviour">동작</string>
   <string name="pass_to_security_view_title">바로 비밀번호 입력 화면 보기</string>
   <string name="pass_to_security_view_summary">케이스를 열면 바로 잠금 화면 표시</string>

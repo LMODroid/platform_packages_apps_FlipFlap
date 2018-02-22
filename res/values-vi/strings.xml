@@ -28,7 +28,6 @@
   <string name="ignore_call">BỎ QUA</string>
   <string name="end_call">KẾT THÚC CUỘC GỌI</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Flip cover</string>
   <string name="category_behaviour">Hành vi</string>
   <string name="pass_to_security_view_title">Lập tức chuyển đến mục nhập mật khẩu</string>
   <string name="pass_to_security_view_summary">Mở vỏ bao lập tức hiển thị màn hình khóa</string>

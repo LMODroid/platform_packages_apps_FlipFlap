@@ -28,7 +28,6 @@
   <string name="ignore_call">FIGYELMEN KÍVÜL HAGY</string>
   <string name="end_call">HÍVÁS BEFEJEZÉSE</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Flip tok</string>
   <string name="category_behaviour">Viselkedés</string>
   <string name="pass_to_security_view_title">Közvetlen jelszó megadás megjelenítése</string>
   <string name="pass_to_security_view_summary">Fedél felnyitása után közvetlenül a zárképernyő jelenik meg</string>

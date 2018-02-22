@@ -20,6 +20,7 @@
 -->
 <resources>
   <string name="app_name">FlipFlap</string>
+  <string name="notification_title">Smart Cover terdeteksi</string>
   <string name="alarm_label">ALARM</string>
   <!-- String matching the lock screen format for displaying the date. -->
   <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
@@ -27,10 +28,11 @@
   <string name="ignore_call">ABAIKAN</string>
   <string name="end_call">AKHIRI PANGGILAN</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Penutup lipat</string>
   <string name="category_behaviour">Perilaku</string>
   <string name="pass_to_security_view_title">Langsung tampilkan entri kata sandi</string>
   <string name="pass_to_security_view_summary">Langsung tampilkan layar kunci ketika penutup dibuka</string>
+  <string name="use_high_touch_sensitivity_title">Kepekaan sentuh tinggi</string>
+  <string name="use_high_touch_sensitivity_summary">Tingkatkan kepekaan sentuhan saat penutup tertutup</string>
   <string name="category_design">Desain</string>
   <string name="switch_charging_status_title">Tampilkan status pengisian</string>
   <string name="switch_charging_status_summary">Ubah warna menurut daya baterai aktual</string>

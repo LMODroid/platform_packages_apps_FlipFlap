@@ -28,7 +28,6 @@
   <string name="ignore_call">SHPËRFILL</string>
   <string name="end_call">MBYLLE</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Flip cover</string>
   <string name="category_behaviour">Reagimi</string>
   <string name="pass_to_security_view_title">Shko direkt tek futja e fjalëkalimit</string>
   <string name="pass_to_security_view_summary">Hapja e kapakut të çon direkt tek ekrani bllokues</string>

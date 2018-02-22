@@ -28,7 +28,6 @@
   <string name="ignore_call">PREZRI</string>
   <string name="end_call">KONČAJ KLIC</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Preklopni ovitek</string>
   <string name="category_behaviour">Vedenje</string>
   <string name="pass_to_security_view_title">Pojdi neposredno na vnos gesla</string>
   <string name="pass_to_security_view_summary">Odpiranje ovitka neposredno prikaže zaklenjen zaslon</string>

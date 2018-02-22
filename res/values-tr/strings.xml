@@ -28,7 +28,6 @@
   <string name="ignore_call">YOKSAY</string>
   <string name="end_call">ARAMAYI SONLANDIR</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Flip cover</string>
   <string name="category_behaviour">Davranış</string>
   <string name="pass_to_security_view_title">Doğrudan şifre girişine git</string>
   <string name="pass_to_security_view_summary">Kapak açıldığında direk kilit ekranını göster</string>

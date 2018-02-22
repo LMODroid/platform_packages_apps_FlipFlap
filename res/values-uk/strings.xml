@@ -28,10 +28,11 @@
   <string name="ignore_call">ВІДХИЛИТИ</string>
   <string name="end_call">Завершити</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Фліп-чохол</string>
   <string name="category_behaviour">Поведінка</string>
   <string name="pass_to_security_view_title">Відразу пропонувати введення паролю</string>
   <string name="pass_to_security_view_summary">Відкриття чохла показує екран розблокування</string>
+  <string name="use_high_touch_sensitivity_title">Висока чутливість дотику</string>
+  <string name="use_high_touch_sensitivity_summary">Збільшення чутливості дотику при закритій кришці</string>
   <string name="category_design">Оформлення</string>
   <string name="switch_charging_status_title">Показати статус зарядки</string>
   <string name="switch_charging_status_summary">Змінювати колір в залежності від рівня заряду батареї</string>

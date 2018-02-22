@@ -28,7 +28,6 @@
   <string name="ignore_call">IGNOROVAT</string>
   <string name="end_call">UKONČIT HOVOR</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Flipové pouzdro</string>
   <string name="category_behaviour">Chování</string>
   <string name="pass_to_security_view_title">Přímo zobrazit zadání hesla</string>
   <string name="pass_to_security_view_summary">Otevřením obalu přímo zobrazit obrazovku zámku</string>

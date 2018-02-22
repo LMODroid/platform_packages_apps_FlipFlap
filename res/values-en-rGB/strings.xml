@@ -28,10 +28,11 @@
   <string name="ignore_call">IGNORE</string>
   <string name="end_call">END CALL</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Flip cover</string>
   <string name="category_behaviour">Behaviour</string>
   <string name="pass_to_security_view_title">Directly go to password entry</string>
   <string name="pass_to_security_view_summary">Opening the case directly shows lock screen</string>
+  <string name="use_high_touch_sensitivity_title">High touch sensitivity</string>
+  <string name="use_high_touch_sensitivity_summary">Increase touch sensitivity while cover is closed</string>
   <string name="category_design">Design</string>
   <string name="switch_charging_status_title">Show charging status</string>
   <string name="switch_charging_status_summary">Change colour depending on the current battery charge</string>

@@ -28,7 +28,6 @@
   <string name="ignore_call">IGNOROVAŤ</string>
   <string name="end_call">UKONČIŤ HOVOR</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Flipový obal</string>
   <string name="category_behaviour">Správanie</string>
   <string name="pass_to_security_view_title">Priamo zadať heslo</string>
   <string name="pass_to_security_view_summary">Po otvorení obalu hneď zobraziť obrazovku uzaknutia</string>

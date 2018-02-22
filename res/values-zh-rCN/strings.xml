@@ -28,7 +28,6 @@
   <string name="ignore_call">忽略</string>
   <string name="end_call">结束通话</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">翻转保护盖</string>
   <string name="category_behaviour">功能</string>
   <string name="pass_to_security_view_title">直接转至密码输入框</string>
   <string name="pass_to_security_view_summary">打开保护盖时直接显示锁屏界面</string>

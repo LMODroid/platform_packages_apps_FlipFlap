@@ -28,7 +28,6 @@
   <string name="ignore_call">NEGEREN</string>
   <string name="end_call">GESPREK BEËINDIGEN</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Flip-cover</string>
   <string name="category_behaviour">Gedrag</string>
   <string name="pass_to_security_view_title">Direct wachtwoordscherm tonen</string>
   <string name="pass_to_security_view_summary">Hoes openen laat direct vergrendelingsscherm zien</string>

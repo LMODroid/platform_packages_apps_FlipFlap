@@ -28,7 +28,6 @@
   <string name="ignore_call">ИГНОРИРАЙ</string>
   <string name="end_call">ПРЕКРАТИ РАЗГОВОРА</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Калъф с капак</string>
   <string name="category_behaviour">Поведение</string>
   <string name="pass_to_security_view_title">Директно към въвеждане на парола</string>
   <string name="pass_to_security_view_summary">Отварянето на капака директно показва, заключване на екрана</string>

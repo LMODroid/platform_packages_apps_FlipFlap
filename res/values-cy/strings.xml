@@ -21,4 +21,6 @@
 <resources>
   <!-- String matching the lock screen format for displaying the date. -->
   <!-- Strings for the Settings -->
+  <string name="timeout_entry_10s">10 eiliad</string>
+  <string name="timeout_entry_1min">1 munud</string>
 </resources>

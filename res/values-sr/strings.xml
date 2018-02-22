@@ -28,7 +28,6 @@
   <string name="ignore_call">ЗАНЕМАРИ</string>
   <string name="end_call">ЗАВРШИ ПОЗИВ</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Преклопна футрола</string>
   <string name="category_behaviour">Понашање</string>
   <string name="pass_to_security_view_title">Одмах нуди унос лозинке</string>
   <string name="pass_to_security_view_summary">Отварањем футроле се приказује закључани екран.</string>

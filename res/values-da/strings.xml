@@ -28,7 +28,6 @@
   <string name="ignore_call">IGNORER</string>
   <string name="end_call">AFSLUT OPKALD</string>
   <!-- Strings for the Settings -->
-  <string name="settings_name">Flip cover</string>
   <string name="category_behaviour">Adfærd</string>
   <string name="pass_to_security_view_title">Gå direkte til indtastning af adgangskode</string>
   <string name="pass_to_security_view_summary">Åbning af coveret viser skærmlåsen direkte</string>
