@@ -28,6 +28,8 @@
   <string name="ignore_call">IGNORE</string>
   <string name="end_call">END CALL</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Smart cover</string>
+  <string name="settings_summary">Control your accessory behaviour</string>
   <string name="category_behaviour">Behaviour</string>
   <string name="pass_to_security_view_title">Directly go to password entry</string>
   <string name="pass_to_security_view_summary">Opening the case directly shows lock screen</string>

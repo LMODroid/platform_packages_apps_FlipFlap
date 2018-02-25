@@ -28,6 +28,8 @@
   <string name="ignore_call">忽略</string>
   <string name="end_call">結束通話</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">智慧掀蓋</string>
+  <string name="settings_summary">控制您的附件行為</string>
   <string name="category_behaviour">行為</string>
   <string name="pass_to_security_view_title">直接輸入密碼</string>
   <string name="pass_to_security_view_summary">開啟保護殼時直接顯示鎖定畫面</string>

@@ -28,6 +28,8 @@
   <string name="ignore_call">IGNORAȚI</string>
   <string name="end_call">ÎNCHIDEȚI APELUL</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Copertă inteligentă</string>
+  <string name="settings_summary">Controlați comportamentul accesoriilor dvs.</string>
   <string name="category_behaviour">Comportament</string>
   <string name="pass_to_security_view_title">Arată direct introducere parolă</string>
   <string name="pass_to_security_view_summary">Deschiderea carcasei va arăta în mod direct ecranul de blocare</string>

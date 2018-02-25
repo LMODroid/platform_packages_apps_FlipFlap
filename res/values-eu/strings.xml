@@ -28,6 +28,8 @@
   <string name="ignore_call">EZIKUSI</string>
   <string name="end_call">AMAITU DEIA</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Azal adimentsua</string>
+  <string name="settings_summary">Kontrolatu zure gehigarriaren portaera</string>
   <string name="category_behaviour">Portaera</string>
   <string name="pass_to_security_view_title">Jo zuzenean pasahitzaren sarrerara</string>
   <string name="pass_to_security_view_summary">Azala irekitzean blokeo-pantaila erakutsiko da zuzenean</string>
