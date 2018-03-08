@@ -28,6 +28,8 @@
   <string name="ignore_call">OHITA</string>
   <string name="end_call">LOPETA PUHELU</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Smart cover</string>
+  <string name="settings_summary">Ohjaa lisälaitteiden käyttäytymistä</string>
   <string name="category_behaviour">Käyttäytyminen</string>
   <string name="pass_to_security_view_title">Näytä salasanakenttä suoraan</string>
   <string name="pass_to_security_view_summary">Kannen avaaminen näyttää lukitusnäytön</string>

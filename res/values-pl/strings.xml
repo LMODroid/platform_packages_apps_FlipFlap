@@ -28,6 +28,8 @@
   <string name="ignore_call">IGNORUJ</string>
   <string name="end_call">ZAKOŃCZ ROZMOWĘ</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Inteligentna obudowa</string>
+  <string name="settings_summary">Kontroluj zachowanie twoich akcesoriów</string>
   <string name="category_behaviour">Zachowanie</string>
   <string name="pass_to_security_view_title">Przejdź bezpośrednio do wprowadzenia hasła</string>
   <string name="pass_to_security_view_summary">Otwarcie etui bezpośrednio pokazuje ekran blokady</string>
