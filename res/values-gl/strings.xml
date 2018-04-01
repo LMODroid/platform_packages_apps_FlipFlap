@@ -28,6 +28,8 @@
   <string name="ignore_call">REXEITAR</string>
   <string name="end_call">REMATAR CHAMADA</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Funda intelixente</string>
+  <string name="settings_summary">Controla o comportamento do teu accesorio</string>
   <string name="category_behaviour">Comportamento</string>
   <string name="pass_to_security_view_title">Introducir directamente p contrasinal</string>
   <string name="pass_to_security_view_summary">Mostrar a pantalla de bloqueo ao retirar a cuberta</string>

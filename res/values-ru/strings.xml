@@ -28,6 +28,8 @@
   <string name="ignore_call">ОТКЛОНИТЬ</string>
   <string name="end_call">ЗАВЕРШИТЬ</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Умный чехол</string>
+  <string name="settings_summary">Настройка работы аксессуара</string>
   <string name="category_behaviour">Поведение</string>
   <string name="pass_to_security_view_title">Сразу предлагать ввод пароля</string>
   <string name="pass_to_security_view_summary">Открытие чехла показывает экран блокировки</string>

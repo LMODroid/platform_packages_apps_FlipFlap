@@ -28,6 +28,7 @@
   <string name="ignore_call">התעלם</string>
   <string name="end_call">סיים שיחה</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">כיסוי חכם</string>
   <string name="category_behaviour">התנהגות</string>
   <string name="pass_to_security_view_title">עבור ישירות אל הזנת הסיסמה</string>
   <string name="pass_to_security_view_summary">פתיחת הכיסוי תראה ישירות את מסך הנעילה</string>
