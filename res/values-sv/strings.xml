@@ -26,6 +26,8 @@
   <string name="ignore_call">IGNORERA</string>
   <string name="end_call">AVSLUTA SAMTAL</string>
   <!-- Strings for the Settings -->
+  <string name="settings_name">Smartskal</string>
+  <string name="settings_summary">Styr hur ditt smartskal beter sig</string>
   <string name="category_behaviour">Beteende</string>
   <string name="category_design">Design</string>
   <string name="switch_charging_status_title">Visa laddningsstatus</string>
