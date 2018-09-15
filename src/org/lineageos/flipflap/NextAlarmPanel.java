@@ -101,11 +101,9 @@ public class NextAlarmPanel extends LinearLayout {
     private void refreshAlarmStatus() {
         String nextAlarm = getNextAlarm();
         mAlarmText.setText(nextAlarm);
-        setVisibility(TextUtils.isEmpty(nextAlarm)
-                ? View.GONE : View.VISIBLE);
     }
 
-    private String getNextAlarm() {
+    public String getNextAlarm() {
         AlarmManager.AlarmClockInfo nextAlarmClock = mAlarmManager.getNextAlarmClock();
         if (nextAlarmClock != null) {
             String skeleton = DateFormat.is24HourFormat(mContext) ? "EHm" : "Ehma";
