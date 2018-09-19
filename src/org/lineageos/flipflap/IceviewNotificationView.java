@@ -29,10 +29,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import android.util.Log;
-
-import java.util.List;
-
 public class IceviewNotificationView extends LinearLayout {
     private static final String TAG = "IceviewNotificationView";
 

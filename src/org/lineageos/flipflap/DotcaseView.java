@@ -34,7 +34,6 @@ import android.service.notification.StatusBarNotification;
 import android.text.format.DateFormat;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.View;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;

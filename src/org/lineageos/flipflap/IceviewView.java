@@ -20,17 +20,12 @@
 
 package org.lineageos.flipflap;
 
-import android.app.Notification;
 import android.content.Context;
 import android.service.notification.StatusBarNotification;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import java.util.List;
-import android.util.Log;
 
 public class IceviewView extends FlipFlapView {
     private static final String TAG = "IceviewView";

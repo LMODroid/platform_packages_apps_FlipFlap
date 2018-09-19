@@ -22,7 +22,6 @@
 package org.lineageos.flipflap;
 
 import android.graphics.Color;
-import android.graphics.Paint;
 
 import java.util.HashMap;
 import java.util.Map;

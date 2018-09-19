@@ -22,9 +22,6 @@ package org.lineageos.flipflap;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Canvas;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
