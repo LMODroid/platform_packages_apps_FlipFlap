@@ -19,36 +19,36 @@
 
 -->
 <resources>
-  <string name="app_name">FlipFlap</string>
-  <string name="notification_title">Otkriven je pametan poklopac</string>
-  <string name="alarm_label">ALARM</string>
-  <!-- String matching the lock screen format for displaying the date. -->
-  <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
-  <string name="answer_call">ODGOVORI</string>
-  <string name="ignore_call">ZANEMARI</string>
-  <string name="end_call">ZAVRŠI POZIV</string>
-  <!-- Strings for the Settings -->
-  <string name="settings_name">Pametno pokrivanje</string>
-  <string name="settings_summary">Kontrolirajte ponašanje dodataka za uređaj</string>
-  <string name="category_behaviour">Ponašanje</string>
-  <string name="pass_to_security_view_title">Izravno prijeđi na unos lozinke</string>
-  <string name="pass_to_security_view_summary">Otvaranje poklopca izravno prikazuje zaslon zaključavanja</string>
-  <string name="use_high_touch_sensitivity_title">Visoka osjetljivost na dodir</string>
-  <string name="use_high_touch_sensitivity_summary">Povećaj osjetljivost na dodir dok je poklopac zatvoren</string>
-  <string name="category_design">Dizajn</string>
-  <string name="switch_charging_status_title">Prikaži status punjenja</string>
-  <string name="switch_charging_status_summary">Mijenjanje boje ovisno o trenutnom postotku napunjenosti baterije</string>
-  <string name="category_timeouts">Vremenski isteci</string>
-  <string name="timeout_plugged_title">Prilikom punjenja</string>
-  <string name="timeout_unplugged_title">Iskopčano</string>
-  <string name="timeout_summary">Aplikacija za poklopac prikazivat će se %s nakon zatvaranja poklopca</string>
-  <string name="timeout_summary_never">Nakon zatvaranja poklopca, aplikacija za poklopac uvijek će ostati uključena</string>
-  <string name="timeout_summary_immediately">Zaslon će se isključiti kad zatvorite poklopac</string>
-  <string name="timeout_entry_immediately">Odmah</string>
-  <string name="timeout_entry_5s">5 sekundi</string>
-  <string name="timeout_entry_10s">10 sekundi</string>
-  <string name="timeout_entry_30s">30 sekundi</string>
-  <string name="timeout_entry_1min">1 minutu</string>
-  <string name="timeout_entry_5min">5 minuta</string>
-  <string name="timeout_entry_never">Nikad</string>
+    <string name="app_name">FlipFlap</string>
+    <string name="notification_title">Otkriven je pametan poklopac</string>
+    <string name="alarm_label">ALARM</string>
+    <!-- String matching the lock screen format for displaying the date. -->
+    <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
+    <string name="answer_call">ODGOVORI</string>
+    <string name="ignore_call">ZANEMARI</string>
+    <string name="end_call">ZAVRŠI POZIV</string>
+    <!-- Strings for the Settings -->
+    <string name="settings_name">Pametno pokrivanje</string>
+    <string name="settings_summary">Kontrolirajte ponašanje dodataka za uređaj</string>
+    <string name="category_behaviour">Ponašanje</string>
+    <string name="pass_to_security_view_title">Izravno prijeđi na unos lozinke</string>
+    <string name="pass_to_security_view_summary">Otvaranje poklopca izravno prikazuje zaslon zaključavanja</string>
+    <string name="use_high_touch_sensitivity_title">Visoka osjetljivost na dodir</string>
+    <string name="use_high_touch_sensitivity_summary">Povećaj osjetljivost na dodir dok je poklopac zatvoren</string>
+    <string name="category_design">Dizajn</string>
+    <string name="switch_charging_status_title">Prikaži status punjenja</string>
+    <string name="switch_charging_status_summary">Mijenjanje boje ovisno o trenutnom postotku napunjenosti baterije</string>
+    <string name="category_timeouts">Vremenski isteci</string>
+    <string name="timeout_plugged_title">Prilikom punjenja</string>
+    <string name="timeout_unplugged_title">Iskopčano</string>
+    <string name="timeout_summary">Aplikacija za poklopac prikazivat će se %s nakon zatvaranja poklopca</string>
+    <string name="timeout_summary_never">Nakon zatvaranja poklopca, aplikacija za poklopac uvijek će ostati uključena</string>
+    <string name="timeout_summary_immediately">Zaslon će se isključiti kad zatvorite poklopac</string>
+    <string name="timeout_entry_immediately">Odmah</string>
+    <string name="timeout_entry_5s">5 sekundi</string>
+    <string name="timeout_entry_10s">10 sekundi</string>
+    <string name="timeout_entry_30s">30 sekundi</string>
+    <string name="timeout_entry_1min">1 minutu</string>
+    <string name="timeout_entry_5min">5 minuta</string>
+    <string name="timeout_entry_never">Nikad</string>
 </resources>

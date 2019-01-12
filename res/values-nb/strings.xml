@@ -19,34 +19,34 @@
 
 -->
 <resources>
-  <string name="app_name">FlippFlapp</string>
-  <string name="notification_title">Smart-deksel oppdaget</string>
-  <string name="alarm_label">ALARM</string>
-  <!-- String matching the lock screen format for displaying the date. -->
-  <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
-  <string name="answer_call">SVAR</string>
-  <string name="ignore_call">IGNORER</string>
-  <string name="end_call">AVSLUTT SAMTALE</string>
-  <!-- Strings for the Settings -->
-  <string name="category_behaviour">Oppførsel</string>
-  <string name="pass_to_security_view_title">Gå direkte til angivelse av passord</string>
-  <string name="pass_to_security_view_summary">Når du åpner dekselet går telefonen direkte til angivelse av passord</string>
-  <string name="use_high_touch_sensitivity_title">Høy berøringsskjerm-sensitivitet</string>
-  <string name="use_high_touch_sensitivity_summary">Øk berøringssensitiviteten mens etuiet er lukket</string>
-  <string name="category_design">Design</string>
-  <string name="switch_charging_status_title">Vis ladestatus</string>
-  <string name="switch_charging_status_summary">Endre farge avhengig av den gjeldende batteriladningen</string>
-  <string name="category_timeouts">Tidsavbrudd</string>
-  <string name="timeout_plugged_title">Under lading</string>
-  <string name="timeout_unplugged_title">Frakoblet</string>
-  <string name="timeout_summary">Vis deksel-appen i %s etter at du har lukket dekselet</string>
-  <string name="timeout_summary_never">Etter du har lukket dekselet, vil deksel-appen alltid være på</string>
-  <string name="timeout_summary_immediately">Skjermen vil bli slått av når dekselet lukkes</string>
-  <string name="timeout_entry_immediately">Umiddelbart</string>
-  <string name="timeout_entry_5s">5 sekunder</string>
-  <string name="timeout_entry_10s">10 sekunder</string>
-  <string name="timeout_entry_30s">30 sekunder</string>
-  <string name="timeout_entry_1min">1 minutt</string>
-  <string name="timeout_entry_5min">5 minutter</string>
-  <string name="timeout_entry_never">Aldri</string>
+    <string name="app_name">FlippFlapp</string>
+    <string name="notification_title">Smart-deksel oppdaget</string>
+    <string name="alarm_label">ALARM</string>
+    <!-- String matching the lock screen format for displaying the date. -->
+    <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
+    <string name="answer_call">SVAR</string>
+    <string name="ignore_call">IGNORER</string>
+    <string name="end_call">AVSLUTT SAMTALE</string>
+    <!-- Strings for the Settings -->
+    <string name="category_behaviour">Oppførsel</string>
+    <string name="pass_to_security_view_title">Gå direkte til angivelse av passord</string>
+    <string name="pass_to_security_view_summary">Når du åpner dekselet går telefonen direkte til angivelse av passord</string>
+    <string name="use_high_touch_sensitivity_title">Høy berøringsskjerm-sensitivitet</string>
+    <string name="use_high_touch_sensitivity_summary">Øk berøringssensitiviteten mens etuiet er lukket</string>
+    <string name="category_design">Design</string>
+    <string name="switch_charging_status_title">Vis ladestatus</string>
+    <string name="switch_charging_status_summary">Endre farge avhengig av den gjeldende batteriladningen</string>
+    <string name="category_timeouts">Tidsavbrudd</string>
+    <string name="timeout_plugged_title">Under lading</string>
+    <string name="timeout_unplugged_title">Frakoblet</string>
+    <string name="timeout_summary">Vis deksel-appen i %s etter at du har lukket dekselet</string>
+    <string name="timeout_summary_never">Etter du har lukket dekselet, vil deksel-appen alltid være på</string>
+    <string name="timeout_summary_immediately">Skjermen vil bli slått av når dekselet lukkes</string>
+    <string name="timeout_entry_immediately">Umiddelbart</string>
+    <string name="timeout_entry_5s">5 sekunder</string>
+    <string name="timeout_entry_10s">10 sekunder</string>
+    <string name="timeout_entry_30s">30 sekunder</string>
+    <string name="timeout_entry_1min">1 minutt</string>
+    <string name="timeout_entry_5min">5 minutter</string>
+    <string name="timeout_entry_never">Aldri</string>
 </resources>

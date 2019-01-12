@@ -19,36 +19,36 @@
 
 -->
 <resources>
-  <string name="app_name">FlipFlap</string>
-  <string name="notification_title">Husă inteligentă detectată</string>
-  <string name="alarm_label">ALARMĂ</string>
-  <!-- String matching the lock screen format for displaying the date. -->
-  <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
-  <string name="answer_call">RĂSPUNDEȚI</string>
-  <string name="ignore_call">IGNORAȚI</string>
-  <string name="end_call">ÎNCHIDEȚI APELUL</string>
-  <!-- Strings for the Settings -->
-  <string name="settings_name">Copertă inteligentă</string>
-  <string name="settings_summary">Controlați comportamentul accesoriilor dvs.</string>
-  <string name="category_behaviour">Comportament</string>
-  <string name="pass_to_security_view_title">Arată direct introducere parolă</string>
-  <string name="pass_to_security_view_summary">Deschiderea carcasei va arăta în mod direct ecranul de blocare</string>
-  <string name="use_high_touch_sensitivity_title">Sensibilitate tactilă înaltă</string>
-  <string name="use_high_touch_sensitivity_summary">Crește sensibilitatea tactilă în timp ce cover-ul e închis</string>
-  <string name="category_design">Design</string>
-  <string name="switch_charging_status_title">Afişează starea încărcării</string>
-  <string name="switch_charging_status_summary">Schimbă culoarea în funcţie de încărcarea curentă a bateriei</string>
-  <string name="category_timeouts">Timeout-uri</string>
-  <string name="timeout_plugged_title">În timpul încărcării</string>
-  <string name="timeout_unplugged_title">Deconectat</string>
-  <string name="timeout_summary">Afișează aplicația copertă pentru %s după închiderea capacului</string>
-  <string name="timeout_summary_never">După închiderea capacului, aplicația copertă va rămâne întotdeauna pornită</string>
-  <string name="timeout_summary_immediately">Ecranul va fi oprit când se va închide coperta</string>
-  <string name="timeout_entry_immediately">Imediat</string>
-  <string name="timeout_entry_5s">5 secunde</string>
-  <string name="timeout_entry_10s">10 secunde</string>
-  <string name="timeout_entry_30s">30 de secunde</string>
-  <string name="timeout_entry_1min">1 minut</string>
-  <string name="timeout_entry_5min">5 minute</string>
-  <string name="timeout_entry_never">Niciodată</string>
+    <string name="app_name">FlipFlap</string>
+    <string name="notification_title">Husă inteligentă detectată</string>
+    <string name="alarm_label">ALARMĂ</string>
+    <!-- String matching the lock screen format for displaying the date. -->
+    <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
+    <string name="answer_call">RĂSPUNDEȚI</string>
+    <string name="ignore_call">IGNORAȚI</string>
+    <string name="end_call">ÎNCHIDEȚI APELUL</string>
+    <!-- Strings for the Settings -->
+    <string name="settings_name">Copertă inteligentă</string>
+    <string name="settings_summary">Controlați comportamentul accesoriilor dvs.</string>
+    <string name="category_behaviour">Comportament</string>
+    <string name="pass_to_security_view_title">Arată direct introducere parolă</string>
+    <string name="pass_to_security_view_summary">Deschiderea carcasei va arăta în mod direct ecranul de blocare</string>
+    <string name="use_high_touch_sensitivity_title">Sensibilitate tactilă înaltă</string>
+    <string name="use_high_touch_sensitivity_summary">Crește sensibilitatea tactilă în timp ce cover-ul e închis</string>
+    <string name="category_design">Design</string>
+    <string name="switch_charging_status_title">Afişează starea încărcării</string>
+    <string name="switch_charging_status_summary">Schimbă culoarea în funcţie de încărcarea curentă a bateriei</string>
+    <string name="category_timeouts">Timeout-uri</string>
+    <string name="timeout_plugged_title">În timpul încărcării</string>
+    <string name="timeout_unplugged_title">Deconectat</string>
+    <string name="timeout_summary">Afișează aplicația copertă pentru %s după închiderea capacului</string>
+    <string name="timeout_summary_never">După închiderea capacului, aplicația copertă va rămâne întotdeauna pornită</string>
+    <string name="timeout_summary_immediately">Ecranul va fi oprit când se va închide coperta</string>
+    <string name="timeout_entry_immediately">Imediat</string>
+    <string name="timeout_entry_5s">5 secunde</string>
+    <string name="timeout_entry_10s">10 secunde</string>
+    <string name="timeout_entry_30s">30 de secunde</string>
+    <string name="timeout_entry_1min">1 minut</string>
+    <string name="timeout_entry_5min">5 minute</string>
+    <string name="timeout_entry_never">Niciodată</string>
 </resources>

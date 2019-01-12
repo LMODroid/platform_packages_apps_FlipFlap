@@ -19,36 +19,36 @@
 
 -->
 <resources>
-  <string name="app_name">FlipFlap</string>
-  <string name="notification_title">Smart Cover terdeteksi</string>
-  <string name="alarm_label">ALARM</string>
-  <!-- String matching the lock screen format for displaying the date. -->
-  <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
-  <string name="answer_call">JAWAB</string>
-  <string name="ignore_call">ABAIKAN</string>
-  <string name="end_call">AKHIRI PANGGILAN</string>
-  <!-- Strings for the Settings -->
-  <string name="settings_name">Sampul pintar</string>
-  <string name="settings_summary">Kendalikan perilaku aksesori Anda</string>
-  <string name="category_behaviour">Perilaku</string>
-  <string name="pass_to_security_view_title">Langsung tampilkan entri kata sandi</string>
-  <string name="pass_to_security_view_summary">Langsung tampilkan layar kunci ketika penutup dibuka</string>
-  <string name="use_high_touch_sensitivity_title">Kepekaan sentuh tinggi</string>
-  <string name="use_high_touch_sensitivity_summary">Tingkatkan kepekaan sentuhan saat penutup tertutup</string>
-  <string name="category_design">Desain</string>
-  <string name="switch_charging_status_title">Tampilkan status pengisian</string>
-  <string name="switch_charging_status_summary">Ubah warna menurut daya baterai aktual</string>
-  <string name="category_timeouts">Batas waktu</string>
-  <string name="timeout_plugged_title">Saat mengisi daya</string>
-  <string name="timeout_unplugged_title">Saat tidak mengisi daya</string>
-  <string name="timeout_summary">Tampilkan %s sampul app setelah mengakhiri lid</string>
-  <string name="timeout_summary_never">Setelah menutup lid, sampul app akan selalu hidup</string>
-  <string name="timeout_summary_immediately">Layar akan dimatikan saat penutup ditutup</string>
-  <string name="timeout_entry_immediately">Segera</string>
-  <string name="timeout_entry_5s">5 detik</string>
-  <string name="timeout_entry_10s">10 detik</string>
-  <string name="timeout_entry_30s">30 detik</string>
-  <string name="timeout_entry_1min">1 menit</string>
-  <string name="timeout_entry_5min">5 menit</string>
-  <string name="timeout_entry_never">Jangan pernah</string>
+    <string name="app_name">FlipFlap</string>
+    <string name="notification_title">Smart Cover terdeteksi</string>
+    <string name="alarm_label">ALARM</string>
+    <!-- String matching the lock screen format for displaying the date. -->
+    <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
+    <string name="answer_call">JAWAB</string>
+    <string name="ignore_call">ABAIKAN</string>
+    <string name="end_call">AKHIRI PANGGILAN</string>
+    <!-- Strings for the Settings -->
+    <string name="settings_name">Sampul pintar</string>
+    <string name="settings_summary">Kendalikan perilaku aksesori Anda</string>
+    <string name="category_behaviour">Perilaku</string>
+    <string name="pass_to_security_view_title">Langsung tampilkan entri kata sandi</string>
+    <string name="pass_to_security_view_summary">Langsung tampilkan layar kunci ketika penutup dibuka</string>
+    <string name="use_high_touch_sensitivity_title">Kepekaan sentuh tinggi</string>
+    <string name="use_high_touch_sensitivity_summary">Tingkatkan kepekaan sentuhan saat penutup tertutup</string>
+    <string name="category_design">Desain</string>
+    <string name="switch_charging_status_title">Tampilkan status pengisian</string>
+    <string name="switch_charging_status_summary">Ubah warna menurut daya baterai aktual</string>
+    <string name="category_timeouts">Batas waktu</string>
+    <string name="timeout_plugged_title">Saat mengisi daya</string>
+    <string name="timeout_unplugged_title">Saat tidak mengisi daya</string>
+    <string name="timeout_summary">Tampilkan %s sampul app setelah mengakhiri lid</string>
+    <string name="timeout_summary_never">Setelah menutup lid, sampul app akan selalu hidup</string>
+    <string name="timeout_summary_immediately">Layar akan dimatikan saat penutup ditutup</string>
+    <string name="timeout_entry_immediately">Segera</string>
+    <string name="timeout_entry_5s">5 detik</string>
+    <string name="timeout_entry_10s">10 detik</string>
+    <string name="timeout_entry_30s">30 detik</string>
+    <string name="timeout_entry_1min">1 menit</string>
+    <string name="timeout_entry_5min">5 menit</string>
+    <string name="timeout_entry_never">Jangan pernah</string>
 </resources>

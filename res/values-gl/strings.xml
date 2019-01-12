@@ -19,36 +19,36 @@
 
 -->
 <resources>
-  <string name="app_name">FlipFlap</string>
-  <string name="notification_title">Capa intelixente detectada</string>
-  <string name="alarm_label">ALARMA</string>
-  <!-- String matching the lock screen format for displaying the date. -->
-  <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
-  <string name="answer_call">RESPONDER</string>
-  <string name="ignore_call">REXEITAR</string>
-  <string name="end_call">REMATAR CHAMADA</string>
-  <!-- Strings for the Settings -->
-  <string name="settings_name">Funda intelixente</string>
-  <string name="settings_summary">Controla o comportamento do teu accesorio</string>
-  <string name="category_behaviour">Comportamento</string>
-  <string name="pass_to_security_view_title">Introducir directamente p contrasinal</string>
-  <string name="pass_to_security_view_summary">Mostrar a pantalla de bloqueo ao retirar a cuberta</string>
-  <string name="use_high_touch_sensitivity_title">Alta sensibilidade</string>
-  <string name="use_high_touch_sensitivity_summary">Aumentar a sensibilidade táctil mentres a tapa está pechada</string>
-  <string name="category_design">Deseño</string>
-  <string name="switch_charging_status_title">Amosar o estado da carga</string>
-  <string name="switch_charging_status_summary">Mudar a cor segundo a carga actual da batería</string>
-  <string name="category_timeouts">Tempo esgotado</string>
-  <string name="timeout_plugged_title">Durante a carga</string>
-  <string name="timeout_unplugged_title">Desenchufado</string>
-  <string name="timeout_summary">Mostrar a aplicación ds funda %s despois de pecharla tapa</string>
-  <string name="timeout_summary_never">Despois de pechar a tapa, da aplicación da funda sempre estará encendida</string>
-  <string name="timeout_summary_immediately">A pantalla se apagará ao pechar a tapa</string>
-  <string name="timeout_entry_immediately">Inmediatamente</string>
-  <string name="timeout_entry_5s">5 segundos</string>
-  <string name="timeout_entry_10s">10 segundos</string>
-  <string name="timeout_entry_30s">30 segundos</string>
-  <string name="timeout_entry_1min">1 minuto</string>
-  <string name="timeout_entry_5min">5 minutos</string>
-  <string name="timeout_entry_never">Nunca</string>
+    <string name="app_name">FlipFlap</string>
+    <string name="notification_title">Capa intelixente detectada</string>
+    <string name="alarm_label">ALARMA</string>
+    <!-- String matching the lock screen format for displaying the date. -->
+    <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
+    <string name="answer_call">RESPONDER</string>
+    <string name="ignore_call">REXEITAR</string>
+    <string name="end_call">REMATAR CHAMADA</string>
+    <!-- Strings for the Settings -->
+    <string name="settings_name">Funda intelixente</string>
+    <string name="settings_summary">Controla o comportamento do teu accesorio</string>
+    <string name="category_behaviour">Comportamento</string>
+    <string name="pass_to_security_view_title">Introducir directamente p contrasinal</string>
+    <string name="pass_to_security_view_summary">Mostrar a pantalla de bloqueo ao retirar a cuberta</string>
+    <string name="use_high_touch_sensitivity_title">Alta sensibilidade</string>
+    <string name="use_high_touch_sensitivity_summary">Aumentar a sensibilidade táctil mentres a tapa está pechada</string>
+    <string name="category_design">Deseño</string>
+    <string name="switch_charging_status_title">Amosar o estado da carga</string>
+    <string name="switch_charging_status_summary">Mudar a cor segundo a carga actual da batería</string>
+    <string name="category_timeouts">Tempo esgotado</string>
+    <string name="timeout_plugged_title">Durante a carga</string>
+    <string name="timeout_unplugged_title">Desenchufado</string>
+    <string name="timeout_summary">Mostrar a aplicación ds funda %s despois de pecharla tapa</string>
+    <string name="timeout_summary_never">Despois de pechar a tapa, da aplicación da funda sempre estará encendida</string>
+    <string name="timeout_summary_immediately">A pantalla se apagará ao pechar a tapa</string>
+    <string name="timeout_entry_immediately">Inmediatamente</string>
+    <string name="timeout_entry_5s">5 segundos</string>
+    <string name="timeout_entry_10s">10 segundos</string>
+    <string name="timeout_entry_30s">30 segundos</string>
+    <string name="timeout_entry_1min">1 minuto</string>
+    <string name="timeout_entry_5min">5 minutos</string>
+    <string name="timeout_entry_never">Nunca</string>
 </resources>
