@@ -19,6 +19,7 @@
 
 -->
 <resources>
-    <!-- String matching the lock screen format for displaying the date. -->
-    <!-- Strings for the Settings -->
+    <string name="settings_name">ಜಾಣ ಹೊದಿಕೆ</string>
+    <string name="settings_summary">ನಿಮ್ಮ ಉಪಸಾಧನದ ವರ್ತನೆಯನ್ನು ನಿಯಂತ್ರಿಸು</string>
+    <string name="timeout_entry_1min">೧ ನಿಮಿಷ</string>
 </resources>
