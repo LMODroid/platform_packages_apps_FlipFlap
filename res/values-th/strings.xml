@@ -19,8 +19,6 @@
 
 -->
 <resources>
-    <string name="settings_name">ಜಾಣ ಹೊದಿಕೆ</string>
-    <string name="settings_summary">ನಿಮ್ಮ ಉಪಸಾಧನದ ವರ್ತನೆ ನಿಯಂತ್ರಿಸು</string>
-    <string name="timeout_plugged_title">ಮಿಂತಿಣಿ ತುಂಬುವಾಗ</string>
-    <string name="timeout_entry_1min">೧ ನಿಮಿಷ</string>
+    <string name="settings_name">อุปกรณ์ฝาพับ</string>
+    <string name="settings_summary">ควบคุมพฤติกรรมของอุปกรณ์เสริม</string>
 </resources>

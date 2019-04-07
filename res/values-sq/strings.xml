@@ -26,9 +26,13 @@
     <string name="answer_call">PËRGJIGJU</string>
     <string name="ignore_call">SHPËRFILL</string>
     <string name="end_call">MBYLLE</string>
+    <string name="settings_name">Kapak i zgjuar</string>
+    <string name="settings_summary">Kontrollo sjelljen e aksesorëve</string>
     <string name="category_behaviour">Reagimi</string>
     <string name="pass_to_security_view_title">Shko direkt tek futja e fjalëkalimit</string>
     <string name="pass_to_security_view_summary">Hapja e kapakut të çon direkt tek ekrani bllokues</string>
+    <string name="use_high_touch_sensitivity_title">Ndjesi të lartë të prekjes</string>
+    <string name="use_high_touch_sensitivity_summary">Rrit ndjesinë e prekjes kur këllëfi eshte i mbyllur</string>
     <string name="category_design">Dizajni</string>
     <string name="switch_charging_status_title">Trego statusin e karikimit</string>
     <string name="switch_charging_status_summary">Ndrysho ngjyrën në bazë të karikimit të baterisë</string>
