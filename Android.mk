@@ -30,5 +30,3 @@ LOCAL_RESOURCE_DIR := \
     $(TOP)/packages/resources/devicesettings/res
 
 include $(BUILD_PACKAGE)
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
