@@ -19,14 +19,6 @@
 
 -->
 <resources>
-    <string name="alarm_label">ದಿಗಿಲುಗಂಟೆ</string>
-    <string name="ignore_call">ನಿರ್ಲಕ್ಷಿಸು</string>
-    <string name="end_call">ಕರೆ ಅಂತ್ಯ</string>
     <string name="settings_name">ಜಾಣ ಹೊದಿಕೆ</string>
     <string name="settings_summary">ನಿಮ್ಮ ಉಪಸಾಧನದ ವರ್ತನೆ ನಿಯಂತ್ರಿಸು</string>
-    <string name="category_behaviour">ವರ್ತನೆ</string>
-    <string name="pass_to_security_view_title">ನೇರವಾಗಿ ಪ್ರವೇಶಪದ ನಮೂದಿಗೆ ಹೋಗು</string>
-    <string name="timeout_plugged_title">ಮಿಂತಿಣಿ ತುಂಬುವಾಗ</string>
-    <string name="timeout_entry_1min">೧ ನಿಮಿಷ</string>
-    <string name="timeout_entry_5min">೫ ನಿಮಿಷ</string>
 </resources>

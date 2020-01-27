@@ -21,4 +21,12 @@
 <resources>
     <string name="settings_name">อุปกรณ์ฝาพับ</string>
     <string name="settings_summary">ควบคุมพฤติกรรมของอุปกรณ์เสริม</string>
+    <string name="timeout_summary_immediately">หน้าจอจะถูกปิดเมื่อปิดฝาครอบ</string>
+    <string name="timeout_entry_immediately">ทันที</string>
+    <string name="timeout_entry_5s">5 วินาที</string>
+    <string name="timeout_entry_10s">10 วินาที</string>
+    <string name="timeout_entry_30s">30 วินาที</string>
+    <string name="timeout_entry_1min">1 นาที</string>
+    <string name="timeout_entry_5min">5 นาที</string>
+    <string name="timeout_entry_never">ไม่เลย</string>
 </resources>
