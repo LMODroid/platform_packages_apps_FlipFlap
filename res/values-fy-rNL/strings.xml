@@ -33,7 +33,7 @@
     <string name="use_high_touch_sensitivity_title">Hege gefoelichheid oanreitsjen</string>
     <string name="use_high_touch_sensitivity_summary">Gefoelichheid oanreitsjen ferheegje wannear hoes sluten is</string>
     <string name="category_design">Untwerp</string>
-    <string name="switch_charging_status_title">Oplaadsteat werjaan</string>
+    <string name="switch_charging_status_title">Oplaadsteat toane</string>
     <string name="switch_charging_status_summary">Kleur wizigje oan de hân fan aktuele batterijlading</string>
     <string name="category_timeouts">Time-outs</string>
     <string name="timeout_plugged_title">Wylst it opladen</string>
