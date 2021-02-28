@@ -26,7 +26,7 @@
     <string name="ignore_call">LEIG SEACHAD</string>
     <string name="end_call">CUIR CRÌOCH AIR A’ GHAIRM</string>
     <string name="settings_name">Còmhdachadh tapaidh</string>
-    <string name="settings_summary">Stiùirich giùlan nan co-innealan agad</string>
+    <string name="settings_summary">Stiùir giùlan nan co-innealan agad</string>
     <string name="category_behaviour">Giùlan</string>
     <string name="pass_to_security_view_title">Cuir a-steach facal-faire sa bhad</string>
     <string name="pass_to_security_view_summary">Nuair a dh’fhosglas tu an còmhdachadh, thèid an sgrìn-ghlasaidh a shealltainn dhut</string>
