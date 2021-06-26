@@ -36,7 +36,7 @@ import android.view.WindowManager;
 public class FlipFlapService extends Service {
     private static final String TAG = "FlipFlap";
 
-    private static final String ONGOING_CHANNEL_ID = "FlipFlap_Ongoing";
+    private static final String ONGOING_CHANNEL_ID = "Ongoing";
 
     private Context mContext;
     private FlipFlapView mCoverView;
@@ -51,12 +51,14 @@ public class FlipFlapService extends Service {
         mWm = getSystemService(WindowManager.class);
         mContext = new ContextThemeWrapper(this, R.style.FlipFlapTheme);
 
-        createNotificationChannel(this);
+        NotificationManager nm = getSystemService(NotificationManager.class);
+        deleteNotificationChannel(nm, "FlipFlap_Ongoing");
+        createNotificationChannel(nm);
+
         final Notification notification = new Notification.Builder(this, ONGOING_CHANNEL_ID)
                 .setContentTitle(getString(R.string.notification_title))
                 .setSmallIcon(R.drawable.ic_notification)
                 .setOngoing(true)
-                .setShowWhen(false)
                 .setLocalOnly(true)
                 .build();
         startForeground(1, notification);
@@ -109,11 +111,18 @@ public class FlipFlapService extends Service {
         return null;
     }
 
-    private void createNotificationChannel(Context context) {
-        NotificationManager nm = context.getSystemService(NotificationManager.class);
+    private void createNotificationChannel(NotificationManager nm) {
         NotificationChannel channel = new NotificationChannel(
-                ONGOING_CHANNEL_ID, context.getString(R.string.notification_title),
-                NotificationManager.IMPORTANCE_HIGH);
+                ONGOING_CHANNEL_ID, mContext.getString(R.string.notification_title),
+                NotificationManager.IMPORTANCE_LOW);
+        channel.setSound(null, null);
         nm.createNotificationChannel(channel);
+    }
+
+    private void deleteNotificationChannel(NotificationManager nm, String channelId) {
+        NotificationChannel channel = nm.getNotificationChannel(channelId);
+        if (channel != null) {
+            nm.deleteNotificationChannel(channelId);
+        }
     }
 }
