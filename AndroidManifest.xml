@@ -40,7 +40,6 @@
         <activity
             android:name=".FlipFlapSettingsActivity"
             android:label="@string/settings_name"
-            android:icon="@drawable/ic_settings_flipflap"
             android:enabled="false">
 
             <intent-filter>
@@ -50,6 +49,12 @@
             <meta-data
                 android:name="com.android.settings.category"
                 android:value="com.android.settings.category.ia.device" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_flipflap" />
+            <meta-data
+                android:name="com.android.settings.icon_tintable"
+                android:value="true" />
             <meta-data
                 android:name="com.android.settings.summary"
                 android:resource="@string/settings_summary" />
