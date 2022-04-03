@@ -19,5 +19,15 @@
 -->
 <resources>
     <string name="app_name">FlipFlap</string>
+    <string name="notification_title">აღმოჩენილია გონიერი შალითა</string>
+    <string name="settings_name">გონიერი შალითა</string>
+    <string name="use_high_touch_sensitivity_title">შეხების მაღალი მგრძნობელობა</string>
+    <string name="use_high_touch_sensitivity_summary">შეხების მგრძნობელობის გაზრდა, როცა შალითა დახურულია</string>
+    <string name="switch_charging_status_title">დამუხტვის მდგომარეობის ჩვენება</string>
+    <string name="switch_charging_status_summary">ფერის ცვლა ბატარეის მუხტის მიხედვით</string>
+    <string name="timeout_plugged_title">დამუხტვისას</string>
+    <string name="timeout_summary">შალითის აპი გამოჩნდეს %s გადაფარების შემდგომ</string>
+    <string name="timeout_summary_never">დახურვის შემდგომ შალითის აპი მუდმივად ჩართული დარჩება</string>
+    <string name="timeout_summary_immediately">ეკრანი გამოირთვება შალითით დახურვისას</string>
     <string name="timeout_entry_immediately">დაუყოვნებლივ</string>
 </resources>

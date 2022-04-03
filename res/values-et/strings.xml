@@ -18,6 +18,7 @@
 
 -->
 <resources>
+    <string name="abbrev_wday_month_day_no_year">EEE, d. MMMM</string>
     <string name="settings_name">Tark kate</string>
     <string name="settings_summary">Juhi oma kaante käitumist</string>
 </resources>

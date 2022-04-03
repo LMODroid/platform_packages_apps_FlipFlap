@@ -26,6 +26,7 @@
     <string name="ignore_call">ΑΓΝΟΗΣΗ</string>
     <string name="end_call">ΤΕΛΟΣ ΚΛΗΣΗΣ</string>
     <string name="settings_name">Έξυπνο κάλυμμα</string>
+    <string name="settings_enable">Ενεργοποίηση έξυπνου καλύμματος</string>
     <string name="settings_summary">Ελέγξτε τη συμπεριφορά του αξεσουάρ σας</string>
     <string name="category_behaviour">Συμπεριφορά</string>
     <string name="pass_to_security_view_title">Άμεση εμφάνιση εισόδου κωδικού</string>

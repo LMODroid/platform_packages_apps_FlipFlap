@@ -19,29 +19,14 @@
 -->
 <resources>
     <string name="app_name">FlipFlap</string>
-    <string name="notification_title">Deteutóse una carcaxa intelixente</string>
-    <string name="alarm_label">ALARMA</string>
-    <string name="abbrev_wday_month_day_no_year">EEE, d \'de\' MMMM</string>
-    <string name="answer_call">CONTESTAR</string>
     <string name="ignore_call">INORAR</string>
-    <string name="end_call">FINAR LLAMADA</string>
     <string name="settings_name">Carcaxa intelixente</string>
     <string name="settings_summary">Controla\'l comportamientu del accesoriu</string>
     <string name="category_behaviour">Comportamientu</string>
-    <string name="pass_to_security_view_title">Dir direutamente a la contraseña</string>
-    <string name="pass_to_security_view_summary">Abrir la tapa amuesa direutamente la pantalla de bloquéu</string>
-    <string name="use_high_touch_sensitivity_title">Sensibilidá alta al tautu</string>
-    <string name="use_high_touch_sensitivity_summary">Aumenta la sensibilidá al táutu mentanto la carcaxa tea zarrada</string>
+    <string name="use_high_touch_sensitivity_title">Sensibilidá alta al tactu</string>
+    <string name="use_high_touch_sensitivity_summary">Aumenta la sensibilidá al táctu mentanto la carcaxa ta zarrada</string>
     <string name="category_design">Diseñu</string>
-    <string name="switch_charging_status_title">Amosar estáu de carga</string>
-    <string name="switch_charging_status_summary">Camuda la color dependiendo de la carga actual de batería</string>
-    <string name="category_timeouts">Escoses de tiempu</string>
-    <string name="timeout_plugged_title">Entrín se carga</string>
-    <string name="timeout_unplugged_title">Desenchufáu</string>
-    <string name="timeout_summary">Amuesa l\'aplicación de la carcaxa %s dempués de zarrar la tapa</string>
-    <string name="timeout_summary_never">Dempués de zarrar la tapa, l\'aplicación de la carcaxa siempres tará activada</string>
-    <string name="timeout_summary_immediately">La pantalla va apagase al zarrar la carcaxa</string>
-    <string name="timeout_entry_immediately">Darréu</string>
+    <string name="switch_charging_status_title">Amosar l\'estáu de la carga</string>
     <string name="timeout_entry_5s">5 segundos</string>
     <string name="timeout_entry_10s">10 segundos</string>
     <string name="timeout_entry_30s">30 segundos</string>
