@@ -20,7 +20,9 @@
 <resources>
     <string name="app_name">FlipFlap</string>
     <string name="notification_title">აღმოჩენილია გონიერი შალითა</string>
+    <string name="abbrev_wday_month_day_no_year">EEE, d MMMM</string>
     <string name="settings_name">გონიერი შალითა</string>
+    <string name="settings_enable">გონიერი შალითით მართვა</string>
     <string name="use_high_touch_sensitivity_title">შეხების მაღალი მგრძნობელობა</string>
     <string name="use_high_touch_sensitivity_summary">შეხების მგრძნობელობის გაზრდა, როცა შალითა დახურულია</string>
     <string name="switch_charging_status_title">დამუხტვის მდგომარეობის ჩვენება</string>

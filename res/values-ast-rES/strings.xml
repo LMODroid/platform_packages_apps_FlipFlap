@@ -21,6 +21,7 @@
     <string name="app_name">FlipFlap</string>
     <string name="ignore_call">INORAR</string>
     <string name="settings_name">Carcaxa intelixente</string>
+    <string name="settings_enable">Activar el control de la carcaxa intelixente</string>
     <string name="settings_summary">Controla\'l comportamientu del accesoriu</string>
     <string name="category_behaviour">Comportamientu</string>
     <string name="use_high_touch_sensitivity_title">Sensibilidá alta al tactu</string>

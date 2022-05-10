@@ -26,6 +26,7 @@
     <string name="ignore_call">YOKSAY</string>
     <string name="end_call">ARAMAYI SONLANDIR</string>
     <string name="settings_name">Akıllı kapak</string>
+    <string name="settings_enable">Akıllı kapak kontrolünü etkinleştir</string>
     <string name="settings_summary">Aksesuar davranışını kontrol etme</string>
     <string name="category_behaviour">Davranış</string>
     <string name="pass_to_security_view_title">Doğrudan şifre girişine git</string>

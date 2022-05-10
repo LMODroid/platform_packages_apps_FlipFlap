@@ -26,6 +26,7 @@
     <string name="ignore_call">ОТКЛОНИТЬ</string>
     <string name="end_call">ЗАВЕРШИТЬ</string>
     <string name="settings_name">Умный чехол</string>
+    <string name="settings_enable">Включить интеллектуальное управление обложкой</string>
     <string name="settings_summary">Настройка работы аксессуара</string>
     <string name="category_behaviour">Поведение</string>
     <string name="pass_to_security_view_title">Сразу предлагать ввод пароля</string>

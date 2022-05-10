@@ -26,6 +26,7 @@
     <string name="ignore_call">忽略</string>
     <string name="end_call">结束通话</string>
     <string name="settings_name">智能保护套</string>
+    <string name="settings_enable">启用智能封面控制</string>
     <string name="settings_summary">控制您的附件行为</string>
     <string name="category_behaviour">功能</string>
     <string name="pass_to_security_view_title">直接转至密码输入框</string>

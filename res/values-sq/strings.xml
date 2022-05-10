@@ -26,6 +26,7 @@
     <string name="ignore_call">SHPËRFILL</string>
     <string name="end_call">MBYLLE</string>
     <string name="settings_name">Kapak i zgjuar</string>
+    <string name="settings_enable">Aktivizo kontrollin inteligjent të kapakut</string>
     <string name="settings_summary">Kontrollo sjelljen e aksesorëve</string>
     <string name="category_behaviour">Reagimi</string>
     <string name="pass_to_security_view_title">Shko direkt tek futja e fjalëkalimit</string>

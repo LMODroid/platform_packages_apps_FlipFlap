@@ -26,6 +26,7 @@
     <string name="ignore_call">IGNORAȚI</string>
     <string name="end_call">ÎNCHIDEȚI APELUL</string>
     <string name="settings_name">Copertă inteligentă</string>
+    <string name="settings_enable">Activează controlul inteligent al coperții</string>
     <string name="settings_summary">Controlați comportamentul accesoriilor dvs.</string>
     <string name="category_behaviour">Comportament</string>
     <string name="pass_to_security_view_title">Arată direct introducere parolă</string>

@@ -26,6 +26,7 @@
     <string name="ignore_call">NEGEREN</string>
     <string name="end_call">GESPREK BEËINDIGEN</string>
     <string name="settings_name">Smart cover</string>
+    <string name="settings_enable">Slimme cover-besturing inschakelen</string>
     <string name="settings_summary">Beheer het gedrag van uw accessoire</string>
     <string name="category_behaviour">Gedrag</string>
     <string name="pass_to_security_view_title">Direct wachtwoordscherm tonen</string>
