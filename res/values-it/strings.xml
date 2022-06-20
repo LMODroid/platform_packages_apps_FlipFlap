@@ -26,6 +26,7 @@
     <string name="ignore_call">IGNORA</string>
     <string name="end_call">TERMINA CHIAMATA</string>
     <string name="settings_name">Smart cover</string>
+    <string name="settings_enable">Abilita il controllo Smart Cover</string>
     <string name="settings_summary">Controlla il comportamento dell\'accessorio</string>
     <string name="category_behaviour">Comportamento</string>
     <string name="pass_to_security_view_title">Mostra immissione password direttamente</string>

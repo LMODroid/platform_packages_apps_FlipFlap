@@ -26,6 +26,7 @@
     <string name="ignore_call">IGNORAR</string>
     <string name="end_call">TERMINAR CHAMADA</string>
     <string name="settings_name">Capa inteligente</string>
+    <string name="settings_enable">Ativar controlo de capa inteligente</string>
     <string name="settings_summary">Controle o comportamento do acessório</string>
     <string name="category_behaviour">Comportamento</string>
     <string name="pass_to_security_view_title">Ir diretamente para a introdução da palavra-passe</string>
