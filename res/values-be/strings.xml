@@ -21,6 +21,7 @@
     <string name="end_call">ЗАВЯРШЫЦЬ ВЫКЛІК</string>
     <string name="settings_summary">Налада паводзін аксесуара</string>
     <string name="pass_to_security_view_title">Адразу прапаноўваць увод паролю</string>
+    <string name="use_high_touch_sensitivity_summary">Павялічыць адчувальнасць дотыку пры зачыненні вечка</string>
     <string name="category_design">Дызайн</string>
     <string name="timeout_summary">Паказваць праграму чахла для %s пасля закрыцця вечка</string>
 </resources>
