@@ -38,10 +38,10 @@ public class EventReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (lineageos.content.Intent.ACTION_LID_STATE_CHANGED.equals(intent.getAction())) {
+        if (Intent.ACTION_LID_STATE_CHANGED.equals(intent.getAction())) {
             PowerManager powerManager = context.getSystemService(PowerManager.class);
             BatteryManager batMan = context.getSystemService(BatteryManager.class);
-            int lidState = intent.getIntExtra(lineageos.content.Intent.EXTRA_LID_STATE, -1);
+            int lidState = intent.getIntExtra(Intent.EXTRA_LID_STATE, -1);
             Log.d(TAG, "Got lid state change event, new state " + lidState);
 
             int timeout = FlipFlapUtils.getTimeout(context, batMan.isCharging());

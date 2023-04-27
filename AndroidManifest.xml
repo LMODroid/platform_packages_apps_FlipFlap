@@ -28,7 +28,7 @@
 
         <receiver android:name=".EventReceiver">
             <intent-filter>
-                <action android:name="lineageos.intent.action.LID_STATE_CHANGED" />
+                <action android:name="android.intent.action.LID_STATE_CHANGED" />
             </intent-filter>
         </receiver>
 

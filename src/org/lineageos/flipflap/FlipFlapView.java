@@ -38,6 +38,7 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.telecom.TelecomManager;
@@ -53,8 +54,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.lineageos.internal.util.LineageLockPatternUtils;
-import lineageos.providers.LineageSettings;
+import com.android.internal.util.libremobileos.LineageLockPatternUtils;
 
 public class FlipFlapView extends FrameLayout {
     private static final String TAG = "FlipFlapView";
@@ -423,18 +423,18 @@ public class FlipFlapView extends FrameLayout {
     private void checkHighTouchSensitivity() {
         if (shouldUseHighTouchSensitivity() &&
                 FlipFlapUtils.getHighTouchSensitivitySupported(getContext())) {
-            mUserHighTouchState = LineageSettings.System.getInt(mContext.getContentResolver(),
-                    LineageSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, 0);
-            LineageSettings.System.putInt(mContext.getContentResolver(),
-                    LineageSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, 1);
+            mUserHighTouchState = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, 0);
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, 1);
         }
     }
 
     private void restoreHighTouchSensitivity() {
         if (shouldUseHighTouchSensitivity() &&
                 FlipFlapUtils.getHighTouchSensitivitySupported(getContext())) {
-            LineageSettings.System.putInt(mContext.getContentResolver(),
-                    LineageSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, mUserHighTouchState);
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, mUserHighTouchState);
         }
     }
 
