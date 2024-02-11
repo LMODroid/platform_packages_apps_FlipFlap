@@ -19,6 +19,7 @@ android_app {
 
     static_libs: [
         "com.libremobileos.settings.resources",
+        "framework-lmodroid.static",
     ],
 
     srcs: ["src/**/*.java"],
