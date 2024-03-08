@@ -26,7 +26,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
-import android.widget.Switch;
+import android.widget.CompoundButton;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -36,12 +36,11 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
 import com.android.settingslib.widget.MainSwitchPreference;
-import com.android.settingslib.widget.OnMainSwitchChangeListener;
 
 import org.lineageos.flipflap.R;
 
 public class FlipFlapSettingsFragment extends PreferenceFragment
-        implements Preference.OnPreferenceChangeListener, OnMainSwitchChangeListener {
+        implements Preference.OnPreferenceChangeListener, CompoundButton.OnCheckedChangeListener {
 
     public final String TAG = "FlipFlapSettings";
 
@@ -97,7 +96,7 @@ public class FlipFlapSettingsFragment extends PreferenceFragment
     }
 
     @Override
-    public void onSwitchChanged(Switch switchView, boolean isChecked) {
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         ComponentName cn = new ComponentName(getContext(), EventReceiver.class);
         int state = isChecked
                 ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
