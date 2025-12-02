@@ -29,15 +29,15 @@ import android.provider.Settings;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.settingslib.widget.MainSwitchPreference;
+import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 
 import org.lineageos.flipflap.R;
 
-public class FlipFlapSettingsFragment extends PreferenceFragmentCompat
+public class FlipFlapSettingsFragment extends SettingsBasePreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public final String TAG = "FlipFlapSettings";
